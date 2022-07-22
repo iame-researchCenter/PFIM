@@ -15,7 +15,7 @@ Suggests:	testthat, inline, utils, devtools, htmltools
 
 Published:	2022-06-24
 
-Author:	France Mentré ORCID iD [aut], Hervé Le Nagard [aut], Romain Leroux [aut, cre], Jérémy Seurat [aut]
+Author:	France Mentré ORCID <https://orcid.org/0000-0002-7045-1275> [aut], Hervé Le Nagard [aut], Romain Leroux [aut, cre], Jérémy Seurat [aut]
 
 Contributors : Caroline Bazzoli [ctb], Emmanuelle Comets [ctb], Anne Dubois [ctb], Cyrielle Dumont [ctb], Giulia Lestini [ctb], Thi Huyen Tram Nguyen [ctb], Thu Thuy Nguyen [ctb], Tran Bach Nguyen [ctb], Sylvie Retout [ctb]
 
