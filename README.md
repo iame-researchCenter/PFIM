@@ -26,7 +26,9 @@ License:	GPL-2 | GPL-3 [expanded from: GPL (≥ 2)]
 # Getting help
 
 If you encounter a clear bug, please file the issue with a minimal reproducible example on GitHub:
+
 https://github.com/iame-researchCenter/PFIM/issues
 
 For questions and other discussion, please use the PFIM group mailing list:
+
 thepfimgroup@googlegroups.com
