@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<!-- saved from url=(0109)file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<meta name="generator" content="pandoc">
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>Design evaluation and optimization 02</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+<script type="text/javascript" src="./Design evaluation and optimization 02_files/MathJax.js.téléchargement"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax_LineBox {display: table!important}
+.MathJax_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.2') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.2') format('opentype')}
+@font-face {font-family: MathJax_Main-bold; src: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.2') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.2') format('opentype')}
+@font-face {font-family: MathJax_Main-italic; src: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.2') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.2') format('opentype')}
+@font-face {font-family: MathJax_Math-italic; src: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.2') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.2') format('opentype')}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.2') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.2') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.2') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.2') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.2') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.2') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.2') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.2') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.2') format('woff'), url('https://mathjax.rstudio.com/latest/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.2') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+
+
+
+
+<h1 class="title toc-ignore">Design evaluation and optimization 02</h1>
+
+
+<div id="TOC">
+<ul>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#overview" id="toc-overview">Overview</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#design-evaluation" id="toc-design-evaluation">Design
+evaluation</a>
+<ul>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#create-two-pfim-projects" id="toc-create-two-pfim-projects">Create two PFIM projects:</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#create-the-statistical-model" id="toc-create-the-statistical-model">Create the statistical
+model</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#get-the-pk-model-linear1infusionsingledose_clv-from-the-library-of-models" id="toc-get-the-pk-model-linear1infusionsingledose_clv-from-the-library-of-models">Get
+the PK model <code>Linear1InfusionSingleDose_ClV</code> from the library
+of models</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#assign-the-pk-model-the-statistical-model" id="toc-assign-the-pk-model-the-statistical-model">Assign the PK model
+the statistical model</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#set-mu-and-omega-for-each-parameter" id="toc-set-mu-and-omega-for-each-parameter">Set mu and omega for each
+parameter</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#assign-the-model-parameters-to-the-statistical-model" id="toc-assign-the-model-parameters-to-the-statistical-model">Assign the
+model parameters to the statistical model</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#create-and-add-the-error-model-to-the-response-pk-resppk-and-create-and-add-the-response-pk-to-the-statistical-model" id="toc-create-and-add-the-error-model-to-the-response-pk-resppk-and-create-and-add-the-response-pk-to-the-statistical-model">Create
+and add the error model to the response PK <code>RespPK</code> and
+create and add the response PK to the statistical model</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#assign-the-statistical-model-to-the-pfim-projects" id="toc-assign-the-statistical-model-to-the-pfim-projects">Assign the
+statistical model to the PFIM projects</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#create-a-design-called-design" id="toc-create-a-design-called-design">Create a design called
+<code>Design</code></a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#create-an-arm-called-bras-test-of-size-150" id="toc-create-an-arm-called-bras-test-of-size-150">Create an arm called
+<code>Bras test</code> of size 150</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#for-each-arm-create-and-add-the-sampling-times-for-the-response-pk-resppk" id="toc-for-each-arm-create-and-add-the-sampling-times-for-the-response-pk-resppk">For
+each arm create and add the sampling times for the response PK
+<code>RespPK</code></a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#for-the-arm-brastest-create-and-add-the-administration-parameters-of-the-response-pk" id="toc-for-the-arm-brastest-create-and-add-the-administration-parameters-of-the-response-pk">For
+the arm <code>brasTest</code> create and add the administration
+parameters of the response PK</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#add-the-arm-brastest-to-the-design-mydesign" id="toc-add-the-arm-brastest-to-the-design-mydesign">Add the arm
+<code>brasTest</code> to the design <code>MyDesign</code></a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#add-the-design-mydesign-to-the-pfim-project-myproject" id="toc-add-the-design-mydesign-to-the-pfim-project-myproject">Add the
+design <code>MyDesign</code> to the PFIM project
+<code>MyProject</code></a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#evaluate-the-population-individual-and-bayesian-fims" id="toc-evaluate-the-population-individual-and-bayesian-fims">Evaluate
+the population, individual and Bayesian FIMs</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#display-the-results-of-the-design-evaluation" id="toc-display-the-results-of-the-design-evaluation">Display the
+results of the design evaluation</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#create-and-save-the-report-for-the-design-evaluation" id="toc-create-and-save-the-report-for-the-design-evaluation">Create and
+save the report for the design evaluation</a></li>
+</ul></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#design-optimization" id="toc-design-optimization">Design
+optimization</a>
+<ul>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#create-and-add-the-design-mydesign2-to-the-project-myproject_optimization" id="toc-create-and-add-the-design-mydesign2-to-the-project-myproject_optimization">Create
+and add the design <code>MyDesign2</code> to the project
+<code>MyProject_optimization</code></a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#define-design-constraints" id="toc-define-design-constraints">Define design constraints</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#add-the-arm-to-the-design" id="toc-add-the-arm-to-the-design">Add the arm to the design</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#add-the-design-to-the-project" id="toc-add-the-design-to-the-project">Add the design to the
+project</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#set-the-the-parameters-of-the-pso-algorithm-and-run-the-algorithm-for-the-design-optimization-with-a-population-fim" id="toc-set-the-the-parameters-of-the-pso-algorithm-and-run-the-algorithm-for-the-design-optimization-with-a-population-fim">Set
+the the parameters of the PSO algorithm and run the algorithm for the
+design optimization with a population FIM</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#run-the-pso-algorithm-for-the-optimization-with-a-population-fim" id="toc-run-the-pso-algorithm-for-the-optimization-with-a-population-fim">Run
+the PSO algorithm for the optimization with a population FIM</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#display-the-results-of-the-design-optimization" id="toc-display-the-results-of-the-design-optimization">Display the
+results of the design optimization</a></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#create-and-save-the-report-for-the-design-optimization" id="toc-create-and-save-the-report-for-the-design-optimization">Create
+and save the report for the design optimization</a></li>
+</ul></li>
+<li><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#references" id="toc-references">References</a></li>
+</ul>
+</div>
+
+<style type="text/css">
+
+body{
+font-size: 11pt;
+}
+
+h1.title {
+font-size: 40pt;
+}
+
+code.r{
+font-size: 11pt;
+}
+
+body {
+  max-width: 1600px;  
+  margin-left:10px;
+  line-height: 20px;
+}
+
+</style>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>In this example, we simulate an 1-compartment model with linear
+elimination for IV infusion over 1 hour (inspired by <span class="citation">(<a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#ref-Sukeishi2021" role="doc-biblioref">Sukeishi et al. 2022</a>)</span>). One hundred and
+fifty (150) subjects receive a 400mg loading dose on the first day,
+followed by 4 daily doses of 200mg. Blood samples are taken at the end
+of the <span class="math inline"><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msup&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 1.366em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.139em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.196em, 1001.14em, 2.389em, -999.997em); top: -2.213em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="msubsup" id="MathJax-Span-3"><span style="display: inline-block; position: relative; width: 1.139em; height: 0px;"><span style="position: absolute; clip: rect(3.128em, 1000.46em, 4.151em, -999.997em); top: -3.974em; left: 0em;"><span class="mn" id="MathJax-Span-4" style="font-family: MathJax_Main;">1</span><span style="display: inline-block; width: 0px; height: 3.98em;"></span></span><span style="position: absolute; top: -4.372em; left: 0.514em;"><span class="texatom" id="MathJax-Span-5"><span class="mrow" id="MathJax-Span-6"><span class="mi" id="MathJax-Span-7" style="font-size: 70.7%; font-family: MathJax_Math-italic;">s</span><span class="mi" id="MathJax-Span-8" style="font-size: 70.7%; font-family: MathJax_Math-italic;">t</span></span></span><span style="display: inline-block; width: 0px; height: 3.98em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.219em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.065em; border-left: 0px solid; width: 0px; height: 1.163em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>1</mn><mrow class="MJX-TeXAtom-ORD"><mi>s</mi><mi>t</mi></mrow></msup></math></span></span><script type="math/tex" id="MathJax-Element-1">1^{st}</script></span> infusion (H1), H20,
+H44, H66 and H120. By evaluating this design, we will then select 4
+sampling times on intervals (0,48) and (72,120) for an optimal design
+using PSO (Particle Swarm Optimization) algorithm.</p>
+<p>Reports of the design evaluation and optimization are available at <a href="https://github.com/iame-researchCenter/PFIM" class="uri">https://github.com/iame-researchCenter/PFIM</a></p>
+</div>
+<div id="design-evaluation" class="section level1">
+<h1>Design evaluation</h1>
+<div id="create-two-pfim-projects" class="section level3">
+<h3>Create two PFIM projects:</h3>
+<div id="myproject_evaluation-project-for-the-design-evaluation-named-eval_pk_sukeishi-2021-gs441524" class="section level4">
+<h4><code>MyProject_evaluation</code>: project for the design evaluation
+named <code>eval_PK_Sukeishi-2021-GS441524</code></h4>
+</div>
+<div id="myproject_optimization-project-for-the-design-optimization-named-opti_pk_sukeishi-2021-gs441524" class="section level4">
+<h4><code>MyProject_optimization</code>: project for the design
+optimization named <code>opti_PK_Sukeishi-2021-GS441524</code></h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb1-1" aria-hidden="true" tabindex="-1"></a>MyProject_evaluation <span class="ot">=</span> <span class="fu">PFIMProject</span>( <span class="at">name =</span> <span class="st">"eval_PK_Sukeishi-2021-GS441524"</span> )</span>
+<span id="cb1-2"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb1-2" aria-hidden="true" tabindex="-1"></a>MyProject_optimization <span class="ot">=</span> <span class="fu">PFIMProject</span>( <span class="at">name =</span> <span class="st">"opti_PK_Sukeishi-2021-GS441524"</span> )</span></code></pre></div>
+</div>
+</div>
+<div id="create-the-statistical-model" class="section level3">
+<h3>Create the statistical model</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb2-1" aria-hidden="true" tabindex="-1"></a>MyStatisticalModel <span class="ot">=</span> <span class="fu">StatisticalModel</span>()</span></code></pre></div>
+</div>
+<div id="get-the-pk-model-linear1infusionsingledose_clv-from-the-library-of-models" class="section level3">
+<h3>Get the PK model <code>Linear1InfusionSingleDose_ClV</code> from the
+library of models</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb3-1" aria-hidden="true" tabindex="-1"></a>MyPKModel <span class="ot">=</span> <span class="fu">getModel</span>( PFIMLibraryOfModels, <span class="st">"Linear1InfusionSingleDose_ClV"</span> )</span></code></pre></div>
+</div>
+<div id="assign-the-pk-model-the-statistical-model" class="section level3">
+<h3>Assign the PK model the statistical model</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb4-1" aria-hidden="true" tabindex="-1"></a>MyStatisticalModel <span class="ot">=</span> <span class="fu">defineModelEquations</span>( MyStatisticalModel, MyPKModel )</span></code></pre></div>
+</div>
+<div id="set-mu-and-omega-for-each-parameter" class="section level3">
+<h3>Set mu and omega for each parameter</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb5-1" aria-hidden="true" tabindex="-1"></a>pV <span class="ot">=</span> <span class="fu">ModelParameter</span>( <span class="st">"V"</span>, <span class="at">mu =</span> <span class="dv">50</span>, <span class="at">omega =</span> <span class="fu">sqrt</span>( .<span class="dv">26</span> ), <span class="at">distribution =</span> <span class="fu">LogNormalDistribution</span>() )</span>
+<span id="cb5-2"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb5-2" aria-hidden="true" tabindex="-1"></a>pCl <span class="ot">=</span> <span class="fu">ModelParameter</span>( <span class="st">"Cl"</span>, <span class="at">mu =</span> <span class="dv">5</span>, <span class="at">omega =</span> <span class="fu">sqrt</span>( .<span class="dv">34</span> ), <span class="at">distribution =</span> <span class="fu">LogNormalDistribution</span>() )</span></code></pre></div>
+</div>
+<div id="assign-the-model-parameters-to-the-statistical-model" class="section level3">
+<h3>Assign the model parameters to the statistical model</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb6-1" aria-hidden="true" tabindex="-1"></a>MyStatisticalModel <span class="ot">=</span> <span class="fu">defineParameter</span>( MyStatisticalModel, pV )</span>
+<span id="cb6-2"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb6-2" aria-hidden="true" tabindex="-1"></a>MyStatisticalModel <span class="ot">=</span> <span class="fu">defineParameter</span>( MyStatisticalModel, pCl )</span></code></pre></div>
+</div>
+<div id="create-and-add-the-error-model-to-the-response-pk-resppk-and-create-and-add-the-response-pk-to-the-statistical-model" class="section level3">
+<h3>Create and add the error model to the response PK
+<code>RespPK</code> and create and add the response PK to the
+statistical model</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb7-1" aria-hidden="true" tabindex="-1"></a>errorModelresponsePK <span class="ot">=</span> <span class="fu">Combined1</span>( <span class="at">sigma_inter =</span> <span class="fl">0.5</span>, <span class="at">sigma_slope =</span> <span class="fu">sqrt</span>( <span class="fl">0.15</span> ) )</span>
+<span id="cb7-2"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb7-3" aria-hidden="true" tabindex="-1"></a>responsePK <span class="ot">=</span> <span class="fu">Response</span>( <span class="st">"RespPK"</span>, errorModelresponsePK )</span>
+<span id="cb7-4"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb7-5" aria-hidden="true" tabindex="-1"></a>MyStatisticalModel <span class="ot">=</span> <span class="fu">addResponse</span>( MyStatisticalModel, responsePK )</span></code></pre></div>
+</div>
+<div id="assign-the-statistical-model-to-the-pfim-projects" class="section level3">
+<h3>Assign the statistical model to the PFIM projects</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb8-1" aria-hidden="true" tabindex="-1"></a>MyProject_evaluation <span class="ot">=</span> <span class="fu">defineStatisticalModel</span>( MyProject_evaluation, MyStatisticalModel )</span>
+<span id="cb8-2"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb8-2" aria-hidden="true" tabindex="-1"></a>MyProject_optimization <span class="ot">=</span> <span class="fu">defineStatisticalModel</span>( MyProject_optimization, MyStatisticalModel )</span></code></pre></div>
+</div>
+<div id="create-a-design-called-design" class="section level3">
+<h3>Create a design called <code>Design</code></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb9-1" aria-hidden="true" tabindex="-1"></a>MyDesign <span class="ot">=</span> <span class="fu">Design</span>( <span class="st">"Design"</span> )</span></code></pre></div>
+</div>
+<div id="create-an-arm-called-bras-test-of-size-150" class="section level3">
+<h3>Create an arm called <code>Bras test</code> of size 150</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb10-1" aria-hidden="true" tabindex="-1"></a>brasTest <span class="ot">=</span> <span class="fu">Arm</span>( <span class="at">name =</span> <span class="st">"Bras test"</span>, <span class="at">arm_size =</span> <span class="dv">150</span> )</span></code></pre></div>
+</div>
+<div id="for-each-arm-create-and-add-the-sampling-times-for-the-response-pk-resppk" class="section level3">
+<h3>For each arm create and add the sampling times for the response PK
+<code>RespPK</code></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb11-1" aria-hidden="true" tabindex="-1"></a>brasTest <span class="ot">=</span> <span class="fu">addSampling</span>( brasTest, <span class="fu">SamplingTimes</span>( <span class="at">outcome =</span> <span class="st">"RespPK"</span>, <span class="at">sample_time =</span> <span class="fu">c</span>( <span class="dv">1</span>,<span class="dv">12</span>,<span class="dv">24</span>,<span class="dv">44</span>,<span class="dv">72</span>,<span class="dv">120</span> ) ) )</span></code></pre></div>
+</div>
+<div id="for-the-arm-brastest-create-and-add-the-administration-parameters-of-the-response-pk" class="section level3">
+<h3>For the arm <code>brasTest</code> create and add the administration
+parameters of the response PK</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb12-1" aria-hidden="true" tabindex="-1"></a>administration_brasTest <span class="ot">=</span> <span class="fu">Administration</span>( <span class="at">outcome =</span> <span class="st">"RespPK"</span>, <span class="at">Tinf =</span> <span class="fu">rep</span>( <span class="dv">1</span>, <span class="dv">5</span> ), <span class="at">time_dose =</span> <span class="fu">seq</span>( <span class="dv">0</span>, <span class="dv">96</span>, <span class="dv">24</span> ) , <span class="at">amount_dose =</span> <span class="fu">c</span>( <span class="dv">400</span>, <span class="fu">rep</span>( <span class="dv">200</span>, <span class="dv">4</span> ) ) )</span>
+<span id="cb12-2"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb12-3" aria-hidden="true" tabindex="-1"></a>brasTest <span class="ot">=</span> <span class="fu">addAdministration</span>( brasTest, administration_brasTest )</span></code></pre></div>
+</div>
+<div id="add-the-arm-brastest-to-the-design-mydesign" class="section level3">
+<h3>Add the arm <code>brasTest</code> to the design
+<code>MyDesign</code></h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb13-1" aria-hidden="true" tabindex="-1"></a>MyDesign <span class="ot">=</span> <span class="fu">addArm</span>( MyDesign, brasTest )</span></code></pre></div>
+</div>
+<div id="add-the-design-mydesign-to-the-pfim-project-myproject" class="section level3">
+<h3>Add the design <code>MyDesign</code> to the PFIM project
+<code>MyProject</code></h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb14-1" aria-hidden="true" tabindex="-1"></a>MyProject_evaluation <span class="ot">=</span> <span class="fu">addDesign</span>( MyProject_evaluation, MyDesign )</span></code></pre></div>
+</div>
+<div id="evaluate-the-population-individual-and-bayesian-fims" class="section level3">
+<h3>Evaluate the population, individual and Bayesian FIMs</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb15-1" aria-hidden="true" tabindex="-1"></a>evaluationPop <span class="ot">=</span> <span class="fu">EvaluatePopulationFIM</span>( MyProject_evaluation )</span>
+<span id="cb15-2"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb15-2" aria-hidden="true" tabindex="-1"></a>evaluationInd <span class="ot">=</span> <span class="fu">EvaluateIndividualFIM</span>( MyProject_evaluation )</span>
+<span id="cb15-3"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb15-3" aria-hidden="true" tabindex="-1"></a>evaluationBay <span class="ot">=</span> <span class="fu">EvaluateBayesianFIM</span>( MyProject_evaluation )</span></code></pre></div>
+</div>
+<div id="display-the-results-of-the-design-evaluation" class="section level3">
+<h3>Display the results of the design evaluation</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>( evaluationPop )</span>
+<span id="cb16-2"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>( evaluationInd )</span>
+<span id="cb16-3"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>( evaluationBay )</span></code></pre></div>
+</div>
+<div id="create-and-save-the-report-for-the-design-evaluation" class="section level3">
+<h3>Create and save the report for the design evaluation</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set the path and name of the report to save the report</span></span>
+<span id="cb17-2"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb17-2" aria-hidden="true" tabindex="-1"></a>outputPath <span class="ot">=</span> <span class="st">"....."</span></span>
+<span id="cb17-3"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb17-4" aria-hidden="true" tabindex="-1"></a>plotOptions <span class="ot">=</span> <span class="fu">list</span>( <span class="at">unitTime=</span><span class="fu">c</span>(<span class="st">"hour"</span>), <span class="at">unitResponses=</span> <span class="fu">c</span>(<span class="st">"mcg/mL"</span>,<span class="st">"DI%"</span>) )</span>
+<span id="cb17-5"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">reportPFIMProject</span>( evaluationPop,</span>
+<span id="cb17-7"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb17-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">outputPath =</span> outputPath, <span class="at">plotOptions =</span> plotOptions )</span>
+<span id="cb17-8"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="fu">reportPFIMProject</span>( evaluationInd,</span>
+<span id="cb17-10"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb17-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">outputPath =</span> outputPath, <span class="at">plotOptions =</span> plotOptions )</span>
+<span id="cb17-11"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="fu">reportPFIMProject</span>( evaluationBay,</span>
+<span id="cb17-13"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb17-13" aria-hidden="true" tabindex="-1"></a>                   <span class="at">outputPath =</span> outputPath, <span class="at">plotOptions =</span> plotOptions )</span></code></pre></div>
+</div>
+</div>
+<div id="design-optimization" class="section level1">
+<h1>Design optimization</h1>
+<div id="create-and-add-the-design-mydesign2-to-the-project-myproject_optimization" class="section level3">
+<h3>Create and add the design <code>MyDesign2</code> to the project
+<code>MyProject_optimization</code></h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb18-1" aria-hidden="true" tabindex="-1"></a>MyDesign2 <span class="ot">=</span> <span class="fu">Design</span>( <span class="at">name =</span> <span class="st">"MyDesign2"</span>)</span>
+<span id="cb18-2"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb18-2" aria-hidden="true" tabindex="-1"></a>MyProject_optimization <span class="ot">=</span> <span class="fu">addDesign</span>( MyProject_optimization, MyDesign2 )</span></code></pre></div>
+</div>
+<div id="define-design-constraints" class="section level3">
+<h3>Define design constraints</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb19-1" aria-hidden="true" tabindex="-1"></a>samplingBoundsConstraintRespPK <span class="ot">=</span> <span class="fu">SamplingConstraint</span>( <span class="at">response =</span> <span class="st">"RespPK"</span>, <span class="at">continuousSamplingTimes =</span> <span class="fu">list</span>( <span class="fu">c</span>( <span class="dv">1</span>,<span class="dv">48</span> ), <span class="fu">c</span>( <span class="dv">72</span>,<span class="dv">120</span> ) ) )</span>
+<span id="cb19-2"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb19-2" aria-hidden="true" tabindex="-1"></a>samplingMinimalDelayConstraintRespPK <span class="ot">=</span> <span class="fu">SamplingConstraint</span>( <span class="at">response =</span> <span class="st">"RespPK"</span>, <span class="at">min_delay =</span> <span class="dv">5</span> )</span>
+<span id="cb19-3"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb19-4" aria-hidden="true" tabindex="-1"></a>Constr1 <span class="ot">=</span> <span class="fu">DesignConstraint</span>()</span>
+<span id="cb19-5"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb19-6" aria-hidden="true" tabindex="-1"></a>Constr1 <span class="ot">=</span> <span class="fu">addSamplingConstraint</span>( Constr1, samplingBoundsConstraintRespPK )</span>
+<span id="cb19-7"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb19-7" aria-hidden="true" tabindex="-1"></a>Constr1 <span class="ot">=</span> <span class="fu">addSamplingConstraint</span>( Constr1, samplingMinimalDelayConstraintRespPK )</span>
+<span id="cb19-8"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb19-8" aria-hidden="true" tabindex="-1"></a>brasTest2 <span class="ot">=</span> <span class="fu">addSamplingConstraints</span>( brasTest2, Constr1 )</span></code></pre></div>
+</div>
+<div id="add-the-arm-to-the-design" class="section level3">
+<h3>Add the arm to the design</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb20-1" aria-hidden="true" tabindex="-1"></a>MyDesign2 <span class="ot">=</span> <span class="fu">addArm</span>( MyDesign2, brasTest2 )</span></code></pre></div>
+</div>
+<div id="add-the-design-to-the-project" class="section level3">
+<h3>Add the design to the project</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb21-1" aria-hidden="true" tabindex="-1"></a>MyProject_optimization <span class="ot">=</span> <span class="fu">addDesign</span>( MyProject_optimization, MyDesign2 )</span></code></pre></div>
+</div>
+<div id="set-the-the-parameters-of-the-pso-algorithm-and-run-the-algorithm-for-the-design-optimization-with-a-population-fim" class="section level3">
+<h3>Set the the parameters of the PSO algorithm and run the algorithm
+for the design optimization with a population FIM</h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb22-1" aria-hidden="true" tabindex="-1"></a>psoOptimizer <span class="ot">=</span> <span class="fu">PSOAlgorithm</span>( <span class="at">maxIteration =</span> <span class="dv">100</span>, <span class="at">populationSize =</span> <span class="dv">10</span>, <span class="at">personalLearningCoefficient =</span> <span class="fl">2.05</span>, <span class="at">globalLearningCoefficient =</span> <span class="fl">2.05</span>, <span class="at">showProcess =</span> <span class="cn">TRUE</span> )</span></code></pre></div>
+</div>
+<div id="run-the-pso-algorithm-for-the-optimization-with-a-population-fim" class="section level3">
+<h3>Run the PSO algorithm for the optimization with a population
+FIM</h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb23-1" aria-hidden="true" tabindex="-1"></a>optimization_populationFIM <span class="ot">=</span> <span class="fu">OptimizeDesign</span>( MyProject_optimization, psoOptimizer, <span class="fu">PopulationFim</span>() )</span></code></pre></div>
+</div>
+<div id="display-the-results-of-the-design-optimization" class="section level3">
+<h3>Display the results of the design optimization</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>( optimization_populationFIM )</span></code></pre></div>
+</div>
+<div id="create-and-save-the-report-for-the-design-optimization" class="section level3">
+<h3>Create and save the report for the design optimization</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set the path to save the report</span></span>
+<span id="cb25-2"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb25-2" aria-hidden="true" tabindex="-1"></a>outputPath <span class="ot">=</span> <span class="st">"....."</span></span>
+<span id="cb25-3"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb25-4" aria-hidden="true" tabindex="-1"></a>plotOptions <span class="ot">=</span> <span class="fu">list</span>( <span class="at">unitTime=</span><span class="fu">c</span>(<span class="st">"hour"</span>), <span class="at">unitResponses=</span> <span class="fu">c</span>(<span class="st">"mcg/mL"</span>,<span class="st">"DI%"</span>) )</span>
+<span id="cb25-5"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="file:///C:/Users/ADMIN%20Romain%20LEROUX/AppData/Local/Temp/Rtmpmmg7Hl/preview-1fa43fa9c8b.dir/Example02.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">reportPFIMProject</span>( optimization_populationFIM, <span class="at">outputPath =</span> outputPath, <span class="at">plotOptions =</span> plotOptions  )</span></code></pre></div>
+</div>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Sukeishi2021" class="csl-entry">
+Sukeishi, Asami, Kotaro Itohara, Atsushi Yonezawa, Yuki Sato, Katsuyuki
+Matsumura, Yoshiki Katada, Takayuki Nakagawa, et al. 2022.
+<span>“Population Pharmacokinetic Modeling of GS-441524, the Active
+Metabolite of Remdesivir, in Japanese COVID-19 Patients with Renal
+Dysfunction.”</span> <em>CPT: Pharmacometrics &amp; Systems
+Pharmacology</em> 11 (1): 94–103.
+</div>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Math-italic, sans-serif;"></div></div></body></html>
