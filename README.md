@@ -1,3 +1,4 @@
+[![Version](https://img.shields.io/badge/Version-1.0-blue.svg)](https://github.com/yourusername/yourrepository)
 
 <p align="center">
 <img src="hex-PFIM.png" alt="Logo" width="300"/>
