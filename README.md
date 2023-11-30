@@ -1,3 +1,5 @@
+![Logo](./PFIM/hex-PFIM.png)
+
 # PFIM
 
 Evaluate or optimize designs for nonlinear mixed effects models using the Fisher Information matrix. 
