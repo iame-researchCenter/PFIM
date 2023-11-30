@@ -1,4 +1,4 @@
-![Logo](./PFIM/hex-PFIM.png)
+![Logo](hex-PFIM.png)
 
 # PFIM
 
