@@ -1,4 +1,5 @@
 ![Logo](hex-PFIM.png)
+<img src="PFIM.png" alt="Logo" width="200"/>
 
 # PFIM
 
