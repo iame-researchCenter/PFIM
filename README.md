@@ -1,5 +1,7 @@
 
+<p align="center">
 <img src="hex-PFIM.png" alt="Logo" width="300"/>
+</p>
 
 # PFIM
 
