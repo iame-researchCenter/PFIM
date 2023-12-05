@@ -1,0 +1,113 @@
+*************************
+
+Design: design1
+
+*************************
+
+*************************
+Fisher information matrix 
+*************************
+
+**** Fixed effect 
+
+             µ_C50         µ_Cl        µ_ka       µ_Rin      µ_V
+µ_C50 189.08493339   58.9079862  0.05756881 192.6025450 60.60587
+µ_Cl   58.90798624 1046.2640801  0.37770939  93.8111273 46.72855
+µ_ka    0.05756881    0.3777094  3.53917474   0.1478201 -6.16355
+µ_Rin 192.60254497   93.8111273  0.14782015 313.9735728 98.46496
+µ_V    60.60586776   46.7285539 -6.16355026  98.4649598 86.20679
+
+**** Variance components 
+
+     [,1]
+[1,]   NA
+
+******************
+Correlation matrix  
+******************
+
+**** Fixed effect 
+
+              µ_C50         µ_Cl          µ_ka       µ_Rin          µ_V
+µ_C50  1.0000000000 -0.004874159  0.0009256968 -0.70193963 -0.002179032
+µ_Cl  -0.0048741588  1.000000000 -0.0424300299 -0.04885026 -0.084116419
+µ_ka   0.0009256968 -0.042430030  1.0000000000 -0.20257517  0.445375631
+µ_Rin -0.7019396281 -0.048850255 -0.2025751745  1.00000000 -0.447999990
+µ_V   -0.0021790324 -0.084116419  0.4453756306 -0.44799999  1.000000000
+
+**** Variance components 
+
+NULL
+
+**********************************************
+Determinant, condition numbers and D-criterion 
+**********************************************
+
+                                       Value
+Determinant                     3.540564e+09
+Cond number fixed effects       3.830706e+02
+Cond number variance components           NA
+D-criterion                     8.124834e+01
+
+**********
+Shrinkage 
+**********
+
+     µ_C50       µ_Cl       µ_ka      µ_Rin        µ_V 
+97.9011654 97.5489525 19.6699931  0.1838651  1.7708848 
+
+**********
+SE and RSE 
+**********
+
+      Value        SE   RSE (%)
+µ_C50  1.20 0.1187340  9.894502
+µ_Cl   0.13 0.0314507 24.192844
+µ_ka   1.60 0.5937055 37.106597
+µ_Rin  5.40 0.1035520  1.917629
+µ_V    8.00 0.1505567  1.881959
+
+$design1
+$design1$BrasTest1
+$design1$BrasTest1$RespPK
+
+$design1$BrasTest1$RespPD
+
+
+
+$design1
+$design1$BrasTest1
+$design1$BrasTest1$RespPK
+$design1$BrasTest1$RespPK$C50
+
+$design1$BrasTest1$RespPK$Cl
+
+$design1$BrasTest1$RespPK$ka
+
+$design1$BrasTest1$RespPK$kout
+
+$design1$BrasTest1$RespPK$Rin
+
+$design1$BrasTest1$RespPK$V
+
+
+$design1$BrasTest1$RespPD
+$design1$BrasTest1$RespPD$C50
+
+$design1$BrasTest1$RespPD$Cl
+
+$design1$BrasTest1$RespPD$ka
+
+$design1$BrasTest1$RespPD$kout
+
+$design1$BrasTest1$RespPD$Rin
+
+$design1$BrasTest1$RespPD$V
+
+
+
+
+$design1
+
+$design1
+

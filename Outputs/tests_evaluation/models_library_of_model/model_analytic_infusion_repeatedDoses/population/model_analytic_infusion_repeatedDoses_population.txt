@@ -1,0 +1,322 @@
+*************************
+
+Design: design1
+
+*************************
+
+*************************
+Fisher information matrix 
+*************************
+
+**** Fixed effect 
+
+           µ_Alin        µ_Cl        µ_S0          µ_V
+µ_Alin  1.5877462   -1.692088   0.3753303   -0.8568868
+µ_Cl   -1.6920881  967.837680 -32.6166762 -122.4633309
+µ_S0    0.3753303  -32.616676 556.6503668   58.8110169
+µ_V    -0.8568868 -122.463331  58.8110169  278.0022593
+
+**** Variance components 
+
+                      <U+03C9>²_Alin        <U+03C9>²_Cl         <U+03C9>²_V s_inter_RespPK
+<U+03C9>²_Alin            315.117236     14.31581     11.24328       1.928201
+<U+03C9>²_Cl               14.315811 187341.95480   9185.82630    2145.286555
+<U+03C9>²_V                11.243281   9185.82630 144970.23443    1206.971792
+s_inter_RespPK       1.928201   2145.28656   1206.97179   96460.905923
+s_slope_RespPK       4.607957   4430.37747   5445.12608   14515.743335
+s_inter_RespPD       0.185407     28.59545    296.71008     118.213610
+               s_slope_RespPK s_inter_RespPD
+<U+03C9>²_Alin              4.607957       0.185407
+<U+03C9>²_Cl             4430.377467      28.595446
+<U+03C9>²_V              5445.126077     296.710082
+s_inter_RespPK   14515.743335     118.213610
+s_slope_RespPK   22715.795317      77.481221
+s_inter_RespPD      77.481221    1411.387977
+
+******************
+Correlation matrix  
+******************
+
+**** Fixed effect 
+
+            µ_Alin        µ_Cl         µ_S0         µ_V
+µ_Alin  1.00000000 0.054207120 -0.018461896  0.05461061
+µ_Cl    0.05420712 1.000000000  0.008497867  0.23455828
+µ_S0   -0.01846190 0.008497867  1.000000000 -0.14396507
+µ_V     0.05461061 0.234558284 -0.143965073  1.00000000
+
+**** Variance components 
+
+                      <U+03C9>²_Alin         <U+03C9>²_Cl         <U+03C9>²_V s_inter_RespPK
+<U+03C9>²_Alin          1.0000000000 -0.0016768933 -0.001413604    0.000157489
+<U+03C9>²_Cl           -0.0016768933  1.0000000000 -0.049524987    0.004375838
+<U+03C9>²_V            -0.0014136036 -0.0495249867  1.000000000    0.020188659
+s_inter_RespPK   0.0001574890  0.0043758376  0.020188659    1.000000000
+s_slope_RespPK  -0.0014368315 -0.0612513920 -0.092945227   -0.310149265
+s_inter_RespPD  -0.0002263442  0.0001100531 -0.019645613   -0.006592682
+               s_slope_RespPK s_inter_RespPD
+<U+03C9>²_Alin          -0.001436831  -0.0002263442
+<U+03C9>²_Cl            -0.061251392   0.0001100531
+<U+03C9>²_V             -0.092945227  -0.0196456134
+s_inter_RespPK   -0.310149265  -0.0065926819
+s_slope_RespPK    1.000000000  -0.0091316036
+s_inter_RespPD   -0.009131604   1.0000000000
+
+**********************************************
+Determinant, condition numbers and D-criterion 
+**********************************************
+
+                                       Value
+Determinant                     5.136086e+33
+Cond number fixed effects       6.285679e+02
+Cond number variance components 6.014087e+02
+D-criterion                     2.349975e+03
+
+**********
+Shrinkage 
+**********
+
+NULL
+
+**********
+SE and RSE 
+**********
+
+                 Value          SE   RSE (%)
+µ_Alin         10.0000 0.795587577  7.955876
+µ_Cl            2.0000 0.033129237  1.656462
+µ_S0            0.1000 0.042875662 42.875662
+µ_V             3.5000 0.062456448  1.784470
+<U+03C9>²_Alin         0.2500 0.056333364 22.533346
+<U+03C9>²_Cl           0.0081 0.002318605 28.624749
+<U+03C9>²_V            0.0081 0.002642602 32.624718
+s_inter_RespPK  0.1000 0.003387521  3.387521
+s_slope_RespPK  0.1000 0.007025160  7.025160
+s_inter_RespPD  0.8000 0.026626237  3.328280
+
+$design1
+$design1$BrasTest
+$design1$BrasTest$RespPK
+
+$design1$BrasTest$RespPD
+
+
+
+$design1
+$design1$BrasTest
+$design1$BrasTest$RespPK
+$design1$BrasTest$RespPK$Alin
+
+$design1$BrasTest$RespPK$Cl
+
+$design1$BrasTest$RespPK$S0
+
+$design1$BrasTest$RespPK$V
+
+
+$design1$BrasTest$RespPD
+$design1$BrasTest$RespPD$Alin
+
+$design1$BrasTest$RespPD$Cl
+
+$design1$BrasTest$RespPD$S0
+
+$design1$BrasTest$RespPD$V
+
+
+
+
+$design1
+
+$design1
+
+  |                                                                           |                                                                   |   0%  |                                                                           |..                                                                 |   3%
+   inline R code fragments
+
+  |                                                                           |....                                                               |   6%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                           |......                                                             |   9%
+  ordinary text without R code
+
+  |                                                                           |........                                                           |  12%
+label: modelOutputs (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |..........                                                         |  16%
+  ordinary text without R code
+
+  |                                                                           |.............                                                      |  19%
+label: modelEquations (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |...............                                                    |  22%
+  ordinary text without R code
+
+  |                                                                           |.................                                                  |  25%
+label: modelError (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |...................                                                |  28%
+  ordinary text without R code
+
+  |                                                                           |.....................                                              |  31%
+label: modelParameters (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |.......................                                            |  34%
+  ordinary text without R code
+
+  |                                                                           |.........................                                          |  38%
+label: initialDesignParameters (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |...........................                                        |  41%
+  ordinary text without R code
+
+  |                                                                           |.............................                                      |  44%
+label: administrationParameters (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |...............................                                    |  47%
+  ordinary text without R code
+
+  |                                                                           |..................................                                 |  50%
+label: FIMFixedEffectsTable (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |....................................                               |  53%
+  ordinary text without R code
+
+  |                                                                           |......................................                             |  56%
+label: FIMVarianceEffectsTable (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |........................................                           |  59%
+  ordinary text without R code
+
+  |                                                                           |..........................................                         |  62%
+label: correlationMatrixFixedEffectsTable (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |............................................                       |  66%
+  ordinary text without R code
+
+  |                                                                           |..............................................                     |  69%
+label: correlationMatrixVarianceEffectsTable (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |................................................                   |  72%
+  ordinary text without R code
+
+  |                                                                           |..................................................                 |  75%
+label: criteriaFimTable (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |....................................................               |  78%
+  ordinary text without R code
+
+  |                                                                           |......................................................             |  81%
+label: SEandRSETable (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |.........................................................          |  84%
+  ordinary text without R code
+
+  |                                                                           |...........................................................        |  88%
+label: plotOutcomesEvaluation (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |.............................................................      |  91%
+  ordinary text without R code
+
+  |                                                                           |...............................................................    |  94%
+label: plotOutcomesGradient (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |.................................................................  |  97%
+  ordinary text without R code
+
+  |                                                                           |...................................................................| 100%
+label: plotSEandRSE (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+
+"C:/RStudio/bin/pandoc/pandoc" +RTS -K512m -RTS templateEvaluationPopulationFim.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc50202519b00.html --lua-filter "C:\R\R-4.1.0\library\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\R\R-4.1.0\library\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\R\R-4.1.0\library\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --include-in-header "C:\Users\LUCIE~1.FAY\AppData\Local\Temp\Rtmp2FEiN0\rmarkdown-str502052d76be9.html" --mathjax --variable "mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 

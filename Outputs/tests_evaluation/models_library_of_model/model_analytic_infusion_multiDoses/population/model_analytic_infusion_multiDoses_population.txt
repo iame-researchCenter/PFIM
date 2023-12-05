@@ -1,0 +1,439 @@
+*************************
+
+Design: design1
+
+*************************
+
+*************************
+Fisher information matrix 
+*************************
+
+**** Fixed effect 
+
+           µ_Alin       µ_Cl        µ_S0        µ_V
+µ_Alin  1.5837991  -1.937362   0.9881853  -1.023472
+µ_Cl   -1.9373622 850.631418 -28.1242454 -71.198358
+µ_S0    0.9881853 -28.124245 548.1001656  27.182686
+µ_V    -1.0234719 -71.198358  27.1826858 209.098537
+
+**** Variance components 
+
+                      <U+03C9>²_Alin        <U+03C9>²_Cl        <U+03C9>²_V s_inter_RespPK
+<U+03C9>²_Alin           313.5524575     18.76686    16.03976       2.758018
+<U+03C9>²_Cl              18.7668605 144714.76173  3104.88879    4070.565638
+<U+03C9>²_V               16.0397644   3104.88879 82013.27922    3334.786869
+s_inter_RespPK      2.7580179   4070.56564  3334.78687   97878.890551
+s_slope_RespPK      3.7138409   4436.07754  3564.77377   16641.043965
+s_inter_RespPD      0.4907878    184.74948   605.70851      74.604752
+               s_slope_RespPK s_inter_RespPD
+<U+03C9>²_Alin              3.713841      0.4907878
+<U+03C9>²_Cl             4436.077541    184.7494799
+<U+03C9>²_V              3564.773773    605.7085062
+s_inter_RespPK   16641.043965     74.6047520
+s_slope_RespPK   19017.390639     37.4340293
+s_inter_RespPD      37.434029   1419.9395835
+
+******************
+Correlation matrix  
+******************
+
+**** Fixed effect 
+
+            µ_Alin       µ_Cl        µ_S0         µ_V
+µ_Alin  1.00000000 0.06227873 -0.03654697  0.06875835
+µ_Cl    0.06227873 1.00000000  0.02577732  0.16975690
+µ_S0   -0.03654697 0.02577732  1.00000000 -0.07675942
+µ_V     0.06875835 0.16975690 -0.07675942  1.00000000
+
+**** Variance components 
+
+                      <U+03C9>²_Alin        <U+03C9>²_Cl         <U+03C9>²_V s_inter_RespPK
+<U+03C9>²_Alin          1.0000000000 -0.002597769 -0.002949150    0.000110460
+<U+03C9>²_Cl           -0.0025977691  1.000000000 -0.020363166   -0.001629945
+<U+03C9>²_V            -0.0029491502 -0.020363166  1.000000000   -0.002373147
+s_inter_RespPK   0.0001104600 -0.001629945 -0.002373147    1.000000000
+s_slope_RespPK  -0.0009856057 -0.075434406 -0.080380891   -0.382960463
+s_inter_RespPD  -0.0005275696 -0.011164366 -0.055453766   -0.003689178
+               s_slope_RespPK s_inter_RespPD
+<U+03C9>²_Alin         -0.0009856057  -0.0005275696
+<U+03C9>²_Cl           -0.0754344060  -0.0111643664
+<U+03C9>²_V            -0.0803808909  -0.0554537662
+s_inter_RespPK  -0.3829604629  -0.0036891780
+s_slope_RespPK   1.0000000000   0.0002843536
+s_inter_RespPD   0.0002843536   1.0000000000
+
+**********************************************
+Determinant, condition numbers and D-criterion 
+**********************************************
+
+                                       Value
+Determinant                     1.212830e+33
+Cond number fixed effects       5.486255e+02
+Cond number variance components 4.642191e+02
+D-criterion                     2.034136e+03
+
+**********
+Shrinkage 
+**********
+
+NULL
+
+**********
+SE and RSE 
+**********
+
+                 Value          SE   RSE (%)
+µ_Alin         10.0000 0.797993780  7.979938
+µ_Cl            2.0000 0.034867729  1.743386
+µ_S0            0.1000 0.042897962 42.897962
+µ_V             3.5000 0.070524475  2.014985
+<U+03C9>²_Alin         0.2500 0.056474050 22.589620
+<U+03C9>²_Cl           0.0081 0.002638925 32.579321
+<U+03C9>²_V            0.0081 0.003512389 43.362825
+s_inter_RespPK  0.1000 0.003464476  3.464476
+s_slope_RespPK  0.1000 0.007908936  7.908936
+s_inter_RespPD  0.8000 0.026581616  3.322702
+
+Called from: (function (classes, fdef, mtable) 
+{
+    methods <- .findInheritedMethods(classes, fdef, mtable)
+    if (length(methods) == 1L) 
+        return(methods[[1L]])
+    else if (length(methods) == 0L) {
+        cnames <- paste0("\"", vapply(classes, as.character, 
+            ""), "\"", collapse = ", ")
+        stop(gettextf("unable to find an inherited method for function %s for signature %s", 
+            sQuote(fdef@generic), sQuote(cnames)), domain = NA)
+    }
+    else stop("Internal error in finding inherited methods; didn't return a unique method", 
+        domain = NA)
+})(list("Design"), new("nonstandardGenericFunction", .Data = function (object) 
+{
+    standardGeneric("getOutcomesGradient")
+}, generic = "getOutcomesGradient", package = "PFIM", group = list(), 
+    valueClass = character(0), signature = "object", default = NULL, 
+    skeleton = (function (object) 
+    stop("invalid call in method dispatch to 'getOutcomesGradient' (no default method)", 
+        domain = NA))(object)), <environment>)
+*************************
+
+Design: design1
+
+*************************
+
+*************************
+Fisher information matrix 
+*************************
+
+**** Fixed effect 
+
+           µ_Alin       µ_Cl        µ_S0        µ_V
+µ_Alin  1.5837991  -1.937362   0.9881853  -1.023472
+µ_Cl   -1.9373622 850.631418 -28.1242454 -71.198358
+µ_S0    0.9881853 -28.124245 548.1001656  27.182686
+µ_V    -1.0234719 -71.198358  27.1826858 209.098537
+
+**** Variance components 
+
+                      <U+03C9>²_Alin        <U+03C9>²_Cl        <U+03C9>²_V s_inter_RespPK
+<U+03C9>²_Alin           313.5524575     18.76686    16.03976       2.758018
+<U+03C9>²_Cl              18.7668605 144714.76173  3104.88879    4070.565638
+<U+03C9>²_V               16.0397644   3104.88879 82013.27922    3334.786869
+s_inter_RespPK      2.7580179   4070.56564  3334.78687   97878.890551
+s_slope_RespPK      3.7138409   4436.07754  3564.77377   16641.043965
+s_inter_RespPD      0.4907878    184.74948   605.70851      74.604752
+               s_slope_RespPK s_inter_RespPD
+<U+03C9>²_Alin              3.713841      0.4907878
+<U+03C9>²_Cl             4436.077541    184.7494799
+<U+03C9>²_V              3564.773773    605.7085062
+s_inter_RespPK   16641.043965     74.6047520
+s_slope_RespPK   19017.390639     37.4340293
+s_inter_RespPD      37.434029   1419.9395835
+
+******************
+Correlation matrix  
+******************
+
+**** Fixed effect 
+
+            µ_Alin       µ_Cl        µ_S0         µ_V
+µ_Alin  1.00000000 0.06227873 -0.03654697  0.06875835
+µ_Cl    0.06227873 1.00000000  0.02577732  0.16975690
+µ_S0   -0.03654697 0.02577732  1.00000000 -0.07675942
+µ_V     0.06875835 0.16975690 -0.07675942  1.00000000
+
+**** Variance components 
+
+                      <U+03C9>²_Alin        <U+03C9>²_Cl         <U+03C9>²_V s_inter_RespPK
+<U+03C9>²_Alin          1.0000000000 -0.002597769 -0.002949150    0.000110460
+<U+03C9>²_Cl           -0.0025977691  1.000000000 -0.020363166   -0.001629945
+<U+03C9>²_V            -0.0029491502 -0.020363166  1.000000000   -0.002373147
+s_inter_RespPK   0.0001104600 -0.001629945 -0.002373147    1.000000000
+s_slope_RespPK  -0.0009856057 -0.075434406 -0.080380891   -0.382960463
+s_inter_RespPD  -0.0005275696 -0.011164366 -0.055453766   -0.003689178
+               s_slope_RespPK s_inter_RespPD
+<U+03C9>²_Alin         -0.0009856057  -0.0005275696
+<U+03C9>²_Cl           -0.0754344060  -0.0111643664
+<U+03C9>²_V            -0.0803808909  -0.0554537662
+s_inter_RespPK  -0.3829604629  -0.0036891780
+s_slope_RespPK   1.0000000000   0.0002843536
+s_inter_RespPD   0.0002843536   1.0000000000
+
+**********************************************
+Determinant, condition numbers and D-criterion 
+**********************************************
+
+                                       Value
+Determinant                     1.212830e+33
+Cond number fixed effects       5.486255e+02
+Cond number variance components 4.642191e+02
+D-criterion                     2.034136e+03
+
+**********
+Shrinkage 
+**********
+
+NULL
+
+**********
+SE and RSE 
+**********
+
+                 Value          SE   RSE (%)
+µ_Alin         10.0000 0.797993780  7.979938
+µ_Cl            2.0000 0.034867729  1.743386
+µ_S0            0.1000 0.042897962 42.897962
+µ_V             3.5000 0.070524475  2.014985
+<U+03C9>²_Alin         0.2500 0.056474050 22.589620
+<U+03C9>²_Cl           0.0081 0.002638925 32.579321
+<U+03C9>²_V            0.0081 0.003512389 43.362825
+s_inter_RespPK  0.1000 0.003464476  3.464476
+s_slope_RespPK  0.1000 0.007908936  7.908936
+s_inter_RespPD  0.8000 0.026581616  3.322702
+
+$design1
+$design1$BrasTest
+$design1$BrasTest$RespPK
+
+$design1$BrasTest$RespPD
+
+
+
+$design1
+$design1$BrasTest
+$design1$BrasTest$RespPK
+$design1$BrasTest$RespPK$Alin
+
+$design1$BrasTest$RespPK$Cl
+
+$design1$BrasTest$RespPK$S0
+
+$design1$BrasTest$RespPK$V
+
+
+$design1$BrasTest$RespPD
+$design1$BrasTest$RespPD$Alin
+
+$design1$BrasTest$RespPD$Cl
+
+$design1$BrasTest$RespPD$S0
+
+$design1$BrasTest$RespPD$V
+
+
+
+
+$design1
+
+$design1
+
+  |                                                                           |                                                                   |   0%  |                                                                           |..                                                                 |   3%
+   inline R code fragments
+
+  |                                                                           |....                                                               |   6%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                           |......                                                             |   9%
+  ordinary text without R code
+
+  |                                                                           |........                                                           |  12%
+label: modelOutputs (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |..........                                                         |  16%
+  ordinary text without R code
+
+  |                                                                           |.............                                                      |  19%
+label: modelEquations (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |...............                                                    |  22%
+  ordinary text without R code
+
+  |                                                                           |.................                                                  |  25%
+label: modelError (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |...................                                                |  28%
+  ordinary text without R code
+
+  |                                                                           |.....................                                              |  31%
+label: modelParameters (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |.......................                                            |  34%
+  ordinary text without R code
+
+  |                                                                           |.........................                                          |  38%
+label: initialDesignParameters (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |...........................                                        |  41%
+  ordinary text without R code
+
+  |                                                                           |.............................                                      |  44%
+label: administrationParameters (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |...............................                                    |  47%
+  ordinary text without R code
+
+  |                                                                           |..................................                                 |  50%
+label: FIMFixedEffectsTable (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |....................................                               |  53%
+  ordinary text without R code
+
+  |                                                                           |......................................                             |  56%
+label: FIMVarianceEffectsTable (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |........................................                           |  59%
+  ordinary text without R code
+
+  |                                                                           |..........................................                         |  62%
+label: correlationMatrixFixedEffectsTable (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |............................................                       |  66%
+  ordinary text without R code
+
+  |                                                                           |..............................................                     |  69%
+label: correlationMatrixVarianceEffectsTable (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |................................................                   |  72%
+  ordinary text without R code
+
+  |                                                                           |..................................................                 |  75%
+label: criteriaFimTable (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |....................................................               |  78%
+  ordinary text without R code
+
+  |                                                                           |......................................................             |  81%
+label: SEandRSETable (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |.........................................................          |  84%
+  ordinary text without R code
+
+  |                                                                           |...........................................................        |  88%
+label: plotOutcomesEvaluation (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |.............................................................      |  91%
+  ordinary text without R code
+
+  |                                                                           |...............................................................    |  94%
+label: plotOutcomesGradient (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+  |                                                                           |.................................................................  |  97%
+  ordinary text without R code
+
+  |                                                                           |...................................................................| 100%
+label: plotSEandRSE (with options) 
+List of 5
+ $ echo      : logi FALSE
+ $ comment   : chr ""
+ $ fig.height: num 5
+ $ fig.width : num 10
+ $ fig.align : chr "center"
+
+
+"C:/RStudio/bin/pandoc/pandoc" +RTS -K512m -RTS templateEvaluationPopulationFim.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc50203a0a37d4.html --lua-filter "C:\R\R-4.1.0\library\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\R\R-4.1.0\library\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\R\R-4.1.0\library\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --include-in-header "C:\Users\LUCIE~1.FAY\AppData\Local\Temp\Rtmp2FEiN0\rmarkdown-str5020286f3601.html" --mathjax --variable "mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 

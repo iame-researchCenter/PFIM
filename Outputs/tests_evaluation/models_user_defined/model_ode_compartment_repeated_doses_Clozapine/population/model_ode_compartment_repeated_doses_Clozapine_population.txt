@@ -1,0 +1,115 @@
+*************************
+
+Design: design1
+
+*************************
+
+*************************
+Fisher information matrix 
+*************************
+
+**** Fixed effect 
+
+              µ_Cl        µ_ka        µ_Q        µ_V1          µ_V2
+µ_Cl  0.1990895879  0.01670650  0.1838391 -0.02515281 -0.0006783162
+µ_ka  0.0167064961 93.97586921 13.6330566 -0.41555531  0.0122324128
+µ_Q   0.1838391093 13.63305656 88.7148073 -2.65172008 -0.0702701997
+µ_V1 -0.0251528055 -0.41555531 -2.6517201  0.08906507 -0.0174954586
+µ_V2 -0.0006783162  0.01223241 -0.0702702 -0.01749546  0.0491784905
+
+**** Variance components 
+
+                      <U+03C9>²_Cl        <U+03C9>²_ka        <U+03C9>²_V2 s_slope_RespPK
+<U+03C9>²_Cl          9.9091660056 6.977675e-04 1.840452e-03   9.325801e-01
+<U+03C9>²_ka          0.0006977675 2.207866e+02 5.985277e-03   9.650312e+01
+<U+03C9>²_V2          0.0018404516 5.985277e-03 1.547855e+02   8.231626e+00
+s_slope_RespPK 0.9325800695 9.650312e+01 8.231626e+00   1.791294e+04
+s_slope_RespPD 0.0031401777 1.290835e+01 5.299727e+00   3.119414e+02
+               s_slope_RespPD
+<U+03C9>²_Cl            3.140178e-03
+<U+03C9>²_ka            1.290835e+01
+<U+03C9>²_V2            5.299727e+00
+s_slope_RespPK   3.119414e+02
+s_slope_RespPD   4.633098e+03
+
+******************
+Correlation matrix  
+******************
+
+**** Fixed effect 
+
+             µ_Cl         µ_ka         µ_Q        µ_V1        µ_V2
+µ_Cl  1.000000000  0.003405479 -0.06654843 -0.05959763 -0.08342128
+µ_ka  0.003405479  1.000000000 -0.13448658  0.01067536 -0.01083522
+µ_Q  -0.066548425 -0.134486584  1.00000000  0.37384508 -0.36560852
+µ_V1 -0.059597627  0.010675361  0.37384508  1.00000000 -0.98976920
+µ_V2 -0.083421276 -0.010835224 -0.36560852 -0.98976920  1.00000000
+
+**** Variance components 
+
+                       <U+03C9>²_Cl         <U+03C9>²_ka         <U+03C9>²_V2 s_slope_RespPK
+<U+03C9>²_Cl           1.000000e+00  9.191953e-05 -3.639979e-05   -0.002215981
+<U+03C9>²_ka           9.191953e-05  1.000000e+00  2.755328e-04   -0.048121636
+<U+03C9>²_V2          -3.639979e-05  2.755328e-04  1.000000e+00   -0.004739788
+s_slope_RespPK -2.215981e-03 -4.812164e-02 -4.739788e-03    1.000000000
+s_slope_RespPD  6.036973e-05 -1.112236e-02 -6.095307e-03   -0.033634812
+               s_slope_RespPD
+<U+03C9>²_Cl            6.036973e-05
+<U+03C9>²_ka           -1.112236e-02
+<U+03C9>²_V2           -6.095307e-03
+s_slope_RespPK  -3.363481e-02
+s_slope_RespPD   1.000000e+00
+
+**********************************************
+Determinant, condition numbers and D-criterion 
+**********************************************
+
+                                       Value
+Determinant                     4.018655e-02
+Cond number fixed effects       5.085465e+18
+Cond number variance components 1.808516e+03
+D-criterion                     7.251170e-01
+
+**********
+Shrinkage 
+**********
+
+NULL
+
+**********
+SE and RSE 
+**********
+
+                    Value          SE   RSE (%)
+µ_Cl            10.000000 2.228726072 22.287261
+µ_ka             1.000000 0.104331287 10.433129
+µ_Q              3.000000 0.115892978  3.863099
+µ_V1           100.000000 1.554415758  1.554416
+µ_V2            40.000000 3.895940746  9.739852
+<U+03C9>²_Cl            1.000000 0.317674617 31.767462
+<U+03C9>²_ka            0.187489 0.067383327 35.939883
+<U+03C9>²_V2            0.249001 0.080380037 32.281010
+s_slope_RespPK   0.095400 0.007484808  7.845711
+s_slope_RespPD   0.153000 0.014701238  9.608653
+
+Called from: (function (classes, fdef, mtable) 
+{
+    methods <- .findInheritedMethods(classes, fdef, mtable)
+    if (length(methods) == 1L) 
+        return(methods[[1L]])
+    else if (length(methods) == 0L) {
+        cnames <- paste0("\"", vapply(classes, as.character, 
+            ""), "\"", collapse = ", ")
+        stop(gettextf("unable to find an inherited method for function %s for signature %s", 
+            sQuote(fdef@generic), sQuote(cnames)), domain = NA)
+    }
+    else stop("Internal error in finding inherited methods; didn't return a unique method", 
+        domain = NA)
+})(list("Design"), new("nonstandardGenericFunction", .Data = function (object) 
+{
+    standardGeneric("getOutcomesGradient")
+}, generic = "getOutcomesGradient", package = "PFIM", group = list(), 
+    valueClass = character(0), signature = "object", default = NULL, 
+    skeleton = (function (object) 
+    stop("invalid call in method dispatch to 'getOutcomesGradient' (no default method)", 
+        domain = NA))(object)), <environment>)
