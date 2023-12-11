@@ -4,7 +4,7 @@
 [![Version](https://img.shields.io/badge/Version-6.0.2-blue.svg)](https://github.com/yourusername/yourrepository)
 
 Evaluate or optimize designs for nonlinear mixed effects models using
-the Fisher Information matrix.
+the Fisher Information Matrix.
 
 Methods used in the package refer to Mentré F, Mallet A, Baccar D (1997)
 <doi:10.1093/biomet/84.2.429>, Retout S, Comets E, Samson A, Mentré F
@@ -30,7 +30,7 @@ Author: France Mentré ORCID <https://orcid.org/0000-0002-7045-1275>
 \[aut\], Romain Leroux \[aut, cre\], Jérémy Seurat \[aut\], Lucie
 Fayette \[aut\]
 
-Contributors : Caroline Bazzoli \[ctb\], Emmanuelle Comets \[ctb\], Anne
+Contributors: Caroline Bazzoli \[ctb\], Emmanuelle Comets \[ctb\], Anne
 Dubois \[ctb\], Cyrielle Dumont \[ctb\], Giulia Lestini \[ctb\], Thi
 Huyen Tram Nguyen \[ctb\], Thu Thuy Nguyen \[ctb\], Sylvie Retout
 \[ctb\]
@@ -49,7 +49,7 @@ vignettes on the CRAN.
 Several examples have been implemented in PFIM 6 and the full list and
 reports are given in **Examples_reports.md**. Source scripts are
 available in the folder Examples/, whose sub folders are organized as
-followed:
+follows:
 
 - Examples/
   - evaluation/
@@ -66,13 +66,13 @@ followed:
 
 To execute all those scripts successively, one can run the script
 **run_Examples.R**. The reports will be created in the folder
-Outputs/Examples/
+Outputs/Examples/.
 
 ## Evaluation tests
 
 Several tests are available for design evaluation with PFIM; they are
 located in the folder tests_evaluation/, whose sub-folders are organized
-as followed:
+as follows:
 
 - tests_evaluation/ :
   - library_of_models/ : contains scripts that test the building of
@@ -84,11 +84,11 @@ as followed:
 
 To execute one scripts from models_library_of_model/ or
 models_user_defined/, one has to define the variable `fimType` to either
-`population`, `individual` or `Bayesian.`
+`population`, `individual` or `Bayesian`.
 
 To execute all those scripts successively, one can run the script
 **run_tests_evaluation.R**. The outputs will be displayed in the folder
-Outputs/tests_evaluation/
+Outputs/tests_evaluation/.
 
 ## Optimization tests
 
@@ -105,7 +105,7 @@ organized by algorithm.
 
 To execute all those scripts successively, one can run the script
 **run_tests_optimization.R**. The outputs will be displayed in the
-folder Outputs/tests_evaluation/
+folder Outputs/tests_evaluation/.
 
 # Getting help
 
