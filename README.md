@@ -15,8 +15,7 @@ Daily downloads
 
 #
 
-## Evaluate or optimize designs for nonlinear mixed effects models using
-the Fisher Information Matrix.
+## Evaluate or optimize designs for nonlinear mixed effects models using the Fisher Information Matrix.
 
 Methods used in the package refer to Mentré F, Mallet A, Baccar D (1997)
 <doi:10.1093/biomet/84.2.429>, Retout S, Comets E, Samson A, Mentré F
