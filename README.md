@@ -6,7 +6,7 @@
 Total number of downloads for the entire history of the package
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/grand-total/PFIM?color=blue)]([https://r-pkg.org/pkg/PFIM](https://cran.r-project.org/package=PFIM))
 
-Monthly downloads
+<!--Monthly downloads
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/last-month/PFIM?color=blue)]([https://r-pkg.org/pkg/PFIM](https://cran.r-project.org/package=PFIM))
 
 Weekly downloads 
@@ -14,7 +14,7 @@ Weekly downloads
 
 Daily downloads
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/last-day/PFIM?color=blue)]([https://r-pkg.org/pkg/PFIM](https://cran.r-project.org/package=PFIM))
-
+ -->
 #
 
 ## Evaluate or optimize designs for nonlinear mixed effects models using the Fisher Information Matrix.
@@ -131,3 +131,8 @@ For questions and other discussion, please use the PFIM group mailing
 list:
 
 <thepfimgroup@googlegroups.com>
+
+## Daily downloads for the package PFIM 6.0.2
+
+
+
