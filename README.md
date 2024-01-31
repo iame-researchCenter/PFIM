@@ -3,9 +3,9 @@
 
 [![Version](https://img.shields.io/badge/Version-6.0.2-blue.svg)](https://github.com/yourusername/yourrepository)
 
-[![](http://cranlogs.r-pkg.org/badges/grand-total/badger?color=green)](https://cran.r-project.org/package=PFIM)
-[![](http://cranlogs.r-pkg.org/badges/last-month/badger?color=green)](https://cran.r-project.org/package=PFIM)
-[![](http://cranlogs.r-pkg.org/badges/last-week/badger?color=green)](https://cran.r-project.org/package=PFIM)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/PFIM?color=green)](https://cran.r-project.org/package=PFIM)
+[![](http://cranlogs.r-pkg.org/badges/last-month/PFIM?color=green)](https://cran.r-project.org/package=PFIM)
+[![](http://cranlogs.r-pkg.org/badges/last-week/PFIM?color=green)](https://cran.r-project.org/package=PFIM)
 
 Evaluate or optimize designs for nonlinear mixed effects models using
 the Fisher Information Matrix.
