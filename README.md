@@ -5,7 +5,6 @@
 
 [![](http://cranlogs.r-pkg.org/badges/grand-total/PFIM?color=green)](https://cran.r-project.org/package=PFIM)
 [![](http://cranlogs.r-pkg.org/badges/last-month/PFIM?color=green)](https://cran.r-project.org/package=PFIM)
-[![](http://cranlogs.r-pkg.org/badges/last-week/PFIM?color=green)](https://cran.r-project.org/package=PFIM)
 
 Evaluate or optimize designs for nonlinear mixed effects models using
 the Fisher Information Matrix.
