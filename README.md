@@ -9,6 +9,8 @@
 
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/last-week/PFIM?color=ff8c69)]([https://r-pkg.org/pkg/PFIM](https://cran.r-project.org/package=PFIM))
 
+[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/last-day/PFIM?color=ff8c69)]([https://r-pkg.org/pkg/PFIM](https://cran.r-project.org/package=PFIM))
+
 
 Evaluate or optimize designs for nonlinear mixed effects models using
 the Fisher Information Matrix.
