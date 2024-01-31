@@ -3,7 +3,7 @@
 
 [![Version](https://img.shields.io/badge/Version-6.0.2-blue.svg)](https://github.com/yourusername/yourrepository)
 
-[![Version](http://cranlogs.r-pkg.org/PFIM/grand-total/badger?color=green)](https://cran.r-project.org/package=PFIM)
+[![Version](http://cranlogs.r-pkg.org/badges/PFIM/grand-total/badger?color=green)](https://cran.r-project.org/package=PFIM)
 
 [![Version](http://cranlogs.r-pkg.org/badges/PFIM)](https://cran.r-project.org/package=PFIM)
 
