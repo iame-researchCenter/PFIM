@@ -54,6 +54,11 @@ Reports of the design evaluation and optimization are available at https://githu
 
 # Design evaluation 
 
+```{r}
+outputPath = file.path(getwd(), "Example02")
+dir.create(outputPath)
+```
+
 
 
 ### Get the PK model `Linear1InfusionSingleDose_ClV` from the library of models
@@ -341,10 +346,6 @@ Report( optimizationSimplex, outputPath, outputFile, plotOptions )
 ```
 
 
-```{r, echo = TRUE, eval = FALSE, comment=''} 
-show( optimizationMultPopFIM )
-
-```
 
 # References
 
