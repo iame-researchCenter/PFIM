@@ -20,22 +20,26 @@
 [1] "19/20"
 [1] "20/20"
  ************************************************* 
- Arm, size and optimal frequencie  
+ Arm, size and optimal frequency
  ************************************************* 
 
-    Arm Arm size Optimal frequencie
-1 Arm20   109.73               0.55
-2 Arm13    48.43               0.24
-3 Arm17    41.84               0.21
+    Arm   Size Optimal frequency
+1 Arm20 109.73              0.55
+2 Arm13  48.43              0.24
+3 Arm17  41.84              0.21
 
  ************************************************** 
  Optimal Design 
  ************************************************** 
 
-     Design    Arm     Arm size Response Dose  Sampling times      
-[1,] "design1" "Arm20" "109.73" "RespPK" "200" "(0.33, 1.5, 8, 12)"
-[2,] "design1" "Arm13" "48.43"  "RespPK" "100" "(0.33, 1, 1.5, 8)" 
-[3,] "design1" "Arm17" "41.84"  "RespPK" "100" "(0.33, 1.5, 3, 12)"
+     Design    Arm     Arm size Outcome  Dose 
+[1,] "design1" "Arm20" "109.73" "RespPK" "200"
+[2,] "design1" "Arm13" "48.43"  "RespPK" "200"
+[3,] "design1" "Arm17" "41.84"  "RespPK" "200"
+     Sampling times      
+[1,] "(0.33, 1.5, 8, 12)"
+[2,] "(0.33, 1, 1.5, 8)" 
+[3,] "(0.33, 1.5, 3, 12)"
 
 *************************
 
@@ -49,19 +53,25 @@ Fisher information matrix
 
 **** Fixed effect 
 
-            ｵ_k      ｵ_ka       ｵ_V
-ｵ_k  9303.56219 64.381081 60.347248
-ｵ_ka   64.38108 40.184111 -3.642144
-ｵ_V    60.34725 -3.642144  5.471520
+             ﾎｼ_k      ﾎｼ_ka       ﾎｼ_V
+ﾎｼ_k  10309.82172 60.488777 53.128767
+ﾎｼ_ka    60.48878 41.774914 -3.344289
+ﾎｼ_V     53.12877 -3.344289  5.815910
 
 **** Variance components 
 
-                      <U+03C9>ｲ_k        <U+03C9>ｲ_ka        <U+03C9>ｲ_V s_inter_RespPK s_slope_RespPK
-<U+03C9>ｲ_k            872.280855     2.634084   133.55168      167.00881       198.9953
-<U+03C9>ｲ_ka             2.634084    64.681017    30.31635       20.51363        91.5819
-<U+03C9>ｲ_V            133.551683    30.316349  3789.96056      241.41300      1499.8987
-s_inter_RespPK  167.008807    20.513631   241.41300      836.78084      1575.0184
-s_slope_RespPK  198.995338    91.581897  1499.89866     1575.01844      5436.4939
+                      ﾏ可ｲ_k     ﾏ可ｲ_ka       ﾏ可ｲ_V ﾏダinter_RespPK
+ﾏ可ｲ_k           1040.984618  2.293189   99.64696      133.93032
+ﾏ可ｲ_ka             2.293189 69.821628   25.68201       14.50997
+ﾏ可ｲ_V             99.646960 25.682009 4295.99027      206.47747
+ﾏダinter_RespPK  133.930323 14.509969  206.47747      618.55893
+ﾏダslope_RespPK  215.937442 92.789445 1633.03600     1371.25052
+               ﾏダslope_RespPK
+ﾏ可ｲ_k                215.93744
+ﾏ可ｲ_ka                92.78945
+ﾏ可ｲ_V               1633.03600
+ﾏダinter_RespPK     1371.25052
+ﾏダslope_RespPK     7107.19974
 
 ******************
 Correlation matrix  
@@ -69,29 +79,35 @@ Correlation matrix
 
 **** Fixed effect 
 
-            ｵ_k       ｵ_ka        ｵ_V
-ｵ_k   1.0000000 -0.1830671 -0.3042976
-ｵ_ka -0.1830671  1.0000000  0.2857313
-ｵ_V  -0.3042976  0.2857313  1.0000000
+            ﾎｼ_k       ﾎｼ_ka        ﾎｼ_V
+ﾎｼ_k   1.0000000 -0.1454952 -0.2434243
+ﾎｼ_ka -0.1454952  1.0000000  0.2413031
+ﾎｼ_V  -0.2434243  0.2413031  1.0000000
 
 **** Variance components 
 
-                       <U+03C9>ｲ_k        <U+03C9>ｲ_ka        <U+03C9>ｲ_V s_inter_RespPK s_slope_RespPK
-<U+03C9>ｲ_k            1.000000000 -0.004071026 -0.08114098    -0.20163371      0.1029168
-<U+03C9>ｲ_ka          -0.004071026  1.000000000 -0.00404224     0.03756978     -0.1232543
-<U+03C9>ｲ_V           -0.081140976 -0.004042240  1.00000000     0.18242925     -0.3469924
-s_inter_RespPK -0.201633707  0.037569783  0.18242925     1.00000000     -0.7419194
-s_slope_RespPK  0.102916803 -0.123254296 -0.34699242    -0.74191941      1.0000000
+                      ﾏ可ｲ_k        ﾏ可ｲ_ka         ﾏ可ｲ_V
+ﾏ可ｲ_k            1.00000000 -0.001107730 -0.039518773
+ﾏ可ｲ_ka          -0.00110773  1.000000000 -0.006382769
+ﾏ可ｲ_V           -0.03951877 -0.006382769  1.000000000
+ﾏダinter_RespPK -0.15546542  0.021000715  0.096976184
+ﾏダslope_RespPK  0.04931549 -0.107552738 -0.282492738
+               ﾏダinter_RespPK ﾏダslope_RespPK
+ﾏ可ｲ_k              -0.15546542     0.04931549
+ﾏ可ｲ_ka              0.02100072    -0.10755274
+ﾏ可ｲ_V               0.09697618    -0.28249274
+ﾏダinter_RespPK     1.00000000    -0.64797679
+ﾏダslope_RespPK    -0.64797679     1.00000000
 
 **********************************************
 Determinant, condition numbers and D-criterion 
 **********************************************
 
                                        Value
-Determinant                     6.105333e+20
-Cond number fixed effects       2.018025e+03
-Cond number variance components 1.066365e+02
-D-criterion                     3.964730e+02
+Determinant                     1.508025e+21
+Cond number fixed effects       1.993053e+03
+Cond number variance components 1.182377e+02
+D-criterion                     4.439163e+02
 
 **********
 Shrinkage 
@@ -104,260 +120,14 @@ SE and RSE
 **********
 
                Value         SE   RSE (%)
-ｵ_k             0.25 0.01094451  4.377803
-ｵ_ka            2.00 0.16553424  8.276712
-ｵ_V            15.00 0.46297638  3.086509
-<U+03C9>ｲ_k            0.25 0.03475112 13.900448
-<U+03C9>ｲ_ka           1.00 0.12594740 12.594740
-<U+03C9>ｲ_V            0.10 0.01752372 17.523717
-s_inter_RespPK  0.50 0.05315594 10.631189
-s_slope_RespPK  0.15 0.02170740 14.471602
+ﾎｼ_k             0.25 0.01019744  4.078976
+ﾎｼ_ka            2.00 0.16011122  8.005561
+ﾎｼ_V            15.00 0.43771230  2.918082
+ﾏ可ｲ_k            0.25 0.03148463 12.593853
+ﾏ可ｲ_ka           1.00 0.12075854 12.075854
+ﾏ可ｲ_V            0.10 0.01605152 16.051515
+ﾏダinter_RespPK  0.50 0.05404624 10.809248
+ﾏダslope_RespPK  0.15 0.01646609 10.977394
 
-  |                                                                                                    |                                                                                            |   0%  |                                                                                                    |..                                                                                          |   2%
-   inline R code fragments
-
-  |                                                                                                    |....                                                                                        |   5%
-label: setup (with options) 
-List of 1
- $ include: logi FALSE
-
-  |                                                                                                    |.......                                                                                     |   7%
-  ordinary text without R code
-
-  |                                                                                                    |.........                                                                                   |  10%
-label: unnamed-chunk-1 (with options) 
-List of 1
- $ echo: logi FALSE
-
-  |                                                                                                    |...........                                                                                 |  12%
-  ordinary text without R code
-
-  |                                                                                                    |.............                                                                               |  14%
-label: modelOutputs (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |...............                                                                             |  17%
-  ordinary text without R code
-
-  |                                                                                                    |..................                                                                          |  19%
-label: modelEquations (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |....................                                                                        |  21%
-  ordinary text without R code
-
-  |                                                                                                    |......................                                                                      |  24%
-label: modelError (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |........................                                                                    |  26%
-  ordinary text without R code
-
-  |                                                                                                    |..........................                                                                  |  29%
-label: modelParameters (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |............................                                                                |  31%
-  ordinary text without R code
-
-  |                                                                                                    |...............................                                                             |  33%
-label: administrationParameters (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |.................................                                                           |  36%
-  ordinary text without R code
-
-  |                                                                                                    |...................................                                                         |  38%
-label: initialDesignParameters (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |.....................................                                                       |  40%
-  ordinary text without R code
-
-  |                                                                                                    |.......................................                                                     |  43%
-label: samplingTimeConstraints (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |..........................................                                                  |  45%
-  ordinary text without R code
-
-  |                                                                                                    |............................................                                                |  48%
-label: criteriaFimInitialDesignTable (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |..............................................                                              |  50%
-  ordinary text without R code
-
-  |                                                                                                    |................................................                                            |  52%
-label: optimalDesignParameters (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |..................................................                                          |  55%
-  ordinary text without R code
-
-  |                                                                                                    |.....................................................                                       |  57%
-label: FIMFixedEffectsTable (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |.......................................................                                     |  60%
-   inline R code fragments
-
-  |                                                                                                    |.........................................................                                   |  62%
-label: FIMVarianceEffectsTable (with options) 
-List of 6
- $ eval      : logi TRUE
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |...........................................................                                 |  64%
-  ordinary text without R code
-
-  |                                                                                                    |.............................................................                               |  67%
-label: correlationMatrixFixedEffectsTable (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |................................................................                            |  69%
-   inline R code fragments
-
-  |                                                                                                    |..................................................................                          |  71%
-label: correlationMatrixVarianceEffectsTable (with options) 
-List of 6
- $ eval      : logi TRUE
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |....................................................................                        |  74%
-  ordinary text without R code
-
-  |                                                                                                    |......................................................................                      |  76%
-label: criteriaFimTable (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |........................................................................                    |  79%
-  ordinary text without R code
-
-  |                                                                                                    |..........................................................................                  |  81%
-label: SEandRSETable (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |.............................................................................               |  83%
-  ordinary text without R code
-
-  |                                                                                                    |...............................................................................             |  86%
-label: plotOutcomesEvaluation (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |.................................................................................           |  88%
-  ordinary text without R code
-
-  |                                                                                                    |...................................................................................         |  90%
-label: plotOutcomesGradient (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |.....................................................................................       |  93%
-  ordinary text without R code
-
-  |                                                                                                    |........................................................................................    |  95%
-label: plotSEandRSE (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                                                    |..........................................................................................  |  98%
-   inline R code fragments
-
-  |                                                                                                    |............................................................................................| 100%
-label: shrinkage (with options) 
-List of 5
- $ eval      : logi FALSE
- $ echo      : logi FALSE
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-
-"C:/RStudio/bin/pandoc/pandoc" +RTS -K512m -RTS template_FedorovAlgorithm.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc27342e5b14de.html --lua-filter "C:\R\R-4.1.0\library\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\R\R-4.1.0\library\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\R\R-4.1.0\library\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --include-in-header "C:\Users\LUCIE~1.FAY\AppData\Local\Temp\Rtmpk99Odq\rmarkdown-str273473ca5a4a.html" --mathjax --variable "mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
+  |                        |                |   0%  |                        |                |   2%                                          |                        |.               |   5% [setup]                                  |                        |.               |   7%                                          |                        |..              |  10% [unnamed-chunk-1]                        |                        |..              |  12%                                          |                        |..              |  14% [modelOutputs]                           |                        |...             |  17%                                          |                        |...             |  19% [modelEquations]                         |                        |...             |  21%                                          |                        |....            |  24% [modelError]                             |                        |....            |  26%                                          |                        |.....           |  29% [modelParameters]                        |                        |.....           |  31%                                          |                        |.....           |  33% [administrationParameters]               |                        |......          |  36%                                          |                        |......          |  38% [initialDesignParameters]                |                        |......          |  40%                                          |                        |.......         |  43% [samplingTimeConstraints]                |                        |.......         |  45%                                          |                        |........        |  48% [criteriaFimInitialDesignTable]          |                        |........        |  50%                                          |                        |........        |  52% [optimalDesignParameters]                |                        |.........       |  55%                                          |                        |.........       |  57% [FIMFixedEffectsTable]                   |                        |..........      |  60%                                          |                        |..........      |  62% [FIMVarianceEffectsTable]                |                        |..........      |  64%                                          |                        |...........     |  67% [correlationMatrixFixedEffectsTable]     |                        |...........     |  69%                                          |                        |...........     |  71% [correlationMatrixVarianceEffectsTable]  |                        |............    |  74%                                          |                        |............    |  76% [criteriaFimTable]                       |                        |.............   |  79%                                          |                        |.............   |  81% [SEandRSETable]                          |                        |.............   |  83%                                          |                        |..............  |  86% [plotOutcomesEvaluation]                 |                        |..............  |  88%                                          |                        |..............  |  90% [plotOutcomesGradient]                   |                        |............... |  93%                                          |                        |............... |  95% [plotSEandRSE]                           |                        |................|  98%                                          |                        |................| 100% [shrinkage]                                                                                                                                                
+"C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/pandoc" +RTS -K512m -RTS template_FedorovAlgorithm.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc32b86c113c7.html --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\latex-div.lua" --embed-resources --standalone --variable bs3=TRUE --section-divs --template "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\luf59577\AppData\Local\Temp\Rtmpo9VNgm\rmarkdown-str32b8664a78f.html" 
