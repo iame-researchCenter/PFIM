@@ -84,10 +84,10 @@ show( evaluationFIM )
 plotOptions = list( unitTime=c("unit time"),
                     unitOutcomes = c("unit RespPK","unit RespPD" ) )
 
-plotEvaluationPopulation = plot( evaluationFIM, plotOptions )
 
-plotOutcomesEvaluation = plotEvaluationPopulation$plotOutcomesEvaluation
-plotOutcomesGradient = plotEvaluationPopulation$plotOutcomesGradient
+
+plotOutcomesEvaluation = plotEvaluation( evaluationFIM, plotOptions )
+plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
 
 print( plotOutcomesEvaluation )
 print( plotOutcomesGradient )

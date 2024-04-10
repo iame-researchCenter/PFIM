@@ -67,10 +67,10 @@ plotOptions = list( unitTime = c("unit time"),
 plotOptions = list( unitTime = c("hour"),
                     unitOutcomes = c("unit RespPK","unit RespPD" ) )
 
-plotEvaluationPopulation = plot( evaluationFIM, plotOptions )
 
-plotOutcomesEvaluation = plotEvaluationPopulation$plotOutcomesEvaluation
-plotOutcomesGradient = plotEvaluationPopulation$plotOutcomesGradient
+
+plotOutcomesEvaluation = plotEvaluation( evaluationFIM, plotOptions )
+plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
 
 plotSE = plotSE( evaluationFIM, plotOptions )
 plotRSE = plotRSE( evaluationFIM, plotOptions )

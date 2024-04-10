@@ -10,27 +10,27 @@ Fisher information matrix
 
 **** Fixed effect 
 
-               ｵ_C50          ｵ_Cl        ｵ_ka        ｵ_kout         ｵ_Rin
-ｵ_C50   8.308367e+01    377.615296  0.02998376 -3.451021e+03  2.972261e+01
-ｵ_Cl    3.776153e+02   3554.484391  1.81591054 -1.485067e+04  1.336341e+02
-ｵ_ka    2.998376e-02      1.815911  1.16450743 -2.760533e-02  1.710881e-02
-ｵ_kout -3.451021e+03 -14850.666650 -0.02760533  1.483287e+05 -1.248254e+03
-ｵ_Rin   2.972261e+01    133.634085  0.01710881 -1.248254e+03  1.076139e+01
-ｵ_V     6.313111e+00     44.931302 -0.48152736 -2.757958e+02  2.279281e+00
-                ｵ_V
-ｵ_C50     6.3131112
-ｵ_Cl     44.9313018
-ｵ_ka     -0.4815274
-ｵ_kout -275.7958342
-ｵ_Rin     2.2792815
-ｵ_V       1.3347740
+               ﾎｼ_C50          ﾎｼ_Cl        ﾎｼ_ka        ﾎｼ_kout
+ﾎｼ_C50   8.308367e+01    377.615296  0.02998376 -3.451021e+03
+ﾎｼ_Cl    3.776153e+02   3554.484391  1.81591054 -1.485067e+04
+ﾎｼ_ka    2.998376e-02      1.815911  1.16450743 -2.760533e-02
+ﾎｼ_kout -3.451021e+03 -14850.666650 -0.02760533  1.483287e+05
+ﾎｼ_Rin   2.972261e+01    133.634085  0.01710881 -1.248254e+03
+ﾎｼ_V     6.313111e+00     44.931302 -0.48152736 -2.757958e+02
+               ﾎｼ_Rin          ﾎｼ_V
+ﾎｼ_C50   2.972261e+01    6.3131112
+ﾎｼ_Cl    1.336341e+02   44.9313018
+ﾎｼ_ka    1.710881e-02   -0.4815274
+ﾎｼ_kout -1.248254e+03 -275.7958342
+ﾎｼ_Rin   1.076139e+01    2.2792815
+ﾎｼ_V     2.279281e+00    1.3347740
 
 **** Variance components 
 
-               s_inter_RespPK s_slope_RespPK s_inter_RespPD
-s_inter_RespPK       42.24344       90.69603          0.000
-s_slope_RespPK       90.69603      239.57052          0.000
-s_inter_RespPD        0.00000        0.00000          0.875
+               ﾏダinter_RespPK ﾏダslope_RespPK ﾏダinter_RespPD
+ﾏダinter_RespPK       42.24344       90.69603          0.000
+ﾏダslope_RespPK       90.69603      239.57052          0.000
+ﾏダinter_RespPD        0.00000        0.00000          0.875
 
 ******************
 Correlation matrix  
@@ -38,20 +38,27 @@ Correlation matrix
 
 **** Fixed effect 
 
-            ｵ_C50       ｵ_Cl        ｵ_ka     ｵ_kout       ｵ_Rin        ｵ_V
-ｵ_C50   1.0000000 -0.2683450  0.11010638  0.1674629 -0.73552168  0.1591404
-ｵ_Cl   -0.2683450  1.0000000 -0.36976442 -0.4470940 -0.12027914 -0.5951162
-ｵ_ka    0.1101064 -0.3697644  1.00000000  0.2345981  0.04421309  0.5871553
-ｵ_kout  0.1674629 -0.4470940  0.23459805  1.0000000  0.53203375  0.4247327
-ｵ_Rin  -0.7355217 -0.1202791  0.04421309  0.5320337  1.00000000  0.1133182
-ｵ_V     0.1591404 -0.5951162  0.58715534  0.4247327  0.11331822  1.0000000
+            ﾎｼ_C50       ﾎｼ_Cl        ﾎｼ_ka     ﾎｼ_kout       ﾎｼ_Rin
+ﾎｼ_C50   1.0000000 -0.2683450  0.11010638  0.1674629 -0.73552168
+ﾎｼ_Cl   -0.2683450  1.0000000 -0.36976442 -0.4470940 -0.12027914
+ﾎｼ_ka    0.1101064 -0.3697644  1.00000000  0.2345981  0.04421309
+ﾎｼ_kout  0.1674629 -0.4470940  0.23459805  1.0000000  0.53203375
+ﾎｼ_Rin  -0.7355217 -0.1202791  0.04421309  0.5320337  1.00000000
+ﾎｼ_V     0.1591404 -0.5951162  0.58715534  0.4247327  0.11331822
+              ﾎｼ_V
+ﾎｼ_C50   0.1591404
+ﾎｼ_Cl   -0.5951162
+ﾎｼ_ka    0.5871553
+ﾎｼ_kout  0.4247327
+ﾎｼ_Rin   0.1133182
+ﾎｼ_V     1.0000000
 
 **** Variance components 
 
-               s_inter_RespPK s_slope_RespPK s_inter_RespPD
-s_inter_RespPK      1.0000000     -0.9015545              0
-s_slope_RespPK     -0.9015545      1.0000000              0
-s_inter_RespPD      0.0000000      0.0000000              1
+               ﾏダinter_RespPK ﾏダslope_RespPK ﾏダinter_RespPD
+ﾏダinter_RespPK      1.0000000     -0.9015545              0
+ﾏダslope_RespPK     -0.9015545      1.0000000              0
+ﾏダinter_RespPD      0.0000000      0.0000000              1
 
 **********************************************
 Determinant, condition numbers and D-criterion 
@@ -74,15 +81,15 @@ SE and RSE
 **********
 
                Value         SE   RSE (%)
-ｵ_C50           1.20 1.04471994  87.06000
-ｵ_Cl            0.13 0.03027502  23.28848
-ｵ_ka            1.60 1.14601410  71.62588
-ｵ_kout          0.06 0.01930787  32.17979
-ｵ_Rin           5.40 3.34877580  62.01437
-ｵ_V             8.00 1.58270741  19.78384
-s_inter_RespPK  0.60 0.35560514  59.26752
-s_slope_RespPK  0.07 0.14932447 213.32067
-s_inter_RespPD  4.00 1.06904497  26.72612
+ﾎｼ_C50           1.20 1.04471994  87.06000
+ﾎｼ_Cl            0.13 0.03027502  23.28848
+ﾎｼ_ka            1.60 1.14601410  71.62588
+ﾎｼ_kout          0.06 0.01930787  32.17979
+ﾎｼ_Rin           5.40 3.34877580  62.01437
+ﾎｼ_V             8.00 1.58270741  19.78384
+ﾏダinter_RespPK  0.60 0.35560514  59.26752
+ﾏダslope_RespPK  0.07 0.14932447 213.32067
+ﾏダinter_RespPD  4.00 1.06904497  26.72612
 
 $design1
 $design1$BrasTest1
@@ -92,205 +99,46 @@ $design1$BrasTest1$RespPD
 
 
 
+new("nonstandardGenericFunction", .Data = function (object, initialDesign, 
+    model, plotOptions) 
+{
+    standardGeneric("plotOutcomesGradient")
+}, generic = "plotOutcomesGradient", package = "PFIM", group = list(), 
+    valueClass = character(0), signature = c("object", "initialDesign", 
+    "model", "plotOptions"), default = NULL, skeleton = (function (object, 
+        initialDesign, model, plotOptions) 
+    stop(gettextf("invalid call in method dispatch to '%s' (no default method)", 
+        "plotOutcomesGradient"), domain = NA))(object, initialDesign, 
+        model, plotOptions))
+<bytecode: 0x000001cf1d890d38>
+<environment: 0x000001cf1d87a658>
+attr(,"generic")
+[1] "plotOutcomesGradient"
+attr(,"generic")attr(,"package")
+[1] "PFIM"
+attr(,"package")
+[1] "PFIM"
+attr(,"group")
+list()
+attr(,"valueClass")
+character(0)
+attr(,"signature")
+[1] "object"        "initialDesign" "model"        
+[4] "plotOptions"  
+attr(,"default")
+`\001NULL\001`
+attr(,"skeleton")
+(function (object, initialDesign, model, plotOptions) 
+stop(gettextf("invalid call in method dispatch to '%s' (no default method)", 
+    "plotOutcomesGradient"), domain = NA))(object, initialDesign, 
+    model, plotOptions)
+attr(,"class")
+[1] "nonstandardGenericFunction"
+attr(,"class")attr(,"package")
+[1] "methods"
 $design1
-$design1$BrasTest1
-$design1$BrasTest1$RespPK
-$design1$BrasTest1$RespPK$C50
-
-$design1$BrasTest1$RespPK$Cl
-
-$design1$BrasTest1$RespPK$ka
-
-$design1$BrasTest1$RespPK$kout
-
-$design1$BrasTest1$RespPK$Rin
-
-$design1$BrasTest1$RespPK$V
-
-
-$design1$BrasTest1$RespPD
-$design1$BrasTest1$RespPD$C50
-
-$design1$BrasTest1$RespPD$Cl
-
-$design1$BrasTest1$RespPD$ka
-
-$design1$BrasTest1$RespPD$kout
-
-$design1$BrasTest1$RespPD$Rin
-
-$design1$BrasTest1$RespPD$V
-
-
-
 
 $design1
 
-$design1
-
-  |                                                                           |                                                                   |   0%  |                                                                           |..                                                                 |   4%
-   inline R code fragments
-
-  |                                                                           |.....                                                              |   7%
-label: setup (with options) 
-List of 1
- $ include: logi FALSE
-
-  |                                                                           |.......                                                            |  11%
-  ordinary text without R code
-
-  |                                                                           |..........                                                         |  14%
-label: modelOutputs (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                           |............                                                       |  18%
-  ordinary text without R code
-
-  |                                                                           |..............                                                     |  21%
-label: modelEquations (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                           |.................                                                  |  25%
-  ordinary text without R code
-
-  |                                                                           |...................                                                |  29%
-label: modelError (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                           |......................                                             |  32%
-  ordinary text without R code
-
-  |                                                                           |........................                                           |  36%
-label: modelParameters (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                           |..........................                                         |  39%
-  ordinary text without R code
-
-  |                                                                           |.............................                                      |  43%
-label: initialDesignParameters (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                           |...............................                                    |  46%
-  ordinary text without R code
-
-  |                                                                           |..................................                                 |  50%
-label: administrationParameters (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                           |....................................                               |  54%
-  ordinary text without R code
-
-  |                                                                           |......................................                             |  57%
-label: FIMFixedEffectsTable (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                           |.........................................                          |  61%
-  ordinary text without R code
-
-  |                                                                           |...........................................                        |  64%
-label: correlationMatrixFixedEffectsTable (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                           |.............................................                      |  68%
-  ordinary text without R code
-
-  |                                                                           |................................................                   |  71%
-label: criteriaFimTable (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                           |..................................................                 |  75%
-  ordinary text without R code
-
-  |                                                                           |.....................................................              |  79%
-label: SEandRSETable (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                           |.......................................................            |  82%
-  ordinary text without R code
-
-  |                                                                           |.........................................................          |  86%
-label: plotOutcomesEvaluation (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                           |............................................................       |  89%
-  ordinary text without R code
-
-  |                                                                           |..............................................................     |  93%
-label: plotOutcomesGradient (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-  |                                                                           |.................................................................  |  96%
-  ordinary text without R code
-
-  |                                                                           |...................................................................| 100%
-label: plotSEandRSE (with options) 
-List of 5
- $ echo      : logi FALSE
- $ comment   : chr ""
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
-
-
-"C:/RStudio/bin/pandoc/pandoc" +RTS -K512m -RTS templateEvaluationIndividualFim.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc50205d924d2a.html --lua-filter "C:\R\R-4.1.0\library\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\R\R-4.1.0\library\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --variable bs3=TRUE --standalone --section-divs --template "C:\R\R-4.1.0\library\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --include-in-header "C:\Users\LUCIE~1.FAY\AppData\Local\Temp\Rtmp2FEiN0\rmarkdown-str502051bc41e8.html" --mathjax --variable "mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
+  |                          |                  |   0%  |                          |.                 |   4%                                       |                          |.                 |   7% [setup]                               |                          |..                |  11%                                       |                          |...               |  14% [modelOutputs]                        |                          |...               |  18%                                       |                          |....              |  21% [modelEquations]                      |                          |....              |  25%                                       |                          |.....             |  29% [modelError]                          |                          |......            |  32%                                       |                          |......            |  36% [modelParameters]                     |                          |.......           |  39%                                       |                          |........          |  43% [initialDesignParameters]             |                          |........          |  46%                                       |                          |.........         |  50% [administrationParameters]            |                          |..........        |  54%                                       |                          |..........        |  57% [FIMFixedEffectsTable]                |                          |...........       |  61%                                       |                          |............      |  64% [correlationMatrixFixedEffectsTable]  |                          |............      |  68%                                       |                          |.............     |  71% [criteriaFimTable]                    |                          |..............    |  75%                                       |                          |..............    |  79% [SEandRSETable]                       |                          |...............   |  82%                                       |                          |...............   |  86% [plotOutcomesEvaluation]              |                          |................  |  89%                                       |                          |................. |  93% [plotOutcomesGradient]                |                          |................. |  96%                                       |                          |..................| 100% [plotSEandRSE]                                                                                                                                      
+"C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/pandoc" +RTS -K512m -RTS templateEvaluationIndividualFim.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc32b850fe303c.html --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\latex-div.lua" --embed-resources --standalone --variable bs3=TRUE --section-divs --template "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\luf59577\AppData\Local\Temp\Rtmpo9VNgm\rmarkdown-str32b83cd97d1f.html" 
