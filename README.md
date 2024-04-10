@@ -27,7 +27,7 @@ Methods used in the package refer to Mentré F, Mallet A, Baccar D (1997)
 (2013) <doi:10.1007/s11095-013-1079-3> and Seurat J, Tang Y, Mentré F,
 Nguyen TT (2021) <doi:10.1016/j.cmpb.2021.106126>
 
-Version: 6.0.2
+Version: 6.0.3
 
 Depends: R (≥ 4.0.0)
 
