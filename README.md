@@ -29,6 +29,8 @@ Nguyen TT (2021) <doi:10.1016/j.cmpb.2021.106126>
 
 Version: 6.1
 
+This version 6.1 of PFIM is optimized for computational efficiency, delivering enhanced performance and faster processing times.
+
 Depends: R (≥ 4.0.0)
 
 Imports: methods, rmarkdown, stats, scales, deSolve, kableExtra, gtable,
