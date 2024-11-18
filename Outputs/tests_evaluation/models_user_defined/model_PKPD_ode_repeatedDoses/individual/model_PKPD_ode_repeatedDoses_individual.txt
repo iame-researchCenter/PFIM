@@ -10,18 +10,18 @@ Fisher information matrix
 
 **** Fixed effect 
 
-               ﾎｼ_Cl         ﾎｼ_Clm         ﾎｼ_ka           ﾎｼ_V          ﾎｼ_Vm
-ﾎｼ_Cl   0.6775031666  8.124214e-02 -0.022432210 -8.629458e-03  8.490230e-05
-ﾎｼ_Clm  0.0812421354  4.169421e-02 -0.002426997 -3.043643e-03  4.281285e-05
-ﾎｼ_ka  -0.0224322103 -2.426997e-03 56.504098390 -8.988251e-02 -1.499237e-02
-ﾎｼ_V   -0.0086294577 -3.043643e-03 -0.089882509  4.768836e-04 -3.174041e-06
-ﾎｼ_Vm   0.0000849023  4.281285e-05 -0.014992370 -3.174041e-06  1.230298e-05
+               ｵ_Cl         ｵ_Clm         ｵ_ka           ｵ_V          ｵ_Vm
+ｵ_Cl   6.775316e-01  8.123203e-02 -0.022891769 -8.630302e-03  8.517788e-05
+ｵ_Clm  8.123203e-02  4.169339e-02 -0.002456986 -3.043725e-03  4.281943e-05
+ｵ_ka  -2.289177e-02 -2.456986e-03 56.504324203 -8.987886e-02 -1.499247e-02
+ｵ_V   -8.630302e-03 -3.043725e-03 -0.089878860  4.769047e-04 -3.175325e-06
+ｵ_Vm   8.517788e-05  4.281943e-05 -0.014992474 -3.175325e-06  1.230299e-05
 
 **** Variance components 
 
-                ﾏダslope_RespPK1 ﾏダslope_RespPK2
-ﾏダslope_RespPK1        879.0088          0.0000
-ﾏダslope_RespPK2          0.0000        341.7489
+                s_slope_RespPK1 s_slope_RespPK2
+s_slope_RespPK1        879.0088          0.0000
+s_slope_RespPK2          0.0000        341.7489
 
 ******************
 Correlation matrix  
@@ -29,28 +29,28 @@ Correlation matrix
 
 **** Fixed effect 
 
-           ﾎｼ_Cl     ﾎｼ_Clm      ﾎｼ_ka       ﾎｼ_V      ﾎｼ_Vm
-ﾎｼ_Cl  1.0000000 0.3539589 0.5527120 0.5862896 0.4966496
-ﾎｼ_Clm 0.3539589 1.0000000 0.8392895 0.8976053 0.7444296
-ﾎｼ_ka  0.5527120 0.8392895 1.0000000 0.9410602 0.8988283
-ﾎｼ_V   0.5862896 0.8976053 0.9410602 1.0000000 0.8459636
-ﾎｼ_Vm  0.4966496 0.7444296 0.8988283 0.8459636 1.0000000
+           ｵ_Cl     ｵ_Clm      ｵ_ka       ｵ_V      ｵ_Vm
+ｵ_Cl  1.0000000 0.3542565 0.5529315 0.5865119 0.4968147
+ｵ_Clm 0.3542565 1.0000000 0.8393278 0.8976335 0.7444826
+ｵ_ka  0.5529315 0.8393278 1.0000000 0.9410710 0.8988411
+ｵ_V   0.5865119 0.8976335 0.9410710 1.0000000 0.8459833
+ｵ_Vm  0.4968147 0.7444826 0.8988411 0.8459833 1.0000000
 
 **** Variance components 
 
-                ﾏダslope_RespPK1 ﾏダslope_RespPK2
-ﾏダslope_RespPK1               1               0
-ﾏダslope_RespPK2               0               1
+                s_slope_RespPK1 s_slope_RespPK2
+s_slope_RespPK1               1               0
+s_slope_RespPK2               0               1
 
 **********************************************
 Determinant, condition numbers and D-criterion 
 **********************************************
 
                                        Value
-Determinant                     8.379358e-05
-Cond number fixed effects       2.550122e+07
+Determinant                     8.378505e-05
+Cond number fixed effects       2.550459e+07
 Cond number variance components 2.572090e+00
-D-criterion                     2.615782e-01
+D-criterion                     2.615744e-01
 
 **********
 Shrinkage 
@@ -63,13 +63,13 @@ SE and RSE
 **********
 
                    Value           SE   RSE (%)
-ﾎｼ_Cl            2.81e+01   1.71315101  6.096623
-ﾎｼ_Clm           5.36e+01  12.71698209 23.725713
-ﾎｼ_ka            1.24e+00   0.47850915 38.589448
-ﾎｼ_V             7.50e+02 190.57426270 25.409902
-ﾎｼ_Vm            1.86e+03 651.62846714 35.033789
-ﾏダslope_RespPK1 9.54e-02   0.03372899 35.355339
-ﾏダslope_RespPK2 1.53e-01   0.05409367 35.355339
+ｵ_Cl            2.81e+01   1.71338495  6.097455
+ｵ_Clm           5.36e+01  12.71821113 23.728006
+ｵ_ka            1.24e+00   0.47855141 38.592855
+ｵ_V             7.50e+02 190.59395178 25.412527
+ｵ_Vm            1.86e+03 651.66767755 35.035897
+s_slope_RespPK1 9.54e-02   0.03372899 35.355339
+s_slope_RespPK2 1.53e-01   0.05409367 35.355339
 
 $design1
 $design1$BrasTest
@@ -79,45 +79,39 @@ $design1$BrasTest$RespPK2
 
 
 
-new("nonstandardGenericFunction", .Data = function (object, initialDesign, 
-    model, plotOptions) 
-{
-    standardGeneric("plotOutcomesGradient")
-}, generic = "plotOutcomesGradient", package = "PFIM", group = list(), 
-    valueClass = character(0), signature = c("object", "initialDesign", 
-    "model", "plotOptions"), default = NULL, skeleton = (function (object, 
-        initialDesign, model, plotOptions) 
-    stop(gettextf("invalid call in method dispatch to '%s' (no default method)", 
-        "plotOutcomesGradient"), domain = NA))(object, initialDesign, 
-        model, plotOptions))
-<bytecode: 0x000001cf1d890d38>
-<environment: 0x000001cf1d87a658>
-attr(,"generic")
-[1] "plotOutcomesGradient"
-attr(,"generic")attr(,"package")
-[1] "PFIM"
-attr(,"package")
-[1] "PFIM"
-attr(,"group")
-list()
-attr(,"valueClass")
-character(0)
-attr(,"signature")
-[1] "object"        "initialDesign" "model"         "plotOptions"  
-attr(,"default")
-`\001NULL\001`
-attr(,"skeleton")
-(function (object, initialDesign, model, plotOptions) 
-stop(gettextf("invalid call in method dispatch to '%s' (no default method)", 
-    "plotOutcomesGradient"), domain = NA))(object, initialDesign, 
-    model, plotOptions)
-attr(,"class")
-[1] "nonstandardGenericFunction"
-attr(,"class")attr(,"package")
-[1] "methods"
+$design1
+$design1$BrasTest
+$design1$BrasTest$RespPK1
+$design1$BrasTest$RespPK1$Cl
+
+$design1$BrasTest$RespPK1$Clm
+
+$design1$BrasTest$RespPK1$ka
+
+$design1$BrasTest$RespPK1$V
+
+$design1$BrasTest$RespPK1$Vm
+
+
+$design1$BrasTest$RespPK2
+$design1$BrasTest$RespPK2$Cl
+
+$design1$BrasTest$RespPK2$Clm
+
+$design1$BrasTest$RespPK2$ka
+
+$design1$BrasTest$RespPK2$V
+
+$design1$BrasTest$RespPK2$Vm
+
+
+
+
 $design1
 
 $design1
 
-  |                                                  |                                          |   0%  |                                                  |..                                        |   4%                                       |                                                  |...                                       |   7% [setup]                               |                                                  |....                                      |  11%                                       |                                                  |......                                    |  14% [modelOutputs]                        |                                                  |........                                  |  18%                                       |                                                  |.........                                 |  21% [modelEquations]                      |                                                  |..........                                |  25%                                       |                                                  |............                              |  29% [modelError]                          |                                                  |..............                            |  32%                                       |                                                  |...............                           |  36% [modelParameters]                     |                                                  |................                          |  39%                                       |                                                  |..................                        |  43% [initialDesignParameters]             |                                                  |....................                      |  46%                                       |                                                  |.....................                     |  50% [administrationParameters]            |                                                  |......................                    |  54%                                       |                                                  |........................                  |  57% [FIMFixedEffectsTable]                |                                                  |..........................                |  61%                                       |                                                  |...........................               |  64% [correlationMatrixFixedEffectsTable]  |                                                  |............................              |  68%                                       |                                                  |..............................            |  71% [criteriaFimTable]                    |                                                  |................................          |  75%                                       |                                                  |.................................         |  79% [SEandRSETable]                       |                                                  |..................................        |  82%                                       |                                                  |....................................      |  86% [plotOutcomesEvaluation]              |                                                  |......................................    |  89%                                       |                                                  |.......................................   |  93% [plotOutcomesGradient]                |                                                  |........................................  |  96%                                       |                                                  |..........................................| 100% [plotSEandRSE]                                                                                                                                                              
-"C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/pandoc" +RTS -K512m -RTS templateEvaluationIndividualFim.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc32b8552616ce.html --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\latex-div.lua" --embed-resources --standalone --variable bs3=TRUE --section-divs --template "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\luf59577\AppData\Local\Temp\Rtmpo9VNgm\rmarkdown-str32b83f1762bb.html" 
+  |                                                                                                  |                                                                                          |   0%  |                                                                                                  |...                                                                                       |   4%                                       |                                                                                                  |......                                                                                    |   7% [setup]                               |                                                                                                  |..........                                                                                |  11%                                       |                                                                                                  |.............                                                                             |  14% [modelOutputs]                        |                                                                                                  |................                                                                          |  18%                                       |                                                                                                  |...................                                                                       |  21% [modelEquations]                      |                                                                                                  |......................                                                                    |  25%                                       |                                                                                                  |..........................                                                                |  29% [modelError]                          |                                                                                                  |.............................                                                             |  32%                                       |                                                                                                  |................................                                                          |  36% [modelParameters]                     |                                                                                                  |...................................                                                       |  39%                                       |                                                                                                  |.......................................                                                   |  43% [initialDesignParameters]             |                                                                                                  |..........................................                                                |  46%                                       |                                                                                                  |.............................................                                             |  50% [administrationParameters]            |                                                                                                  |................................................                                          |  54%                                       |                                                                                                  |...................................................                                       |  57% [FIMFixedEffectsTable]                |                                                                                                  |.......................................................                                   |  61%                                       |                                                                                                  |..........................................................                                |  64% [correlationMatrixFixedEffectsTable]  |                                                                                                  |.............................................................                             |  68%                                       |                                                                                                  |................................................................                          |  71% [criteriaFimTable]                    |                                                                                                  |....................................................................                      |  75%                                       |                                                                                                  |.......................................................................                   |  79% [SEandRSETable]                       |                                                                                                  |..........................................................................                |  82%                                       |                                                                                                  |.............................................................................             |  86% [plotOutcomesEvaluation]              |                                                                                                  |................................................................................          |  89%                                       |                                                                                                  |....................................................................................      |  93% [plotOutcomesGradient]                |                                                                                                  |.......................................................................................   |  96%                                       |                                                                                                  |..........................................................................................| 100% [plotSEandRSE]                                                                                                                                                                                                              
+"C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/pandoc" +RTS -K512m -RTS templateEvaluationIndividualFim.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc245014e31f41.html --lua-filter "C:\Users\luf59577\AppData\Local\R\win-library\4.3\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\luf59577\AppData\Local\R\win-library\4.3\rmarkdown\rmarkdown\lua\latex-div.lua" --embed-resources --standalone --variable bs3=TRUE --section-divs --template "C:\Users\luf59577\AppData\Local\R\win-library\4.3\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\luf59577\AppData\Local\Temp\4\RtmpIlJH84\rmarkdown-str2450298bd62.html" 
+  |                                                                          |                                                                  |   0%  |                                                                          |..                                                                |   4%                                       |                                                                          |.....                                                             |   7% [setup]                               |                                                                          |.......                                                           |  11%                                       |                                                                          |.........                                                         |  14% [modelOutputs]                        |                                                                          |............                                                      |  18%                                       |                                                                          |..............                                                    |  21% [modelEquations]                      |                                                                          |................                                                  |  25%                                       |                                                                          |...................                                               |  29% [modelError]                          |                                                                          |.....................                                             |  32%                                       |                                                                          |........................                                          |  36% [modelParameters]                     |                                                                          |..........................                                        |  39%                                       |                                                                          |............................                                      |  43% [initialDesignParameters]             |                                                                          |...............................                                   |  46%                                       |                                                                          |.................................                                 |  50% [administrationParameters]            |                                                                          |...................................                               |  54%                                       |                                                                          |......................................                            |  57% [FIMFixedEffectsTable]                |                                                                          |........................................                          |  61%                                       |                                                                          |..........................................                        |  64% [correlationMatrixFixedEffectsTable]  |                                                                          |.............................................                     |  68%                                       |                                                                          |...............................................                   |  71% [criteriaFimTable]                    |                                                                          |..................................................                |  75%                                       |                                                                          |....................................................              |  79% [SEandRSETable]                       |                                                                          |......................................................            |  82%                                       |                                                                          |.........................................................         |  86% [plotOutcomesEvaluation]              |                                                                          |...........................................................       |  89%                                       |                                                                          |.............................................................     |  93% [plotOutcomesGradient]                |                                                                          |................................................................  |  96%                                       |                                                                          |..................................................................| 100% [plotSEandRSE]                                                                                                                                                                                      
+"C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/pandoc" +RTS -K512m -RTS templateEvaluationIndividualFim.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc343877b359e.html --lua-filter "C:\Users\romai\AppData\Local\R\win-library\4.4\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\romai\AppData\Local\R\win-library\4.4\rmarkdown\rmarkdown\lua\latex-div.lua" --embed-resources --standalone --variable bs3=TRUE --section-divs --template "C:\Users\romai\AppData\Local\R\win-library\4.4\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\romai\AppData\Local\Temp\RtmpSAsFvl\rmarkdown-str343833263463.html" 

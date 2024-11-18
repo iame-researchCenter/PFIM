@@ -19,115 +19,3 @@
 [1] "18/20"
 [1] "19/20"
 [1] "20/20"
- ************************************************* 
- Arm, size and optimal frequency
- ************************************************* 
-
-    Arm   Size Optimal frequency
-1 Arm20 109.73              0.55
-2 Arm13  48.43              0.24
-3 Arm17  41.84              0.21
-
- ************************************************** 
- Optimal Design 
- ************************************************** 
-
-     Design    Arm     Arm size Outcome  Dose 
-[1,] "design1" "Arm20" "109.73" "RespPK" "200"
-[2,] "design1" "Arm13" "48.43"  "RespPK" "200"
-[3,] "design1" "Arm17" "41.84"  "RespPK" "200"
-     Sampling times      
-[1,] "(0.33, 1.5, 8, 12)"
-[2,] "(0.33, 1, 1.5, 8)" 
-[3,] "(0.33, 1.5, 3, 12)"
-
-*************************
-
-Design: design1
-
-*************************
-
-*************************
-Fisher information matrix 
-*************************
-
-**** Fixed effect 
-
-             μ_k      μ_ka       μ_V
-μ_k  10309.82172 60.488777 53.128767
-μ_ka    60.48878 41.774914 -3.344289
-μ_V     53.12877 -3.344289  5.815910
-
-**** Variance components 
-
-                      ω²_k     ω²_ka       ω²_V σ_inter_RespPK
-ω²_k           1040.984618  2.293189   99.64696      133.93032
-ω²_ka             2.293189 69.821628   25.68201       14.50997
-ω²_V             99.646960 25.682009 4295.99027      206.47747
-σ_inter_RespPK  133.930323 14.509969  206.47747      618.55893
-σ_slope_RespPK  215.937442 92.789445 1633.03600     1371.25052
-               σ_slope_RespPK
-ω²_k                215.93744
-ω²_ka                92.78945
-ω²_V               1633.03600
-σ_inter_RespPK     1371.25052
-σ_slope_RespPK     7107.19974
-
-******************
-Correlation matrix  
-******************
-
-**** Fixed effect 
-
-            μ_k       μ_ka        μ_V
-μ_k   1.0000000 -0.1454952 -0.2434243
-μ_ka -0.1454952  1.0000000  0.2413031
-μ_V  -0.2434243  0.2413031  1.0000000
-
-**** Variance components 
-
-                      ω²_k        ω²_ka         ω²_V
-ω²_k            1.00000000 -0.001107730 -0.039518773
-ω²_ka          -0.00110773  1.000000000 -0.006382769
-ω²_V           -0.03951877 -0.006382769  1.000000000
-σ_inter_RespPK -0.15546542  0.021000715  0.096976184
-σ_slope_RespPK  0.04931549 -0.107552738 -0.282492738
-               σ_inter_RespPK σ_slope_RespPK
-ω²_k              -0.15546542     0.04931549
-ω²_ka              0.02100072    -0.10755274
-ω²_V               0.09697618    -0.28249274
-σ_inter_RespPK     1.00000000    -0.64797679
-σ_slope_RespPK    -0.64797679     1.00000000
-
-**********************************************
-Determinant, condition numbers and D-criterion 
-**********************************************
-
-                                       Value
-Determinant                     1.508025e+21
-Cond number fixed effects       1.993053e+03
-Cond number variance components 1.182377e+02
-D-criterion                     4.439163e+02
-
-**********
-Shrinkage 
-**********
-
-NULL
-
-**********
-SE and RSE 
-**********
-
-               Value         SE   RSE (%)
-μ_k             0.25 0.01019744  4.078976
-μ_ka            2.00 0.16011122  8.005561
-μ_V            15.00 0.43771230  2.918082
-ω²_k            0.25 0.03148463 12.593853
-ω²_ka           1.00 0.12075854 12.075854
-ω²_V            0.10 0.01605152 16.051515
-σ_inter_RespPK  0.50 0.05404624 10.809248
-σ_slope_RespPK  0.15 0.01646609 10.977394
-
-  |                        |                |   0%  |                        |                |   2%                                          |                        |.               |   5% [setup]                                  |                        |.               |   7%                                          |                        |..              |  10% [unnamed-chunk-1]                        |                        |..              |  12%                                          |                        |..              |  14% [modelOutputs]                           |                        |...             |  17%                                          |                        |...             |  19% [modelEquations]                         |                        |...             |  21%                                          |                        |....            |  24% [modelError]                             |                        |....            |  26%                                          |                        |.....           |  29% [modelParameters]                        |                        |.....           |  31%                                          |                        |.....           |  33% [administrationParameters]               |                        |......          |  36%                                          |                        |......          |  38% [initialDesignParameters]                |                        |......          |  40%                                          |                        |.......         |  43% [samplingTimeConstraints]                |                        |.......         |  45%                                          |                        |........        |  48% [criteriaFimInitialDesignTable]          |                        |........        |  50%                                          |                        |........        |  52% [optimalDesignParameters]                |                        |.........       |  55%                                          |                        |.........       |  57% [FIMFixedEffectsTable]                   |                        |..........      |  60%                                          |                        |..........      |  62% [FIMVarianceEffectsTable]                |                        |..........      |  64%                                          |                        |...........     |  67% [correlationMatrixFixedEffectsTable]     |                        |...........     |  69%                                          |                        |...........     |  71% [correlationMatrixVarianceEffectsTable]  |                        |............    |  74%                                          |                        |............    |  76% [criteriaFimTable]                       |                        |.............   |  79%                                          |                        |.............   |  81% [SEandRSETable]                          |                        |.............   |  83%                                          |                        |..............  |  86% [plotOutcomesEvaluation]                 |                        |..............  |  88%                                          |                        |..............  |  90% [plotOutcomesGradient]                   |                        |............... |  93%                                          |                        |............... |  95% [plotSEandRSE]                           |                        |................|  98%                                          |                        |................| 100% [shrinkage]                                                                                                                                                
-"C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/pandoc" +RTS -K512m -RTS template_FedorovAlgorithm.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc32b86c113c7.html --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\latex-div.lua" --embed-resources --standalone --variable bs3=TRUE --section-divs --template "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\luf59577\AppData\Local\Temp\Rtmpo9VNgm\rmarkdown-str32b8664a78f.html" 

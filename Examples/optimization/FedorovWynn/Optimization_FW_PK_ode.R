@@ -5,9 +5,7 @@ modelEquations = list(
 
 # model parameters
 modelParameters = list(
-  ModelParameter( name = "k", distribution = LogNormal( mu = 0.082, omega = sqrt(0.25) ) )
-  # ModelParameter( name = "V",  distribution = LogNormal( mu = 8, omega = sqrt(0.02) ) ) 
-)
+  ModelParameter( name = "k", distribution = LogNormal( mu = 0.082, omega = sqrt(0.25) ) ))
 
 # error Model
 errorModelRespPK = Combined1( outcome = "RespPK", sigmaInter = 0.6, sigmaSlope = 0.07 )

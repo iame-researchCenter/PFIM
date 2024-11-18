@@ -45,7 +45,7 @@ model = Model(
 
   parameters = modelParameters,
 
-  modelFromLibrary = list("PKModel" = "MichaelisMenten1BolusSingleDose_VmKmV",
+  modelFromLibrary = list("PKModel" = "MichaelisMenten1BolusSingleDose_VmKm",
                           "PDModel" = "TurnoverRinEmax_RinEmaxCC50koutE") )
 
 model = defineModel( model, Design() )
@@ -62,7 +62,7 @@ model = Model(
   outcomes = list( "newRespPK" = "newC1",
                    "newRespD" = "newC2" ),
 
-  modelFromLibrary = list("PKModel" = "MichaelisMenten1BolusSingleDose_VmKmV",
+  modelFromLibrary = list("PKModel" = "MichaelisMenten1BolusSingleDose_VmKm",
                           "PDModel" = "TurnoverRinEmax_RinEmaxCC50koutE") )
 
 model = defineModel( model, Design() )

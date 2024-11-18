@@ -1,9 +1,9 @@
 # Model equations
 modelEquations = list(
-  
+
   outcomes = list( "RespPK" = "C1",
                    "RespPD" = "C2" ),
-  
+
   equations = list(  "Deriv_C1" = "(dose_RespPK * ka * exp(-(ka * t)) - Cl * C1)/V",
                      "Deriv_C2" = "(Rin * (1 - (Imax*C1)/(C1 + C50)) - kout * C2)" )
 )
@@ -58,7 +58,7 @@ design1 = Design( name = "design1", arms = list( arm1 ), numberOfArms = 100 )
 # Optimization
 
 # optimize the Fisher Information Matrix for the PopulationFIM
-optimizationPopFIM2 = Optimization( name = "PKPD_ODEpopulationFIM",
+optimizationPopFIM = Optimization( name = "PKPD_ODEpopulationFIM",
                              modelEquations = modelEquations,
                              modelParameters = modelParameters,
                              modelError = modelError,
@@ -73,7 +73,7 @@ optimizationPopFIM2 = Optimization( name = "PKPD_ODEpopulationFIM",
                              outcomes = list( "RespPK" = "C1","RespPD" = "C2" ),
                              odeSolverParameters = list( atol=1e-10, rtol=1e-10 ) )
 
-optimizationPopFIM2 = run( optimizationPopFIM2 )
+optimizationPopFIM = run( optimizationPopFIM )
 
 # optimize the Fisher Information Matrix for the individualFIM
 optimizationIndFIM = Optimization( name = "PKPD_ODEpopulationFIM",
@@ -110,6 +110,8 @@ optimizationBayeFIM  = Optimization( name = "PKPD_ODEpopulationFIM",
                                    odeSolverParameters = list( atol=1e-10, rtol=1e-10 ) )
 
 optimizationBayeFIM = run( optimizationBayeFIM )
+
+
 
 
 plotOptions = list( unitTime=c("unit time"),

@@ -12,8 +12,7 @@ modelEquations = list(
 
 # model parameters
 modelParameters = list(
-  ModelParameter( name = "k", distribution = LogNormal( mu = 0.082, omega = sqrt(0.25) ) ),
-  ModelParameter( name = "V",  distribution = LogNormal( mu = 8, omega = sqrt(0.02) ) ) )
+  ModelParameter( name = "k", distribution = LogNormal( mu = 0.082, omega = sqrt(0.25) )))
 
 # error Model
 errorModelRespPK = Combined1( outcome = "RespPK", sigmaInter = 0.6, sigmaSlope = 0.07 )
@@ -39,7 +38,7 @@ arm1 = Arm( name = "BrasTest1",
             samplingTimes   = list( samplingTimesRespPK ),
             administrationsConstraints = list( administrationConstraintsRespPK ),
             samplingTimesConstraints = list( samplingConstraintsRespPK ),
-            initialCondition = list( "C1" = "dose/V" ) )
+            initialCondition = list( "C1" = "dose" ) )
 
 design1 = Design( name = "design1", arms = list( arm1 ), numberOfArms = 100 )
 
@@ -51,6 +50,7 @@ optimization = Optimization( name = "PKPD_ODE_multi_doses_populationFIM",
                              optimizer = "MultiplicativeAlgorithm",
                              optimizerParameters = list( lambda = 0.99,
                                                          numberOfIterations = 1000,
+                                                         weightThreshold = 0.001,
                                                          delta = 1e-04, showProcess = T ),
                              designs = list( design1 ),
                              fim = "population",
@@ -59,19 +59,5 @@ optimization = Optimization( name = "PKPD_ODE_multi_doses_populationFIM",
 
 optimizationAlgoMult = run( optimization )
 
-show( optimizationAlgoMult )
 
-# # ===============================================
-# # Report
-# # ===============================================
-# 
-# outputPath = "C:/Users/ADMIN Romain LEROUX/Documents/GIT PFIM/PFIM/PFIM6/tests_PFIM6"
-# 
-# outputFile = "reportPopFim_algoMult_pk_ode_bolus_multiDoses.html"
-# 
-# plotOptions = list( unitTime=c("unit time"),
-#                     unitOutcomes = c("unit RespPK" ),
-#                     threshold = 0.01 )
-# 
-# Report( optimizationAlgoMult, outputPath, outputFile, plotOptions )
-# 
+

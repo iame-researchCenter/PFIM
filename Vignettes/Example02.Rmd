@@ -270,6 +270,7 @@ optimization = Optimization( name = "",
 
 ```{r, echo = TRUE, eval = FALSE, comment=''} 
 optimizationPSO = run( optimization )
+saveRDS( optimizationPSO, "optimizationPSO.RDS")
 ```
 
 ### Display the results of the design optimization
@@ -287,8 +288,6 @@ getDcriterion( optimizationPSO )
 
 ### Create and save the report for the design optimization
 ```{r, echo = TRUE, eval = FALSE, comment=''} 
-
-
 
 outputFile = "Example02_OptimizationPSOPopFIM.html"
 
@@ -324,6 +323,7 @@ optimizationPGBO = Optimization( name = "",
 
 ```{r, echo = TRUE, eval = FALSE, comment=''} 
 optimizationPGBO = run( optimizationPGBO )
+saveRDS( optimizationPGBO, "optimizationPGBO.RDS")
 
 fisherMatrix = getFisherMatrix( optimizationPGBO )
 getCorrelationMatrix( optimizationPGBO )
@@ -343,8 +343,6 @@ show( optimizationPGBO )
 ### Create and save the report for the design optimization
 
 ```{r, echo = TRUE, eval = FALSE, comment=''} 
-
-
 
 outputFile = "Example02_OptimizationPGBOPopFIM.html"
 

@@ -23,7 +23,6 @@ modelError = list( errorModelRespPK1,  errorModelRespPD )
 
 # Administration
 administrationRespPK = Administration( outcome = "RespPK", timeDose = c( 0, 50, 100 ), dose = c( 20, 30, 50 ) )
-#administrationRespPK = Administration( outcome = "RespPK", tau = c( 20 ), dose = c( 50 ) )
 
 # Sampling times
 samplingTimesRespPK = SamplingTimes( outcome = "RespPK", samplings = c( 0.5, 1, 2, 6, 9, 12, 24, 36, 48, 72, 96, 120 ) )
@@ -34,40 +33,35 @@ arm1 = Arm( name = "BrasTest1",
             size = 32,
             administrations = list( administrationRespPK ) ,
             samplingTimes = list( samplingTimesRespPK, samplingTimesRespPD ),
-            initialCondition = list( "C1" = 0, "C2" = 90 ) )
-
-arm2 = Arm( name = "BrasTest2",
-            size = 32,
-            administrations = list( administrationRespPK ) ,
-            samplingTimes = list( samplingTimesRespPK, samplingTimesRespPD ),
-            initialCondition = list( "C1" = 0, "C2" = 90 ) )
+            initialCondition = list( "C1" = 0, "C2" = "Rin/kout" ) )
 
 # Design
 design1 = Design( name = "design1", arms = list( arm1 ) )
-design2 = Design( name = "design2", arms = list( arm1 ) )
-
 
 # Fim
+
+fimType = "Bayesian"
 evaluationFIM = Evaluation( name = "evaluation",
                             modelEquations = modelEquations,
                             modelParameters = modelParameters,
                             modelError = modelError,
                             outcomes = list( "RespPK" = "C1", "RespPD" = "C2" ),
-                            designs = list( design1, design2 ),
+                            designs = list( design1 ),
                             fim = fimType,
-                            odeSolverParameters = list( atol = 1e-8, rtol = 1e-8 ) )
+                            odeSolverParameters = list( atol = 1e-6, rtol = 1e-6 ) )
 
+
+start.time = Sys.time()
 evaluationFIM = run( evaluationFIM )
+end.time = Sys.time()
+time.taken = end.time - start.time
 
-show( evaluationFIM )
+print(time.taken)
 
-# plots
-plotOptions = list( unitTime = c("unit time"),
-                    unitOutcomes = c("unit RespPK1" ) )
+
+
 plotOptions = list( unitTime = c("hour"),
                     unitOutcomes = c("unit RespPK","unit RespPD" ) )
-
-
 
 plotOutcomesEvaluation = plotEvaluation( evaluationFIM, plotOptions )
 plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
@@ -75,7 +69,3 @@ plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
 plotSE = plotSE( evaluationFIM, plotOptions )
 plotRSE = plotRSE( evaluationFIM, plotOptions )
 
-print( plotOutcomesEvaluation )
-print( plotOutcomesGradient )
-print( plotSE )
-print( plotRSE )

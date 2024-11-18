@@ -48,15 +48,9 @@ evaluationFIM = Evaluation( name = "evaluation",
 
 evaluationFIM = run( evaluationFIM )
 
-show( evaluationFIM )
-
 # plots
 plotOptions = list( unitTime = c("unit time"),
                     unitOutcomes = c("unit RespPK1" ) )
-plotOptions = list( unitTime = c("hour"),
-                    unitOutcomes = c("unit RespPK","unit RespPD" ) )
-
-
 
 plotOutcomesEvaluation = plotEvaluation( evaluationFIM, plotOptions )
 plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
@@ -64,10 +58,6 @@ plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
 plotSE = plotSE( evaluationFIM, plotOptions )
 plotRSE = plotRSE( evaluationFIM, plotOptions )
 
-print( plotOutcomesEvaluation )
-print( plotOutcomesGradient )
-print( plotSE )
-print( plotRSE )
 
 
 

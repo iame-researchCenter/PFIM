@@ -65,6 +65,7 @@ optimization = Optimization( name = "PKPD_ODE_multi_doses_populationFIM",
                              optimizer = "MultiplicativeAlgorithm",
                              optimizerParameters = list( lambda = 0.99,
                                                          numberOfIterations = 1000,
+                                                         weightThreshold = 0.01,
                                                          delta = 1e-04, showProcess = T ),
                              designs = list( design1 ),
                              fim = "population",
@@ -73,18 +74,6 @@ optimization = Optimization( name = "PKPD_ODE_multi_doses_populationFIM",
 
 optimizationMA = run( optimization )
 
-show( optimizationMA )
 
-# # ===============================================
-# # Report
-# # ===============================================
-# 
-# outputPath = "C:/Users/ADMIN Romain LEROUX/Documents/GIT PFIM/PFIM/PFIM6/tests_PFIM6"
-# 
-# outputFile = "reportPopFim_algoMult_pkpd_analytic_multiDoses.html"
-# 
-# plotOptions = list( unitTime=c("unit time"),
-#                     unitOutcomes = c("unit RespPK","unit RespPD" ),
-#                     threshold = 0.01 )
-# 
-# Report( optimizationMA, outputPath, outputFile, plotOptions )
+
+

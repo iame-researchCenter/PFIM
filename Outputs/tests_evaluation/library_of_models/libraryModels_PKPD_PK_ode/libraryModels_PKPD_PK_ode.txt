@@ -55,7 +55,7 @@ $RespPD
 
 $duringInfusion
 $duringInfusion$Deriv_newC1
-expression(-Vm * newC1/(Km + newC1) + dose_RespPK1/V/Tinf_RespPK1)
+expression(-Vm * newC1/(Km + newC1) + dose_newRespPK1/V/Tinf_newRespPK1)
 
 $duringInfusion$Deriv_newC2
 expression(k12 * V/V2 * newC1 - k21 * newC2)
@@ -105,7 +105,131 @@ $RespPD
 [1] "E"
 
 $Deriv_newC1
-[1] "-Vm*newC1/(Km+newC1)-k12*newC1+k21*V2/V*newC2+dose_RespPK1/V*ka*exp(-ka*t)"
+[1] "-Vm*newC1/(Km+newC1)-k12*newC1+k21*V2/V*newC2+dose_newRespPK1/V*ka*exp(-ka*t)"
+
+$Deriv_newC2
+[1] "k12*V/V2*newC1-k21*newC2"
+
+$Deriv_newC3
+[1] "Rin*(1+(Emax*newC1)/(newC1+C50))-kout*newC3"
+
+$newRespPK1
+[1] "newC1"
+
+$newRespPK2
+[1] "newC2"
+
+$newRespD
+[1] "newC3"
+
+$Deriv_C1
+[1] "-Vm*C1/(Km+C1)"
+
+$Deriv_E
+[1] "Rin*(1+(Emax*C1)/(C1+C50))-kout*E"
+
+$RespPK
+[1] "C1"
+
+$RespPD
+[1] "E"
+
+$Deriv_newC1
+[1] "-Vm*newC1/(Km+newC1)"
+
+$Deriv_newC2
+[1] "Rin*(1+(Emax*newC1)/(newC1+C50))-kout*newC2"
+
+$newRespPK
+[1] "newC1"
+
+$newRespD
+[1] "newC2"
+
+$duringInfusion
+$duringInfusion$Deriv_C1
+[1] "-Vm*C1/(Km+C1)+dose_RespPK1/V/Tinf_RespPK1"
+
+$duringInfusion$Deriv_C2
+[1] "k12*V/V2*C1-k21*C2"
+
+$duringInfusion$Deriv_E
+[1] "Rin*(1+(Emax*C1)/(C1+C50))-kout*E"
+
+
+$afterInfusion
+$afterInfusion$Deriv_C1
+[1] "-Vm*C1/(Km+C1)"
+
+$afterInfusion$Deriv_C2
+[1] "k12*V/V2*C1-k21*C2"
+
+$afterInfusion$Deriv_E
+[1] "Rin*(1+(Emax*C1)/(C1+C50))-kout*E"
+
+
+$RespPK1
+[1] "C1"
+
+$RespPK2
+[1] "C2"
+
+$RespPD
+[1] "E"
+
+$duringInfusion
+$duringInfusion$Deriv_newC1
+expression(-Vm * newC1/(Km + newC1) + dose_newRespPK1/V/Tinf_newRespPK1)
+
+$duringInfusion$Deriv_newC2
+expression(k12 * V/V2 * newC1 - k21 * newC2)
+
+$duringInfusion$Deriv_newE
+expression(Rin * (1 + (Emax * newC1)/(newC1 + C50)) - kout * 
+    newE)
+
+
+$afterInfusion
+$afterInfusion$Deriv_newC1
+expression(-Vm * newC1/(Km + newC1))
+
+$afterInfusion$Deriv_newC2
+expression(k12 * V/V2 * newC1 - k21 * newC2)
+
+$afterInfusion$Deriv_newE
+expression(Rin * (1 + (Emax * newC1)/(newC1 + C50)) - kout * 
+    newE)
+
+
+$newRespPK1
+[1] "newC1"
+
+$newRespPK2
+[1] "newC2"
+
+$newRespD
+[1] "newE"
+
+$Deriv_C1
+[1] "-Vm*C1/(Km+C1)-k12*C1+k21*V2/V*C2+dose_RespPK1/V*ka*exp(-ka*t)"
+
+$Deriv_C2
+[1] "k12*V/V2*C1-k21*C2"
+
+$Deriv_E
+[1] "Rin*(1+(Emax*C1)/(C1+C50))-kout*E"
+
+$RespPK1
+[1] "C1"
+
+$RespPK2
+[1] "C2"
+
+$RespPD
+[1] "E"
+
+$Deriv_newC1
+[1] "-Vm*newC1/(Km+newC1)-k12*newC1+k21*V2/V*newC2+dose_newRespPK1/V*ka*exp(-ka*t)"
 
 $Deriv_newC2
 [1] "k12*V/V2*newC1-k21*newC2"

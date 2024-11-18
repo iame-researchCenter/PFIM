@@ -72,8 +72,6 @@ evaluation = Evaluation( name = "PKPD_ODE_multi_doses_populationFIM",
 
 evaluationFIM = run( evaluation )
 
-show( evaluationFIM )
-
 # plots
 plotOptions = list( unitTime=c("unit time"),
                     unitOutcomes = c("unit RespPK","unit RespPD" ) )
@@ -83,12 +81,6 @@ plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
 
 plotSE = plotSE( evaluationFIM, plotOptions )
 plotRSE = plotRSE( evaluationFIM, plotOptions )
-
-print( plotOutcomesEvaluation )
-print( plotOutcomesGradient )
-print( plotSE )
-print( plotRSE )
-
 
 
 

@@ -53,29 +53,5 @@ optimization = Optimization( name = "PKPD_ODE_multi_doses_populationFIM",
 
 optimizationFIM = run( optimization )
 
-show( optimizationFIM )
 
 
-plotOptions = list( unitTime=c("unit time"),
-                    unitResponses= c("unit RespPK","unit RespPD" ) )
-
-outputFile = paste0("Optimization_FedorovWynnAlgorithm_populationFIM.html")
-Report( optimizationFIM, saveReportPath, outputFile, plotOptions )
-# 
-# # ===============================================
-# # Report
-# # ===============================================
-# 
-# outputPath = "C:/Users/ADMIN Romain LEROUX/Documents/GIT PFIM/PFIM/PFIM6/tests_PFIM6"
-# 
-# outputFile = "reportPopFim_FW_pk_analytic_1dose.html"
-# 
-# plotOptions = list( unitTime=c("unit time"),
-#                     unitOutcomes = c("unit RespPK") )
-# 
-# Report( optimizationFIM, outputPath, outputFile, plotOptions )
-# 
-# 
-# ##################################################################################################################
-# 
-# 

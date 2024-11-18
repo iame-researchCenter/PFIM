@@ -53,25 +53,16 @@ evaluationFIM = Evaluation( name = "Inf_1-lin-elim_multi-dose_ode_udef_pFIM",
 
 evaluationFIM = run( evaluationFIM )
 
-show( evaluationFIM )
-
 # plots
 plotOptions = list( unitTime = c("unit time"),
-                    unitOutcomes = c("unit RespPK" , "unit RespPD") )
-
-
+                    unitOutcomes = c("unit RespPK") )
 
 plotOutcomesEvaluation = plotEvaluation( evaluationFIM, plotOptions )
 plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
 
-print( plotOutcomesEvaluation )
-print( plotOutcomesGradient )
-
 plotSE = plotSE( evaluationFIM, plotOptions )
 plotRSE = plotRSE( evaluationFIM, plotOptions )
 
-print( plotSE )
-print( plotRSE )
 
 
 

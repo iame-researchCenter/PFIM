@@ -29,16 +29,8 @@ arm1 = Arm( name = "BrasTest1",
             administrations = list( administrationRespPK ) ,
             samplingTimes = list( samplingTimesRespPK ),
             initialCondition = list( "RespPK" = 0) )
-
-#arm2 = Arm( name = "BrasTest2",
-#            size = 32,
-#            administrations = list( administrationRespPK ) ,
-#            samplingTimes = list( samplingTimesRespPK, samplingTimesRespPD ),
-#            initialCondition = list( "C1" = 0, "C2" = 90 ) )
-
 # Design
 design1 = Design( name = "design1", arms = list( arm1 ) )
-#design2 = Design( name = "design2", arms = list( arm1 ) )
 
 # population Fim
 evaluation = Evaluation( name = "PKPD_ODE_multi_doses_populationFIM",
@@ -52,13 +44,9 @@ evaluation = Evaluation( name = "PKPD_ODE_multi_doses_populationFIM",
 
 evaluationFIM = run( evaluation )
 
-show( evaluationFIM )
-
 # plots
 plotOptions = list( unitTime=c("unit time"),
                     unitOutcomes = c("unit RespPK") )
-
-
 
 plotOutcomesEvaluation = plotEvaluation( evaluationFIM, plotOptions )
 plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
@@ -66,7 +54,3 @@ plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
 plotSE = plotSE( evaluationFIM, plotOptions )
 plotRSE = plotRSE( evaluationFIM, plotOptions )
 
-print( plotOutcomesEvaluation )
-print( plotOutcomesGradient )
-print( plotSE )
-print( plotRSE )

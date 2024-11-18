@@ -98,12 +98,5 @@ optimizationPGBO = run( optimization )
 
 show( optimizationPGBO )
 
-# outputPath = "C:/Users/ADMIN Romain LEROUX/Documents/GIT PFIM/PFIM/PFIM6/tests_PFIM6"
-# 
-# outputFile = "reportPopFim_PGBO_pkpd_ analytic_multiDoses.html"
-# 
-# plotOptions = list( unitTime=c("unit time"),
-#                     unitOutcomes = c("unit RespPK","unit RespPD" ) )
-# 
-# Report( optimizationPGBO, outputPath, outputFile, plotOptions )
-# 
+
+

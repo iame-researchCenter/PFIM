@@ -87,6 +87,7 @@ optimization = Optimization( name = "PKPD_ODE_multi_doses_populationFIM",
                                populationSize = 50,
                                personalLearningCoefficient = 2.05,
                                globalLearningCoefficient = 2.05,
+                               seed = 1234,
                                showProcess = T  ),
 
                              designs = list( design1 ),
@@ -96,18 +97,3 @@ optimization = Optimization( name = "PKPD_ODE_multi_doses_populationFIM",
                              outcomes = list( "RespPK","RespPD" ) )
 
 optimizationPSO = run( optimization )
-
-show( optimizationPSO )
-
-# # ===============================================
-# # Report
-# # ===============================================
-# 
-# outputPath = "C:/Users/ADMIN Romain LEROUX/Documents/GIT PFIM/PFIM/PFIM6/tests_PFIM6"
-# 
-# outputFile = "reportPopFim_PSO_pkpd_analytic_multiDoses.html"
-# 
-# plotOptions = list( unitTime=c("unit time"),
-#                     unitOutcomes = c("unit RespPK","unit RespPD" ) )
-# 
-# Report( optimizationPSO, outputPath, outputFile, plotOptions )

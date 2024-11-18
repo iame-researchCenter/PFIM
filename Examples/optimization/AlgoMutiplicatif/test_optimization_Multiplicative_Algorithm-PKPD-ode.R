@@ -1,9 +1,9 @@
 # Model equations
 modelEquations = list(
-  
+
   outcomes = list( "RespPK" = "C1",
                    "RespPD" = "C2" ),
-  
+
   equations = list(  "Deriv_C1" = "(dose_RespPK * ka * exp(-(ka * t)) - Cl * C1)/V",
                      "Deriv_C2" = "(Rin * (1 - (Imax*C1)/(C1 + C50)) - kout * C2)" ) )
 
@@ -67,11 +67,13 @@ optimizationPopFIM = Optimization( name = "PKPD_ode_populationFIM",
                                    optimizer = "MultiplicativeAlgorithm",
                                    optimizerParameters = list( lambda = 0.99,
                                                                numberOfIterations = 10,
+                                                               weightThreshold = 0.01,
                                                                delta = 1e-04, showProcess = T ),
                                    designs = list( design1 ),
                                    fim = "population",
                                    outcomes = list( "RespPK" = "C1","RespPD" = "C2" ),
                                    odeSolverParameters = list( atol = 1e-8, rtol = 1e-8 ) )
+
 optimizationPopFIM = run( optimizationPopFIM )
 
 # optimize the Fisher Information Matrix for the individualFIM
@@ -82,11 +84,13 @@ optimizationIndFIM = Optimization( name = "PKPD_ode_individualFIM",
                                    optimizer = "MultiplicativeAlgorithm",
                                    optimizerParameters = list( lambda = 0.99,
                                                                numberOfIterations = 1000,
+                                                               weightThreshold = 0.01,
                                                                delta = 1e-04, showProcess = T ),
                                    designs = list( design1 ),
                                    fim = "individual",
                                    outcomes = list( "RespPK" = "C1","RespPD" = "C2" ),
                                    odeSolverParameters = list( atol = 1e-8, rtol = 1e-8 ) )
+
 optimizationIndFIM = run( optimizationIndFIM )
 
 # optimize the Fisher Information Matrix for the bayesianFIM
@@ -97,18 +101,19 @@ optimizationBayeFIM = Optimization( name = "PKPD_ode_bayesianFIM",
                                     optimizer = "MultiplicativeAlgorithm",
                                     optimizerParameters = list( lambda = 0.99,
                                                                 numberOfIterations = 1000,
+                                                                weightThreshold = 0.01,
                                                                 delta = 1e-04, showProcess = T ),
                                     designs = list( design1 ),
                                     fim = "Bayesian",
                                     outcomes = list( "RespPK" = "C1","RespPD" = "C2" ),
                                     odeSolverParameters = list( atol = 1e-8, rtol = 1e-8 ) )
+
 optimizationBayeFIM = run( optimizationBayeFIM )
 
 ### Reports
 
 plotOptions = list( unitTime=c("unit time"),
-                    unitResponses= c("unit RespPK","unit RespPD" ),
-                    threshold = 0.01  )
+                    unitResponses= c("unit RespPK","unit RespPD" ) )
 
 outputFile = paste0("PKPD_ode_populationFIM.html")
 Report( optimizationPopFIM, saveReportPath, outputFile, plotOptions )

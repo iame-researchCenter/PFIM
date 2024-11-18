@@ -55,126 +55,12 @@ evaluationFIM = Evaluation( name = "",
 
 evaluationFIM = run( evaluationFIM )
 
-show( evaluationFIM )
-
 # plots
 plotOptions = list( unitTime=c("unit time"),
-                    unitOutcomes = c("unit RespPK","unit RespPD" ) )
-
-
+                    unitOutcomes = c("unit RespPK1","unit RespPK2" ) )
 
 plotOutcomesEvaluation = plotEvaluation( evaluationFIM, plotOptions )
 plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
 
 plotSE = plotSE( evaluationFIM, plotOptions )
 plotRSE = plotRSE( evaluationFIM, plotOptions )
-
-print( plotOutcomesEvaluation )
-print( plotOutcomesGradient )
-print( plotSE )
-print( plotRSE )
-
-# 
-# # ==========================================================
-# # evaluation population fim
-# # ==========================================================
-# 
-# evaluationFIM = Evaluation( name = "",
-#                             modelEquations = modelEquations,
-#                             modelParameters = modelParameters,
-#                             modelError = modelError,
-#                             outcomes = list( "RespPK1"  = "C1", "RespPK2"  = "C2" ),
-#                             designs = list( design1  ),
-#                             fim = "population",
-#                             odeSolverParameters = list( atol = 1e-10, rtol = 1e-10 ) )
-# 
-# evaluationFIM = run( evaluationFIM )
-# 
-# show( evaluationFIM )
-# 
-# # plots
-# if(F)
-# {
-#   plotOptions = list( unitTime=c("unit time"),
-#                       unitOutcomes = c("unit RespPK","unit RespPD" ) )
-# 
-#   
-# 
-#   plotOutcomesEvaluation = plotEvaluation( evaluationFIM, plotOptions )
-#   plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
-# 
-#   plotSE = plotSE( evaluationFIM, plotOptions )
-#   plotRSE = plotRSE( evaluationFIM, plotOptions )
-# 
-#   print( plotOutcomesEvaluation )
-#   print( plotOutcomesGradient )
-#   print( plotSE )
-#   print( plotRSE )
-# }
-# 
-# # Report
-# outputPath = "D:/RECHERCHES/_PFIM/PFIM/PFIM6/tests_PFIM6/tests_Lucie_Romain/reports_models_user_defined/model_PKPD_ode_repeatedDoses"
-# outputFile = "reportPopulationFim.html"
-# plotOptions = list( unitTime = c("unit time"),
-#                     unitOutcomes = c("unit RespPK","unit RespPD" ) )
-# 
-# Report( evaluationFIM, outputPath, outputFile, plotOptions )
-# 
-# # ==========================================================
-# # evaluation individual fim
-# # ==========================================================
-# 
-# evaluationFIM = Evaluation( name = "",
-#                             modelEquations = modelEquations,
-#                             modelParameters = modelParameters,
-#                             modelError = modelError,
-#                             outcomes = list( "RespPK1"  = "C1", "RespPK2"  = "C2" ),
-#                             designs = list( design1  ),
-#                             fim = "individual",
-#                             odeSolverParameters = list( atol = 1e-10, rtol = 1e-10 ) )
-# 
-# evaluationFIM = run( evaluationFIM )
-# 
-# show( evaluationFIM )
-# 
-# # Report
-# outputPath = "D:/RECHERCHES/_PFIM/PFIM/PFIM6/tests_PFIM6/tests_Lucie_Romain/reports_models_user_defined/model_PKPD_ode_repeatedDoses"
-# outputFile = "reportIndividualFim.html"
-# plotOptions = list( unitTime=c("unit time"),
-#                     unitOutcomes = c("unit RespPK","unit RespPD" ) )
-# 
-# Report( evaluationFIM, outputPath, outputFile, plotOptions )
-# 
-# # ==========================================================
-# # evaluation Bayesian fim
-# # ==========================================================
-# 
-# evaluationFIM = Evaluation( name = "",
-#                             modelEquations = modelEquations,
-#                             modelParameters = modelParameters,
-#                             modelError = modelError,
-#                             outcomes = list( "RespPK1"  = "C1", "RespPK2"  = "C2" ),
-#                             designs = list( design1  ),
-#                             fim = "Bayesian",
-#                             odeSolverParameters = list( atol = 1e-10, rtol = 1e-10 ) )
-# 
-# evaluationFIM = run( evaluationFIM )
-# 
-# show( evaluationFIM )
-# 
-# # Report
-# outputPath = "D:/RECHERCHES/_PFIM/PFIM/PFIM6/tests_PFIM6/tests_Lucie_Romain/reports_models_user_defined/model_PKPD_ode_repeatedDoses"
-# outputFile = "reportBayesianFim.html"
-# plotOptions = list( unitTime=c("unit time"),
-#                     unitOutcomes = c("unit RespPK","unit RespPD" ) )
-# 
-# Report( evaluationFIM, outputPath, outputFile, plotOptions )
-# 
-# 
-# 
-# 
-
-
-
-
-

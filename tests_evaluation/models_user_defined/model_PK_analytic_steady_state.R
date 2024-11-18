@@ -40,7 +40,7 @@ design1 = Design( name = "design1",
                   arms = list( arm1 ) )
 
 # evaluation
-evaluationFIM = Evaluation( name = "",
+evaluationFIM = Evaluation( name = " ",
                             modelEquations = modelEquations,
                             modelParameters = modelParameters,
                             modelError = modelError,
@@ -50,13 +50,9 @@ evaluationFIM = Evaluation( name = "",
 
 evaluationFIM = run( evaluationFIM )
 
-show( evaluationFIM )
-
 # plots
 plotOptions = list( unitTime=c("unit time"),
-                    unitOutcomes = c("unit RespPK","unit RespPD" ) )
-
-
+                    unitOutcomes = c("unit RespPK" ) )
 
 plotOutcomesEvaluation = plotEvaluation( evaluationFIM, plotOptions )
 plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
@@ -64,10 +60,7 @@ plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
 plotSE = plotSE( evaluationFIM, plotOptions )
 plotRSE = plotRSE( evaluationFIM, plotOptions )
 
-print( plotOutcomesEvaluation )
-print( plotOutcomesGradient )
-print( plotSE )
-print( plotRSE )
+
 
 
 

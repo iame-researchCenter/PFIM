@@ -24,7 +24,7 @@ errorModelRespPD  = Constant( outcome = "RespPD", sigmaInter = 0.1 )
 modelError = list( errorModelRespPK,  errorModelRespPD )
 
 # arm
-administrationRespPK = Administration( outcome = "RespPK", timeDose = c( 0 ), dose = c( 100 ) )
+administrationRespPK = Administration( outcome = "RespPK", timeDose = c( 0 ), dose = c( 50 ) )
 
 ## sampling times
 samplingTimesRespPK = SamplingTimes( outcome = "RespPK", samplings = c( 0.5,1,2,9,48,75,96,120 ) )
@@ -35,13 +35,13 @@ administrationConstraintsResp1 = AdministrationConstraints( outcome = "RespPK", 
 
 samplingConstraintsResp1  = SamplingTimeConstraints( outcome = "RespPK",
                                                      initialSamplings = c( 0.5,2,9,48,96,120 ),
-                                                     fixedTimes = c( 0.5, 9 ),
-                                                     numberOfsamplingsOptimisable = 5 )
+                                                     fixedTimes = c( 0.5, 9, 96 ),
+                                                     numberOfsamplingsOptimisable = 4 )
 
 samplingConstraintsResp2  = SamplingTimeConstraints( outcome = "RespPD",
                                                      initialSamplings = c(  0.5,2,9,48,96,120 ),
                                                      fixedTimes = c( 2, 48 ),
-                                                     numberOfsamplingsOptimisable = 5 )
+                                                     numberOfsamplingsOptimisable = 4 )
 
 arm1 = Arm( name = "BrasTest1",
             size = 32,
@@ -53,41 +53,29 @@ arm1 = Arm( name = "BrasTest1",
 
 design1 = Design( name = "design1", arms = list( arm1 ), numberOfArms = 100 )
 
+fimType = "population"
+
 optimization = Optimization( name = "PKPD_ODE_multi_doses_populationFIM",
                              modelEquations = modelEquations,
                              modelParameters = modelParameters,
                              modelError = modelError,
                              optimizer = "FedorovWynnAlgorithm",
                              optimizerParameters = list(
-                               elementaryProtocols = list( c( 0.5, 2, 9, 48, 120 ),
-                                                        c( 0.5, 2, 9, 48, 120 ) ),
+                               elementaryProtocols = list( c(  0.5,2,9,48,96,120 ),
+                                                        c(  0.5,2,9,48,96,120 ) ),
 
                                numberOfSubjects = c(100),
                                proportionsOfSubjects = c(1),
                                showProcess = T ),
                              designs = list( design1 ),
-                             fim = "population",
+                             fim = fimType,
                              outcomes = list( "RespPK" = "C1","RespPD" = "C2" ),
                              odeSolverParameters = list( atol = 1e-8, rtol = 1e-8 ) )
 
 optimizationFW = run( optimization )
 
-show( optimizationFW )
 
-# 
-# # ===============================================
-# # Report
-# # ===============================================
-# 
-# outputPath = "C:/Users/ADMIN Romain LEROUX/Documents/GIT PFIM/PFIM/PFIM6/tests_PFIM6"
-# 
-# outputFile = "reportPopFim_FW_pkpd_analytic_1dose.html"
-# 
-# plotOptions = list( unitTime=c("unit time"),
-#                     unitOutcomes = c("unit RespPK","unit RespPD" ) )
-# 
-# Report( optimizationFW, outputPath, outputFile, plotOptions )
-# 
-# 
-# 
-# ##################################################################################################################
+
+
+
+

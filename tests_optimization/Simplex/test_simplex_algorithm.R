@@ -93,18 +93,4 @@ optimization = Optimization( name = "PKPD_ODE_multi_doses_populationFIM",
 
 optimizationSimplex = run( optimization )
 
-show( optimizationSimplex )
 
-# # ===============================================
-# # Report
-# # ===============================================
-# 
-# outputPath = "C:/Users/ADMIN Romain LEROUX/Documents/GIT PFIM/PFIM/PFIM6/tests_PFIM6"
-# 
-# outputFile = "reportPopFim_Simplex_pkpd_analytic_multidoses.html"
-# 
-# plotOptions = list( unitTime=c("unit time"),
-#                     unitOutcomes = c("unit RespPK","unit RespPD" ) )
-# 
-# Report( optimizationSimplex, outputPath, outputFile, plotOptions )
-# 

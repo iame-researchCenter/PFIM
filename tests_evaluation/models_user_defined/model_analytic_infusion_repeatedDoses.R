@@ -20,7 +20,7 @@ modelParameters = list(
   ModelParameter( name = "V",    distribution = LogNormal( mu = 3.5, omega = 0.09 ) ),
   ModelParameter( name = "Cl",   distribution = LogNormal( mu = 2,   omega = 0.09 ) ),
   ModelParameter( name = "Alin", distribution = LogNormal( mu = 10,  omega = 0.5 ) ),
-  ModelParameter( name = "S0",   distribution = LogNormal( mu = 0,   omega = 0.0 ) ) )
+  ModelParameter( name = "S0",   distribution = LogNormal( mu =  0.001,   omega = 0.0 ) ) )
 
 # error model
 errorModelRespPK = Combined1( outcome = "RespPK", sigmaInter = 0.1, sigmaSlope = 0.1 )
@@ -29,9 +29,10 @@ modelError = list( errorModelRespPK, errorModelRespPD )
 
 # administration
 administrationRespPK = Administration( outcome = "RespPK",
-                                       Tinf = c(1),
+                                       Tinf = c(5),
                                        tau = c(10),
                                        dose = c(30) )
+
 # sampling times
 samplingTimesRespPK = SamplingTimes( outcome = "RespPK", samplings = c( 0, 1, 2, 5, 7,8, 10,12,14, 15, 16, 20, 21, 30 ) )
 samplingTimesRespPD = SamplingTimes( outcome = "RespPD", samplings = c( 0, 2, 10, 12, 14, 20, 30 ) )
@@ -47,6 +48,9 @@ design1 = Design( name = "design1",
                   arms = list( arm1 ) )
 
 # evaluationFIM
+
+fimType = "population"
+
 evaluationFIM = Evaluation( name = "PKPD_analytic_infusion_multi_doses_populationFIM",
                             modelEquations = modelEquations,
                             modelParameters = modelParameters,
@@ -57,22 +61,13 @@ evaluationFIM = Evaluation( name = "PKPD_analytic_infusion_multi_doses_populatio
 
 evaluationFIM = run( evaluationFIM )
 
-show( evaluationFIM )
-
 # plots
 plotOptions = list( unitTime = c("unit time"),
                     unitOutcomes = c("unit RespPK" , "unit RespPD") )
 
-
-
 plotOutcomesEvaluation = plotEvaluation( evaluationFIM, plotOptions )
 plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
-
-print( plotOutcomesEvaluation )
-print( plotOutcomesGradient )
 
 plotSE = plotSE( evaluationFIM, plotOptions )
 plotRSE = plotRSE( evaluationFIM, plotOptions )
 
-print( plotSE )
-print( plotRSE )

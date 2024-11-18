@@ -46,7 +46,6 @@ arm1 = Arm( name = "BrasTest",
 # Design
 design1 = Design( name = "design1", arms = list( arm1 ) )
 
-# evaluationFIM
 evaluationFIM = Evaluation( name = "PKPD_analytic_infusion_multi_doses_populationFIM",
                             modelEquations = modelEquations,
                             modelParameters = modelParameters,
@@ -57,23 +56,15 @@ evaluationFIM = Evaluation( name = "PKPD_analytic_infusion_multi_doses_populatio
 
 evaluationFIM = run( evaluationFIM )
 
-show( evaluationFIM )
-
 # plots
 plotOptions = list( unitTime = c("unit time"),
                     unitOutcomes = c("unit RespPK" , "unit RespPD") )
 
-
-
 plotOutcomesEvaluation = plotEvaluation( evaluationFIM, plotOptions )
 plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
-
-print( plotOutcomesEvaluation )
-print( plotOutcomesGradient )
 
 plotSE = plotSE( evaluationFIM, plotOptions )
 plotRSE = plotRSE( evaluationFIM, plotOptions )
 
-print( plotSE )
-print( plotRSE )
+
 

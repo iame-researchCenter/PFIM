@@ -24,7 +24,6 @@ modelError = list( errorModelRespPK, errorModelRespPD )
 # Arm
 ## administration & multi-doses
 administrationRespPK = Administration( outcome = "RespPK", timeDose = c( 0,20,50,70 ), dose = c( 100,80,50,20 ) )
-#administrationRespPK = Administration( outcome = "RespPK", tau = c(6), dose = c( 50 ) )
 
 ## sampling times
 samplingTimesRespPK = SamplingTimes( outcome = "RespPK", samplings = c( 0, 2, 3, 8, 12, 24, 36, 50, 72, 120 ) )
@@ -40,8 +39,6 @@ arm1 = Arm( name = "BrasTest",
 design1 = Design( name = "design1", arms = list( arm1 ) )
 
 # Evaluation
-
-fimType = 'Bayesian'
 evaluationFIM = Evaluation( name = "PKPD_analytic_multi_doses_populationFIM",
                             modelEquations = modelEquations,
                             modelParameters = modelParameters,
@@ -52,24 +49,15 @@ evaluationFIM = Evaluation( name = "PKPD_analytic_multi_doses_populationFIM",
 
 evaluationFIM = run( evaluationFIM )
 
-show( evaluationFIM )
-
 # plots
 plotOptions = list( unitTime=c("unit time"),
                     unitOutcomes = c("unit RespPK","unit RespPD" ) )
-
-
 
 plotOutcomesEvaluation = plotEvaluation( evaluationFIM, plotOptions )
 plotSensitivityIndice = plotSensitivityIndice( evaluationFIM, plotOptions )
 
 plotSE = plotSE( evaluationFIM, plotOptions )
 plotRSE = plotRSE( evaluationFIM, plotOptions )
-
-print( plotOutcomesEvaluation )
-print( plotOutcomesGradient )
-print( plotSE )
-print( plotRSE )
 
 
 
