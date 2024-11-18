@@ -1,0 +1,124 @@
+*************************
+
+Design: design1
+
+*************************
+
+*************************
+Fisher information matrix 
+*************************
+
+**** Fixed effect 
+
+           μ_Cl         μ_ka       μ_Q        μ_V1         μ_V2
+μ_Cl  4.3916463  1.606543686  5.264966 -0.30744903 -0.724161484
+μ_ka  1.6065437 40.585446118  7.357885 -0.37779411 -0.008992029
+μ_Q   5.2649664  7.357885270 11.626816 -0.47204399 -1.008142806
+μ_V1 -0.3074490 -0.377794112 -0.472044  0.04245751  0.006121790
+μ_V2 -0.7241615 -0.008992029 -1.008143  0.00612179  0.241346605
+
+**** Variance components 
+
+               σ_slope_RespPK σ_slope_RespPD
+σ_slope_RespPK       1318.513         0.0000
+σ_slope_RespPD          0.000       341.7489
+
+******************
+Correlation matrix  
+******************
+
+**** Fixed effect 
+
+           μ_Cl       μ_ka        μ_Q       μ_V1       μ_V2
+μ_Cl  1.0000000  0.1196156 -0.6328648 -0.3896121  0.3351507
+μ_ka  0.1196156  1.0000000 -0.3934812  0.1899134 -0.1989172
+μ_Q  -0.6328648 -0.3934812  1.0000000 -0.1399028  0.1773142
+μ_V1 -0.3896121  0.1899134 -0.1399028  1.0000000 -0.9982520
+μ_V2  0.3351507 -0.1989172  0.1773142 -0.9982520  1.0000000
+
+**** Variance components 
+
+               σ_slope_RespPK σ_slope_RespPD
+σ_slope_RespPK              1              0
+σ_slope_RespPD              0              1
+
+**********************************************
+Determinant, condition numbers and D-criterion 
+**********************************************
+
+                                        Value
+Determinant                     -7.998121e-10
+Cond number fixed effects        4.188163e+18
+Cond number variance components  3.858135e+00
+D-criterion                               NaN
+
+**********
+Shrinkage 
+**********
+
+NULL
+
+**********
+SE and RSE 
+**********
+
+                  Value         SE   RSE (%)
+μ_Cl            10.0000 0.76173949  7.617395
+μ_ka             1.0000 0.17381412 17.381412
+μ_Q              3.0000 0.47552303 15.850768
+μ_V1           100.0000 1.04894739  1.048947
+μ_V2            40.0000 2.54763645  6.369091
+σ_slope_RespPK   0.0954 0.02753961 28.867513
+σ_slope_RespPD   0.1530 0.05409367 35.355339
+
+$design1
+$design1$BrasTest
+$design1$BrasTest$RespPK
+
+$design1$BrasTest$RespPD
+
+
+
+new("nonstandardGenericFunction", .Data = function (object, initialDesign, 
+    model, plotOptions) 
+{
+    standardGeneric("plotOutcomesGradient")
+}, generic = "plotOutcomesGradient", package = "PFIM", group = list(), 
+    valueClass = character(0), signature = c("object", "initialDesign", 
+    "model", "plotOptions"), default = NULL, skeleton = (function (object, 
+        initialDesign, model, plotOptions) 
+    stop(gettextf("invalid call in method dispatch to '%s' (no default method)", 
+        "plotOutcomesGradient"), domain = NA))(object, initialDesign, 
+        model, plotOptions))
+<bytecode: 0x000001cf1d890d38>
+<environment: 0x000001cf1d87a658>
+attr(,"generic")
+[1] "plotOutcomesGradient"
+attr(,"generic")attr(,"package")
+[1] "PFIM"
+attr(,"package")
+[1] "PFIM"
+attr(,"group")
+list()
+attr(,"valueClass")
+character(0)
+attr(,"signature")
+[1] "object"        "initialDesign" "model"        
+[4] "plotOptions"  
+attr(,"default")
+`\001NULL\001`
+attr(,"skeleton")
+(function (object, initialDesign, model, plotOptions) 
+stop(gettextf("invalid call in method dispatch to '%s' (no default method)", 
+    "plotOutcomesGradient"), domain = NA))(object, initialDesign, 
+    model, plotOptions)
+attr(,"class")
+[1] "nonstandardGenericFunction"
+attr(,"class")attr(,"package")
+[1] "methods"
+$design1
+
+$design1
+
+  |                          |                  |   0%  |                          |.                 |   4%                                       |                          |.                 |   7% [setup]                               |                          |..                |  11%                                       |                          |...               |  14% [modelOutputs]                        |                          |...               |  18%                                       |                          |....              |  21% [modelEquations]                      |                          |....              |  25%                                       |                          |.....             |  29% [modelError]                          |                          |......            |  32%                                       |                          |......            |  36% [modelParameters]                     |                          |.......           |  39%                                       |                          |........          |  43% [initialDesignParameters]             |                          |........          |  46%                                       |                          |.........         |  50% [administrationParameters]            |                          |..........        |  54%                                       |                          |..........        |  57% [FIMFixedEffectsTable]                |                          |...........       |  61%                                       |                          |............      |  64% [correlationMatrixFixedEffectsTable]  |                          |............      |  68%                                       |                          |.............     |  71% [criteriaFimTable]                    |                          |..............    |  75%                                       |                          |..............    |  79% [SEandRSETable]                       |                          |...............   |  82%                                       |                          |...............   |  86% [plotOutcomesEvaluation]              |                          |................  |  89%                                       |                          |................. |  93% [plotOutcomesGradient]                |                          |................. |  96%                                       |                          |..................| 100% [plotSEandRSE]                                                                                                                                      
+"C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/pandoc" +RTS -K512m -RTS templateEvaluationIndividualFim.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc32b85e1942db.html --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\latex-div.lua" --embed-resources --standalone --variable bs3=TRUE --section-divs --template "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\luf59577\AppData\Local\Temp\Rtmpo9VNgm\rmarkdown-str32b85cdc10f1.html" 

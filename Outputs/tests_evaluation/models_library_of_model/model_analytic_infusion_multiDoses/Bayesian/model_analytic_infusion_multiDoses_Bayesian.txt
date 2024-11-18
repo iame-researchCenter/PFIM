@@ -1,0 +1,114 @@
+*************************
+
+Design: design1
+
+*************************
+
+*************************
+Fisher information matrix 
+*************************
+
+**** Fixed effect 
+
+          μ_Alin       μ_Cl       μ_V
+μ_Alin  1602.026 -1081.7786 -520.2070
+μ_Cl   -1081.779  1062.0530  261.0868
+μ_V     -520.207   261.0868  330.3592
+
+**** Variance components 
+
+     [,1]
+[1,]   NA
+
+******************
+Correlation matrix  
+******************
+
+**** Fixed effect 
+
+          μ_Alin      μ_Cl       μ_V
+μ_Alin 1.0000000 0.8193862 0.6968837
+μ_Cl   0.8193862 1.0000000 0.3898048
+μ_V    0.6968837 0.3898048 1.0000000
+
+**** Variance components 
+
+NULL
+
+**********************************************
+Determinant, condition numbers and D-criterion 
+**********************************************
+
+                                       Value
+Determinant                     7.272444e+07
+Cond number fixed effects       2.895187e+01
+Cond number variance components           NA
+D-criterion                     4.174074e+02
+
+**********
+Shrinkage 
+**********
+
+    μ_Alin       μ_Cl        μ_V 
+ 0.0155487 10.9761746  7.3612114 
+
+**********
+SE and RSE 
+**********
+
+       Value         SE   RSE (%)
+μ_Alin  10.0 0.06234721 0.6234721
+μ_Cl     2.0 0.05963456 2.9817279
+μ_V      3.5 0.08546439 2.4418397
+
+$design1
+$design1$BrasTest
+$design1$BrasTest$RespPK
+
+$design1$BrasTest$RespPD
+
+
+
+new("nonstandardGenericFunction", .Data = function (object, initialDesign, 
+    model, plotOptions) 
+{
+    standardGeneric("plotOutcomesGradient")
+}, generic = "plotOutcomesGradient", package = "PFIM", group = list(), 
+    valueClass = character(0), signature = c("object", "initialDesign", 
+    "model", "plotOptions"), default = NULL, skeleton = (function (object, 
+        initialDesign, model, plotOptions) 
+    stop(gettextf("invalid call in method dispatch to '%s' (no default method)", 
+        "plotOutcomesGradient"), domain = NA))(object, initialDesign, 
+        model, plotOptions))
+<bytecode: 0x000001cf1d890d38>
+<environment: 0x000001cf1d87a658>
+attr(,"generic")
+[1] "plotOutcomesGradient"
+attr(,"generic")attr(,"package")
+[1] "PFIM"
+attr(,"package")
+[1] "PFIM"
+attr(,"group")
+list()
+attr(,"valueClass")
+character(0)
+attr(,"signature")
+[1] "object"        "initialDesign" "model"        
+[4] "plotOptions"  
+attr(,"default")
+`\001NULL\001`
+attr(,"skeleton")
+(function (object, initialDesign, model, plotOptions) 
+stop(gettextf("invalid call in method dispatch to '%s' (no default method)", 
+    "plotOutcomesGradient"), domain = NA))(object, initialDesign, 
+    model, plotOptions)
+attr(,"class")
+[1] "nonstandardGenericFunction"
+attr(,"class")attr(,"package")
+[1] "methods"
+$design1
+
+$design1
+
+  |                          |                  |   0%  |                          |.                 |   3%                                       |                          |.                 |   7% [setup]                               |                          |..                |  10%                                       |                          |..                |  14% [modelOutputs]                        |                          |...               |  17%                                       |                          |....              |  21% [modelEquations]                      |                          |....              |  24%                                       |                          |.....             |  28% [modelError]                          |                          |......            |  31%                                       |                          |......            |  34% [modelParameters]                     |                          |.......           |  38%                                       |                          |.......           |  41% [initialDesignParameters]             |                          |........          |  45%                                       |                          |.........         |  48% [administrationParameters]            |                          |.........         |  52%                                       |                          |..........        |  55% [FIMFixedEffectsTable]                |                          |...........       |  59%                                       |                          |...........       |  62% [correlationMatrixFixedEffectsTable]  |                          |............      |  66%                                       |                          |............      |  69% [criteriaFimTable]                    |                          |.............     |  72%                                       |                          |..............    |  76% [SEandRSETable]                       |                          |..............    |  79%                                       |                          |...............   |  83% [plotOutcomesEvaluation]              |                          |................  |  86%                                       |                          |................  |  90% [plotOutcomesGradient]                |                          |................. |  93%                                       |                          |................. |  97% [plotSEandRSE]                        |                          |..................| 100%                                                                                                                                                     
+"C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/pandoc" +RTS -K512m -RTS templateEvaluationBayesianFim.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc32b8b9054ee.html --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\latex-div.lua" --embed-resources --standalone --variable bs3=TRUE --section-divs --template "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\luf59577\AppData\Local\Temp\Rtmpo9VNgm\rmarkdown-str32b879856475.html" 
