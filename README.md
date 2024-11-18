@@ -27,7 +27,7 @@ Methods used in the package refer to Mentré F, Mallet A, Baccar D (1997)
 (2013) <doi:10.1007/s11095-013-1079-3> and Seurat J, Tang Y, Mentré F,
 Nguyen TT (2021) <doi:10.1016/j.cmpb.2021.106126>
 
-Version: 6.0.3
+Version: 6.1
 
 Depends: R (≥ 4.0.0)
 
@@ -37,16 +37,13 @@ filesstrings
 
 Suggests: testthat, inline, utils, devtools, htmltools
 
-Published: 2023-11-24
+Published:	2024-10-23
 
 Author: France Mentré ORCID <https://orcid.org/0000-0002-7045-1275>
-\[aut\], Romain Leroux \[aut, cre\], Jérémy Seurat \[aut\], Lucie
-Fayette \[aut\]
+\[aut\], Romain Leroux \[aut, cre\]
 
-Contributors: Caroline Bazzoli \[ctb\], Emmanuelle Comets \[ctb\], Anne
-Dubois \[ctb\], Cyrielle Dumont \[ctb\], Giulia Lestini \[ctb\], Thi
-Huyen Tram Nguyen \[ctb\], Thu Thuy Nguyen \[ctb\], Sylvie Retout
-\[ctb\]
+Contributors: Jérémy Seurat \[ctb], Lucie
+Fayette \[ctb\]
 
 Maintainer: Romain Leroux \<romain.leroux at inserm.fr\>
 
