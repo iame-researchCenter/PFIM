@@ -1,151 +1,0 @@
-*************************
-
-Design: design1
-
-*************************
-
-*************************
-Fisher information matrix 
-*************************
-
-**** Fixed effect 
-
-           μ_C501      μ_C502       μ_CL1        μ_CL2
-μ_C501  88.682121   6.0843460   24.459829    11.701597
-μ_C502   6.084346   5.7636137    5.199259     4.901483
-μ_CL1   24.459829   5.1992592 1301.196199    12.840360
-μ_CL2   11.701597   4.9014833   12.840360  2262.248337
-μ_kout -64.255527 -29.4340990  -67.716396   -42.667797
-μ_Rin   54.363312  17.4705889   68.585102    33.654846
-μ_V1    -5.221357   0.8773703   11.606080    -1.125408
-μ_V2    -5.616083  -1.3648297   -7.625938 -1530.090575
-             μ_kout      μ_Rin        μ_V1         μ_V2
-μ_C501   -64.255527   54.36331  -5.2213567    -5.616083
-μ_C502   -29.434099   17.47059   0.8773703    -1.364830
-μ_CL1    -67.716396   68.58510  11.6060798    -7.625938
-μ_CL2    -42.667797   33.65485  -1.1254079 -1530.090575
-μ_kout 14173.623540 -181.43414   3.4444046    13.220560
-μ_Rin   -181.434140  154.04838 -14.2212322   -16.181058
-μ_V1       3.444405  -14.22123 460.1480016     2.006006
-μ_V2      13.220560  -16.18106   2.0060055  1348.750732
-
-**** Variance components 
-
-     [,1]
-[1,]   NA
-
-******************
-Correlation matrix  
-******************
-
-**** Fixed effect 
-
-              μ_C501       μ_C502         μ_CL1         μ_CL2
-μ_C501  1.000000e+00  0.004910745 -0.0006994379  0.0001737974
-μ_C502  4.910745e-03  1.000000000  0.0384903489 -0.0358463983
-μ_CL1  -6.994379e-04  0.038490349  1.0000000000  0.0019374030
-μ_CL2   1.737974e-04 -0.035846398  0.0019374030  1.0000000000
-μ_kout  4.278939e-04  0.038098667 -0.0017425151  0.0021544719
-μ_Rin  -3.878673e-01 -0.536923375 -0.1353150951 -0.0206388957
-μ_V1    8.567081e-04 -0.060391282 -0.0257912692 -0.0031002075
-μ_V2   -1.193888e-05 -0.034539839  0.0017370306  0.8760645120
-              μ_kout        μ_Rin          μ_V1          μ_V2
-μ_C501  0.0004278939 -0.387867276  0.0008567081 -1.193888e-05
-μ_C502  0.0380986669 -0.536923375 -0.0603912818 -3.453984e-02
-μ_CL1  -0.0017425151 -0.135315095 -0.0257912692  1.737031e-03
-μ_CL2   0.0021544719 -0.020638896 -0.0031002075  8.760645e-01
-μ_kout  1.0000000000  0.070606902  0.0029977376  2.413949e-03
-μ_Rin   0.0706069025  1.000000000  0.0745002207 -3.744196e-03
-μ_V1    0.0029977376  0.074500221  1.0000000000 -2.840039e-03
-μ_V2    0.0024139486 -0.003744196 -0.0028400386  1.000000e+00
-
-**** Variance components 
-
-NULL
-
-**********************************************
-Determinant, condition numbers and D-criterion 
-**********************************************
-
-                                       Value
-Determinant                     2.310551e+20
-Cond number fixed effects       3.829133e+03
-Cond number variance components           NA
-D-criterion                     3.511272e+02
-
-**********
-Shrinkage 
-**********
-
-     μ_C501      μ_C502       μ_CL1       μ_CL2      μ_kout 
-99.92639619 59.21895506 77.77243914  2.64946729 99.64090576 
-      μ_Rin        μ_V1        μ_V2 
- 0.20688552  0.17099567  0.01419088 
-
-**********
-SE and RSE 
-**********
-
-       Value          SE    RSE (%)
-μ_C501  1.20 0.119955830  9.9963191
-μ_C502  3.00 0.516222140 17.2074047
-μ_CL1   0.13 0.028082246 21.6017276
-μ_CL2   0.60 0.043676269  7.2793781
-μ_kout  0.06 0.008470033 14.1167210
-μ_Rin   5.40 0.109843360  2.0341363
-μ_V1    8.00 0.046784021  0.5848003
-μ_V2   15.00 0.056506182  0.3767079
-
-$design1
-$design1$BrasTest1
-$design1$BrasTest1$RespPK1
-
-$design1$BrasTest1$RespPK2
-
-$design1$BrasTest1$RespPD
-
-
-
-new("nonstandardGenericFunction", .Data = function (object, initialDesign, 
-    model, plotOptions) 
-{
-    standardGeneric("plotOutcomesGradient")
-}, generic = "plotOutcomesGradient", package = "PFIM", group = list(), 
-    valueClass = character(0), signature = c("object", "initialDesign", 
-    "model", "plotOptions"), default = NULL, skeleton = (function (object, 
-        initialDesign, model, plotOptions) 
-    stop(gettextf("invalid call in method dispatch to '%s' (no default method)", 
-        "plotOutcomesGradient"), domain = NA))(object, initialDesign, 
-        model, plotOptions))
-<bytecode: 0x000001cf1d890d38>
-<environment: 0x000001cf1d87a658>
-attr(,"generic")
-[1] "plotOutcomesGradient"
-attr(,"generic")attr(,"package")
-[1] "PFIM"
-attr(,"package")
-[1] "PFIM"
-attr(,"group")
-list()
-attr(,"valueClass")
-character(0)
-attr(,"signature")
-[1] "object"        "initialDesign" "model"        
-[4] "plotOptions"  
-attr(,"default")
-`\001NULL\001`
-attr(,"skeleton")
-(function (object, initialDesign, model, plotOptions) 
-stop(gettextf("invalid call in method dispatch to '%s' (no default method)", 
-    "plotOutcomesGradient"), domain = NA))(object, initialDesign, 
-    model, plotOptions)
-attr(,"class")
-[1] "nonstandardGenericFunction"
-attr(,"class")attr(,"package")
-[1] "methods"
-$design1
-
-$design1
-
-  |                          |                  |   0%  |                          |.                 |   3%                                       |                          |.                 |   7% [setup]                               |                          |..                |  10%                                       |                          |..                |  14% [modelOutputs]                        |                          |...               |  17%                                       |                          |....              |  21% [modelEquations]                      |                          |....              |  24%                                       |                          |.....             |  28% [modelError]                          |                          |......            |  31%                                       |                          |......            |  34% [modelParameters]                     |                          |.......           |  38%                                       |                          |.......           |  41% [initialDesignParameters]             |                          |........          |  45%                                       |                          |.........         |  48% [administrationParameters]            |                          |.........         |  52%                                       |                          |..........        |  55% [FIMFixedEffectsTable]                |                          |...........       |  59%                                       |                          |...........       |  62% [correlationMatrixFixedEffectsTable]  |                          |............      |  66%                                       |                          |............      |  69% [criteriaFimTable]                    |                          |.............     |  72%                                       |                          |..............    |  76% [SEandRSETable]                       |                          |..............    |  79%                                       |                          |...............   |  83% [plotOutcomesEvaluation]              |                          |................  |  86%                                       |                          |................  |  90% [plotOutcomesGradient]                |                          |................. |  93%                                       |                          |................. |  97% [plotSEandRSE]                        |                          |..................| 100%                                                                                                                                                     
-"C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/pandoc" +RTS -K512m -RTS templateEvaluationBayesianFim.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc32b86fff4dec.html --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\latex-div.lua" --embed-resources --standalone --variable bs3=TRUE --section-divs --template "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\luf59577\AppData\Local\Temp\Rtmpo9VNgm\rmarkdown-str32b8c3272ee.html" 

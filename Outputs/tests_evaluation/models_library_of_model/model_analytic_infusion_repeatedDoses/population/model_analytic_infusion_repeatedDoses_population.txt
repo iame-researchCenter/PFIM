@@ -1,147 +1,0 @@
-*************************
-
-Design: design1
-
-*************************
-
-*************************
-Fisher information matrix 
-*************************
-
-**** Fixed effect 
-
-           μ_Alin        μ_Cl        μ_S0          μ_V
-μ_Alin  1.5877462   -1.692088   0.3753303   -0.8568868
-μ_Cl   -1.6920881  967.837680 -32.6166762 -122.4633309
-μ_S0    0.3753303  -32.616676 556.6503668   58.8110169
-μ_V    -0.8568868 -122.463331  58.8110169  278.0022593
-
-**** Variance components 
-
-                  ω²_Alin        ω²_Cl         ω²_V
-ω²_Alin        315.117236     14.31581     11.24328
-ω²_Cl           14.315811 187341.95480   9185.82630
-ω²_V            11.243281   9185.82630 144970.23443
-σ_inter_RespPK   1.928201   2145.28656   1206.97179
-σ_slope_RespPK   4.607957   4430.37747   5445.12608
-σ_inter_RespPD   0.185407     28.59545    296.71008
-               σ_inter_RespPK σ_slope_RespPK σ_inter_RespPD
-ω²_Alin              1.928201       4.607957       0.185407
-ω²_Cl             2145.286555    4430.377467      28.595446
-ω²_V              1206.971792    5445.126077     296.710082
-σ_inter_RespPK   96460.905923   14515.743335     118.213610
-σ_slope_RespPK   14515.743335   22715.795317      77.481221
-σ_inter_RespPD     118.213610      77.481221    1411.387977
-
-******************
-Correlation matrix  
-******************
-
-**** Fixed effect 
-
-            μ_Alin        μ_Cl         μ_S0         μ_V
-μ_Alin  1.00000000 0.054207120 -0.018461896  0.05461061
-μ_Cl    0.05420712 1.000000000  0.008497867  0.23455828
-μ_S0   -0.01846190 0.008497867  1.000000000 -0.14396507
-μ_V     0.05461061 0.234558284 -0.143965073  1.00000000
-
-**** Variance components 
-
-                     ω²_Alin         ω²_Cl         ω²_V
-ω²_Alin         1.0000000000 -0.0016768933 -0.001413604
-ω²_Cl          -0.0016768933  1.0000000000 -0.049524987
-ω²_V           -0.0014136036 -0.0495249867  1.000000000
-σ_inter_RespPK  0.0001574890  0.0043758376  0.020188659
-σ_slope_RespPK -0.0014368315 -0.0612513920 -0.092945227
-σ_inter_RespPD -0.0002263442  0.0001100531 -0.019645613
-               σ_inter_RespPK σ_slope_RespPK σ_inter_RespPD
-ω²_Alin           0.000157489   -0.001436831  -0.0002263442
-ω²_Cl             0.004375838   -0.061251392   0.0001100531
-ω²_V              0.020188659   -0.092945227  -0.0196456134
-σ_inter_RespPK    1.000000000   -0.310149265  -0.0065926819
-σ_slope_RespPK   -0.310149265    1.000000000  -0.0091316036
-σ_inter_RespPD   -0.006592682   -0.009131604   1.0000000000
-
-**********************************************
-Determinant, condition numbers and D-criterion 
-**********************************************
-
-                                       Value
-Determinant                     5.136086e+33
-Cond number fixed effects       6.285679e+02
-Cond number variance components 6.014087e+02
-D-criterion                     2.349975e+03
-
-**********
-Shrinkage 
-**********
-
-NULL
-
-**********
-SE and RSE 
-**********
-
-                 Value          SE   RSE (%)
-μ_Alin         10.0000 0.795587577  7.955876
-μ_Cl            2.0000 0.033129237  1.656462
-μ_S0            0.1000 0.042875662 42.875662
-μ_V             3.5000 0.062456448  1.784470
-ω²_Alin         0.2500 0.056333364 22.533346
-ω²_Cl           0.0081 0.002318605 28.624749
-ω²_V            0.0081 0.002642602 32.624718
-σ_inter_RespPK  0.1000 0.003387521  3.387521
-σ_slope_RespPK  0.1000 0.007025160  7.025160
-σ_inter_RespPD  0.8000 0.026626237  3.328280
-
-$design1
-$design1$BrasTest
-$design1$BrasTest$RespPK
-
-$design1$BrasTest$RespPD
-
-
-
-new("nonstandardGenericFunction", .Data = function (object, initialDesign, 
-    model, plotOptions) 
-{
-    standardGeneric("plotOutcomesGradient")
-}, generic = "plotOutcomesGradient", package = "PFIM", group = list(), 
-    valueClass = character(0), signature = c("object", "initialDesign", 
-    "model", "plotOptions"), default = NULL, skeleton = (function (object, 
-        initialDesign, model, plotOptions) 
-    stop(gettextf("invalid call in method dispatch to '%s' (no default method)", 
-        "plotOutcomesGradient"), domain = NA))(object, initialDesign, 
-        model, plotOptions))
-<bytecode: 0x000001cf1d890d38>
-<environment: 0x000001cf1d87a658>
-attr(,"generic")
-[1] "plotOutcomesGradient"
-attr(,"generic")attr(,"package")
-[1] "PFIM"
-attr(,"package")
-[1] "PFIM"
-attr(,"group")
-list()
-attr(,"valueClass")
-character(0)
-attr(,"signature")
-[1] "object"        "initialDesign" "model"        
-[4] "plotOptions"  
-attr(,"default")
-`\001NULL\001`
-attr(,"skeleton")
-(function (object, initialDesign, model, plotOptions) 
-stop(gettextf("invalid call in method dispatch to '%s' (no default method)", 
-    "plotOutcomesGradient"), domain = NA))(object, initialDesign, 
-    model, plotOptions)
-attr(,"class")
-[1] "nonstandardGenericFunction"
-attr(,"class")attr(,"package")
-[1] "methods"
-$design1
-
-$design1
-
-  |                       |               |   0%  |                       |               |   3%                                          |                       |.              |   6% [setup]                                  |                       |.              |   9%                                          |                       |..             |  12% [modelOutputs]                           |                       |..             |  16%                                          |                       |...            |  19% [modelEquations]                         |                       |...            |  22%                                          |                       |....           |  25% [modelError]                             |                       |....           |  28%                                          |                       |.....          |  31% [modelParameters]                        |                       |.....          |  34%                                          |                       |......         |  38% [initialDesignParameters]                |                       |......         |  41%                                          |                       |.......        |  44% [administrationParameters]               |                       |.......        |  47%                                          |                       |........       |  50% [FIMFixedEffectsTable]                   |                       |........       |  53%                                          |                       |........       |  56% [FIMVarianceEffectsTable]                |                       |.........      |  59%                                          |                       |.........      |  62% [correlationMatrixFixedEffectsTable]     |                       |..........     |  66%                                          |                       |..........     |  69% [correlationMatrixVarianceEffectsTable]  |                       |...........    |  72%                                          |                       |...........    |  75% [criteriaFimTable]                       |                       |............   |  78%                                          |                       |............   |  81% [SEandRSETable]                          |                       |.............  |  84%                                          |                       |.............  |  88% [plotOutcomesEvaluation]                 |                       |.............. |  91%                                          |                       |.............. |  94% [plotOutcomesGradient]                   |                       |...............|  97%                                          |                       |...............| 100% [plotSEandRSE]                                                                                                                                            
-"C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/pandoc" +RTS -K512m -RTS templateEvaluationPopulationFim.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc32b82f693a77.html --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\latex-div.lua" --embed-resources --standalone --variable bs3=TRUE --section-divs --template "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\luf59577\AppData\Local\Temp\Rtmpo9VNgm\rmarkdown-str32b8133e5c35.html" 

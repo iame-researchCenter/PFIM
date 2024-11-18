@@ -1,351 +1,0 @@
-*************************
-
-Design: design1
-
-*************************
-
-*************************
-Fisher information matrix 
-*************************
-
-**** Fixed effect 
-
-               μ_C50         μ_Cl         μ_ka       μ_kout
-μ_C50     70.2358847    -1.965324   0.17061617  -3569.20628
-μ_Cl      -1.9653238 27077.244260  25.50129532   2182.27797
-μ_ka       0.1706162    25.501295  15.55547075    -19.84355
-μ_kout -3569.2062820  2182.277970 -19.84354964 373924.48060
-μ_Rin     17.7941030     2.310074   0.04618956  -1015.26561
-μ_V        0.9928070    81.309916  -1.59710486   -127.88731
-               μ_Rin          μ_V
-μ_C50   1.779410e+01    0.9928070
-μ_Cl    2.310074e+00   81.3099158
-μ_ka    4.618956e-02   -1.5971049
-μ_kout -1.015266e+03 -127.8873136
-μ_Rin   4.575009e+00    0.2824006
-μ_V     2.824006e-01   18.8776409
-
-**** Variance components 
-
-                     ω²_C50        ω²_Cl        ω²_ka
-ω²_C50         1.598318e+02 1.468715e-03  0.001676729
-ω²_Cl          1.468715e-03 3.271918e+03  0.439613658
-ω²_ka          1.676729e-03 4.396137e-01 24.778001429
-ω²_Rin         2.077410e+02 4.109095e-02  0.002488486
-ω²_V           1.419359e+00 1.117310e+02  6.529904437
-σ_inter_RespPK 3.558016e-01 3.918212e+01  5.317669295
-σ_slope_RespPK 3.694486e+00 5.097409e+02 23.194179450
-σ_inter_RespPD 3.578810e+00 1.707536e-01  0.000907558
-                     ω²_Rin         ω²_V σ_inter_RespPK
-ω²_C50         2.077410e+02 1.419359e+00      0.3558016
-ω²_Cl          4.109095e-02 1.117310e+02     39.1821157
-ω²_ka          2.488486e-03 6.529904e+00      5.3176693
-ω²_Rin         2.780859e+02 2.325513e+00      0.4764451
-ω²_V           2.325513e+00 2.280738e+04    239.8480530
-σ_inter_RespPK 4.764451e-01 2.398481e+02    458.0441366
-σ_slope_RespPK 4.217484e+00 1.801191e+03   3323.2097748
-σ_inter_RespPD 4.333888e+00 5.933444e-01      0.0979331
-               σ_slope_RespPK σ_inter_RespPD
-ω²_C50               3.694486    3.578810290
-ω²_Cl              509.740921    0.170753574
-ω²_ka               23.194179    0.000907558
-ω²_Rin               4.217484    4.333888435
-ω²_V              1801.191347    0.593344420
-σ_inter_RespPK    3323.209775    0.097933104
-σ_slope_RespPK   28683.566206    1.037032282
-σ_inter_RespPD       1.037032   23.980712437
-
-******************
-Correlation matrix  
-******************
-
-**** Fixed effect 
-
-            μ_C50        μ_Cl        μ_ka      μ_kout
-μ_C50   1.0000000  0.46365361 -0.05131490 -0.97765066
-μ_Cl    0.4636536  1.00000000 -0.06887182 -0.46219807
-μ_ka   -0.0513149 -0.06887182  1.00000000  0.05277388
-μ_kout -0.9776507 -0.46219807  0.05277388  1.00000000
-μ_Rin  -0.9993747 -0.46458020  0.05144059  0.98281082
-μ_V    -0.1292396 -0.16514091  0.10470793  0.13575612
-             μ_Rin        μ_V
-μ_C50  -0.99937468 -0.1292396
-μ_Cl   -0.46458020 -0.1651409
-μ_ka    0.05144059  0.1047079
-μ_kout  0.98281082  0.1357561
-μ_Rin   1.00000000  0.1297136
-μ_V     0.12971362  1.0000000
-
-**** Variance components 
-
-                      ω²_C50         ω²_Cl         ω²_ka
-ω²_C50          1.0000000000  0.0004632714 -1.599261e-04
-ω²_Cl           0.0004632714  1.0000000000 -2.568563e-03
-ω²_ka          -0.0001599261 -0.0025685630  1.000000e+00
-ω²_Rin         -0.9853404709 -0.0004436925  1.595767e-04
-ω²_V            0.0010208038 -0.0102472383 -5.255730e-03
-σ_inter_RespPK  0.0034076722  0.0410366254 -6.177122e-02
-σ_slope_RespPK -0.0037404750 -0.0583161632  4.587056e-02
-σ_inter_RespPD -0.0323877118 -0.0005338191 -2.594567e-05
-                      ω²_Rin          ω²_V σ_inter_RespPK
-ω²_C50         -0.9853404709  0.0010208038   0.0034076722
-ω²_Cl          -0.0004436925 -0.0102472383   0.0410366254
-ω²_ka           0.0001595767 -0.0052557304  -0.0617712213
-ω²_Rin          1.0000000000 -0.0011398935  -0.0033443220
-ω²_V           -0.0011398935  1.0000000000  -0.0242333222
-σ_inter_RespPK -0.0033443220 -0.0242333222   1.0000000000
-σ_slope_RespPK  0.0035797688 -0.0056232056  -0.9165802790
-σ_inter_RespPD  0.0228641927 -0.0007135727   0.0004120936
-               σ_slope_RespPK σ_inter_RespPD
-ω²_C50          -0.0037404750  -3.238771e-02
-ω²_Cl           -0.0583161632  -5.338191e-04
-ω²_ka            0.0458705636  -2.594567e-05
-ω²_Rin           0.0035797688   2.286419e-02
-ω²_V            -0.0056232056  -7.135727e-04
-σ_inter_RespPK  -0.9165802790   4.120936e-04
-σ_slope_RespPK   1.0000000000  -7.943518e-04
-σ_inter_RespPD  -0.0007943518   1.000000e+00
-
-**********************************************
-Determinant, condition numbers and D-criterion 
-**********************************************
-
-                                       Value
-Determinant                     2.792255e+31
-Cond number fixed effects       1.730311e+08
-Cond number variance components 9.974586e+03
-D-criterion                     1.762543e+02
-
-**********
-Shrinkage 
-**********
-
-NULL
-
-**********
-SE and RSE 
-**********
-
-               Value           SE     RSE (%)
-μ_C50           1.20  4.703837535  391.986461
-μ_Cl            0.13  0.006920455    5.323427
-μ_ka            1.60  0.255344556   15.959035
-μ_kout          0.06  0.012362347   20.603912
-μ_Rin           5.40 20.989991777  388.703551
-μ_V             8.00  0.235107877    2.938848
-ω²_C50          0.01  0.464428142 4644.281418
-ω²_Cl           0.06  0.017522076   29.203460
-ω²_ka           0.70  0.201359160   28.765594
-ω²_Rin          0.20  0.352002738  176.001369
-ω²_V            0.02  0.006640465   33.202325
-σ_inter_RespPK  0.60  0.117378600   19.563100
-σ_slope_RespPK  0.07  0.014828875   21.184108
-σ_inter_RespPD  4.00  0.204601985    5.115050
-
-*************************
-
-Design: design2
-
-*************************
-
-*************************
-Fisher information matrix 
-*************************
-
-**** Fixed effect 
-
-               μ_C50         μ_Cl         μ_ka       μ_kout
-μ_C50     70.2358847    -1.965324   0.17061617  -3569.20628
-μ_Cl      -1.9653238 27077.244260  25.50129532   2182.27797
-μ_ka       0.1706162    25.501295  15.55547075    -19.84355
-μ_kout -3569.2062820  2182.277970 -19.84354964 373924.48060
-μ_Rin     17.7941030     2.310074   0.04618956  -1015.26561
-μ_V        0.9928070    81.309916  -1.59710486   -127.88731
-               μ_Rin          μ_V
-μ_C50   1.779410e+01    0.9928070
-μ_Cl    2.310074e+00   81.3099158
-μ_ka    4.618956e-02   -1.5971049
-μ_kout -1.015266e+03 -127.8873136
-μ_Rin   4.575009e+00    0.2824006
-μ_V     2.824006e-01   18.8776409
-
-**** Variance components 
-
-                     ω²_C50        ω²_Cl        ω²_ka
-ω²_C50         1.598318e+02 1.468715e-03  0.001676729
-ω²_Cl          1.468715e-03 3.271918e+03  0.439613658
-ω²_ka          1.676729e-03 4.396137e-01 24.778001429
-ω²_Rin         2.077410e+02 4.109095e-02  0.002488486
-ω²_V           1.419359e+00 1.117310e+02  6.529904437
-σ_inter_RespPK 3.558016e-01 3.918212e+01  5.317669295
-σ_slope_RespPK 3.694486e+00 5.097409e+02 23.194179450
-σ_inter_RespPD 3.578810e+00 1.707536e-01  0.000907558
-                     ω²_Rin         ω²_V σ_inter_RespPK
-ω²_C50         2.077410e+02 1.419359e+00      0.3558016
-ω²_Cl          4.109095e-02 1.117310e+02     39.1821157
-ω²_ka          2.488486e-03 6.529904e+00      5.3176693
-ω²_Rin         2.780859e+02 2.325513e+00      0.4764451
-ω²_V           2.325513e+00 2.280738e+04    239.8480530
-σ_inter_RespPK 4.764451e-01 2.398481e+02    458.0441366
-σ_slope_RespPK 4.217484e+00 1.801191e+03   3323.2097748
-σ_inter_RespPD 4.333888e+00 5.933444e-01      0.0979331
-               σ_slope_RespPK σ_inter_RespPD
-ω²_C50               3.694486    3.578810290
-ω²_Cl              509.740921    0.170753574
-ω²_ka               23.194179    0.000907558
-ω²_Rin               4.217484    4.333888435
-ω²_V              1801.191347    0.593344420
-σ_inter_RespPK    3323.209775    0.097933104
-σ_slope_RespPK   28683.566206    1.037032282
-σ_inter_RespPD       1.037032   23.980712437
-
-******************
-Correlation matrix  
-******************
-
-**** Fixed effect 
-
-            μ_C50        μ_Cl        μ_ka      μ_kout
-μ_C50   1.0000000  0.46365361 -0.05131490 -0.97765066
-μ_Cl    0.4636536  1.00000000 -0.06887182 -0.46219807
-μ_ka   -0.0513149 -0.06887182  1.00000000  0.05277388
-μ_kout -0.9776507 -0.46219807  0.05277388  1.00000000
-μ_Rin  -0.9993747 -0.46458020  0.05144059  0.98281082
-μ_V    -0.1292396 -0.16514091  0.10470793  0.13575612
-             μ_Rin        μ_V
-μ_C50  -0.99937468 -0.1292396
-μ_Cl   -0.46458020 -0.1651409
-μ_ka    0.05144059  0.1047079
-μ_kout  0.98281082  0.1357561
-μ_Rin   1.00000000  0.1297136
-μ_V     0.12971362  1.0000000
-
-**** Variance components 
-
-                      ω²_C50         ω²_Cl         ω²_ka
-ω²_C50          1.0000000000  0.0004632714 -1.599261e-04
-ω²_Cl           0.0004632714  1.0000000000 -2.568563e-03
-ω²_ka          -0.0001599261 -0.0025685630  1.000000e+00
-ω²_Rin         -0.9853404709 -0.0004436925  1.595767e-04
-ω²_V            0.0010208038 -0.0102472383 -5.255730e-03
-σ_inter_RespPK  0.0034076722  0.0410366254 -6.177122e-02
-σ_slope_RespPK -0.0037404750 -0.0583161632  4.587056e-02
-σ_inter_RespPD -0.0323877118 -0.0005338191 -2.594567e-05
-                      ω²_Rin          ω²_V σ_inter_RespPK
-ω²_C50         -0.9853404709  0.0010208038   0.0034076722
-ω²_Cl          -0.0004436925 -0.0102472383   0.0410366254
-ω²_ka           0.0001595767 -0.0052557304  -0.0617712213
-ω²_Rin          1.0000000000 -0.0011398935  -0.0033443220
-ω²_V           -0.0011398935  1.0000000000  -0.0242333222
-σ_inter_RespPK -0.0033443220 -0.0242333222   1.0000000000
-σ_slope_RespPK  0.0035797688 -0.0056232056  -0.9165802790
-σ_inter_RespPD  0.0228641927 -0.0007135727   0.0004120936
-               σ_slope_RespPK σ_inter_RespPD
-ω²_C50          -0.0037404750  -3.238771e-02
-ω²_Cl           -0.0583161632  -5.338191e-04
-ω²_ka            0.0458705636  -2.594567e-05
-ω²_Rin           0.0035797688   2.286419e-02
-ω²_V            -0.0056232056  -7.135727e-04
-σ_inter_RespPK  -0.9165802790   4.120936e-04
-σ_slope_RespPK   1.0000000000  -7.943518e-04
-σ_inter_RespPD  -0.0007943518   1.000000e+00
-
-**********************************************
-Determinant, condition numbers and D-criterion 
-**********************************************
-
-                                       Value
-Determinant                     2.792255e+31
-Cond number fixed effects       1.730311e+08
-Cond number variance components 9.974586e+03
-D-criterion                     1.762543e+02
-
-**********
-Shrinkage 
-**********
-
-NULL
-
-**********
-SE and RSE 
-**********
-
-               Value           SE     RSE (%)
-μ_C50           1.20  4.703837535  391.986461
-μ_Cl            0.13  0.006920455    5.323427
-μ_ka            1.60  0.255344556   15.959035
-μ_kout          0.06  0.012362347   20.603912
-μ_Rin           5.40 20.989991777  388.703551
-μ_V             8.00  0.235107877    2.938848
-ω²_C50          0.01  0.464428142 4644.281418
-ω²_Cl           0.06  0.017522076   29.203460
-ω²_ka           0.70  0.201359160   28.765594
-ω²_Rin          0.20  0.352002738  176.001369
-ω²_V            0.02  0.006640465   33.202325
-σ_inter_RespPK  0.60  0.117378600   19.563100
-σ_slope_RespPK  0.07  0.014828875   21.184108
-σ_inter_RespPD  4.00  0.204601985    5.115050
-
-$design1
-$design1$BrasTest1
-$design1$BrasTest1$RespPK
-
-$design1$BrasTest1$RespPD
-
-
-
-$design2
-$design2$BrasTest1
-$design2$BrasTest1$RespPK
-
-$design2$BrasTest1$RespPD
-
-
-
-new("nonstandardGenericFunction", .Data = function (object, initialDesign, 
-    model, plotOptions) 
-{
-    standardGeneric("plotOutcomesGradient")
-}, generic = "plotOutcomesGradient", package = "PFIM", group = list(), 
-    valueClass = character(0), signature = c("object", "initialDesign", 
-    "model", "plotOptions"), default = NULL, skeleton = (function (object, 
-        initialDesign, model, plotOptions) 
-    stop(gettextf("invalid call in method dispatch to '%s' (no default method)", 
-        "plotOutcomesGradient"), domain = NA))(object, initialDesign, 
-        model, plotOptions))
-<bytecode: 0x000001cf1d890d38>
-<environment: 0x000001cf1d87a658>
-attr(,"generic")
-[1] "plotOutcomesGradient"
-attr(,"generic")attr(,"package")
-[1] "PFIM"
-attr(,"package")
-[1] "PFIM"
-attr(,"group")
-list()
-attr(,"valueClass")
-character(0)
-attr(,"signature")
-[1] "object"        "initialDesign" "model"        
-[4] "plotOptions"  
-attr(,"default")
-`\001NULL\001`
-attr(,"skeleton")
-(function (object, initialDesign, model, plotOptions) 
-stop(gettextf("invalid call in method dispatch to '%s' (no default method)", 
-    "plotOutcomesGradient"), domain = NA))(object, initialDesign, 
-    model, plotOptions)
-attr(,"class")
-[1] "nonstandardGenericFunction"
-attr(,"class")attr(,"package")
-[1] "methods"
-$design1
-
-$design2
-
-$design1
-
-$design2
-
-  |                       |               |   0%  |                       |               |   3%                                          |                       |.              |   6% [setup]                                  |                       |.              |   9%                                          |                       |..             |  12% [modelOutputs]                           |                       |..             |  16%                                          |                       |...            |  19% [modelEquations]                         |                       |...            |  22%                                          |                       |....           |  25% [modelError]                             |                       |....           |  28%                                          |                       |.....          |  31% [modelParameters]                        |                       |.....          |  34%                                          |                       |......         |  38% [initialDesignParameters]                |                       |......         |  41%                                          |                       |.......        |  44% [administrationParameters]               |                       |.......        |  47%                                          |                       |........       |  50% [FIMFixedEffectsTable]                   |                       |........       |  53%                                          |                       |........       |  56% [FIMVarianceEffectsTable]                |                       |.........      |  59%                                          |                       |.........      |  62% [correlationMatrixFixedEffectsTable]     |                       |..........     |  66%                                          |                       |..........     |  69% [correlationMatrixVarianceEffectsTable]  |                       |...........    |  72%                                          |                       |...........    |  75% [criteriaFimTable]                       |                       |............   |  78%                                          |                       |............   |  81% [SEandRSETable]                          |                       |.............  |  84%                                          |                       |.............  |  88% [plotOutcomesEvaluation]                 |                       |.............. |  91%                                          |                       |.............. |  94% [plotOutcomesGradient]                   |                       |...............|  97%                                          |                       |...............| 100% [plotSEandRSE]                                                                                                                                            
-"C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/pandoc" +RTS -K512m -RTS templateEvaluationPopulationFim.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc32b843d92bc2.html --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\latex-div.lua" --embed-resources --standalone --variable bs3=TRUE --section-divs --template "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\luf59577\AppData\Local\Temp\Rtmpo9VNgm\rmarkdown-str32b85d8c151e.html" 

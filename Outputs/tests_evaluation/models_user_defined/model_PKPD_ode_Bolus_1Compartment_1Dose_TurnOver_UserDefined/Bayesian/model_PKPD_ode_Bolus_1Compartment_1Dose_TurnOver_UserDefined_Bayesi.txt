@@ -1,122 +1,0 @@
-*************************
-
-Design: design1
-
-*************************
-
-*************************
-Fisher information matrix 
-*************************
-
-**** Fixed effect 
-
-           μ_C50      μ_Cl    μ_Imax     μ_kout      μ_Rin       μ_V
-μ_C50   194.1131   94.5613 -209.2647  -421.8336   401.5461  154.7749
-μ_Cl     94.5613 1205.6442 -145.2166  -335.0182   338.6553  122.8838
-μ_Imax -209.2647 -145.2166  369.0080   702.9476  -657.4184 -273.3105
-μ_kout -421.8336 -335.0182  702.9476 15876.2114 -1917.7160 -508.6485
-μ_Rin   401.5461  338.6553 -657.4184 -1917.7160  1870.1182  464.4370
-μ_V     154.7749  122.8838 -273.3105  -508.6485   464.4370  597.9275
-
-**** Variance components 
-
-     [,1]
-[1,]   NA
-
-******************
-Correlation matrix  
-******************
-
-**** Fixed effect 
-
-              μ_C50         μ_Cl      μ_Imax       μ_kout       μ_Rin          μ_V
-μ_C50   1.000000000 -0.030561000  0.51766810 -0.003967806 -0.12018196 -0.003315656
-μ_Cl   -0.030561000  1.000000000  0.02552994 -0.004437747 -0.08491341 -0.026593927
-μ_Imax  0.517668095  0.025529942  1.00000000 -0.016850468  0.53705945  0.361472445
-μ_kout -0.003967806 -0.004437747 -0.01685047  1.000000000  0.20726167  0.004150501
-μ_Rin  -0.120181964 -0.084913409  0.53705945  0.207261670  1.00000000  0.044942720
-μ_V    -0.003315656 -0.026593927  0.36147245  0.004150501  0.04494272  1.000000000
-
-**** Variance components 
-
-NULL
-
-**********************************************
-Determinant, condition numbers and D-criterion 
-**********************************************
-
-                                       Value
-Determinant                     1.195551e+17
-Cond number fixed effects       3.187003e+02
-Cond number variance components           NA
-D-criterion                     7.018776e+02
-
-**********
-Shrinkage 
-**********
-
-      μ_C50        μ_Cl      μ_Imax      μ_kout       μ_Rin         μ_V 
-93.60792007 86.70179334 12.14181713 99.89893247  0.02628564  0.19804521 
-
-**********
-SE and RSE 
-**********
-
-       Value          SE    RSE (%)
-μ_C50   1.20 0.116101423  9.6751186
-μ_Cl    0.13 0.029650568 22.8081293
-μ_Imax  1.00 0.110189914 11.0189914
-μ_kout  0.06 0.008480992 14.1349873
-μ_Rin   5.40 0.039153272  0.7250606
-μ_V     8.00 0.050348572  0.6293572
-
-$design1
-$design1$BrasTest
-$design1$BrasTest$RespPK
-
-$design1$BrasTest$RespPD
-
-
-
-new("nonstandardGenericFunction", .Data = function (object, initialDesign, 
-    model, plotOptions) 
-{
-    standardGeneric("plotOutcomesGradient")
-}, generic = "plotOutcomesGradient", package = "PFIM", group = list(), 
-    valueClass = character(0), signature = c("object", "initialDesign", 
-    "model", "plotOptions"), default = NULL, skeleton = (function (object, 
-        initialDesign, model, plotOptions) 
-    stop(gettextf("invalid call in method dispatch to '%s' (no default method)", 
-        "plotOutcomesGradient"), domain = NA))(object, initialDesign, 
-        model, plotOptions))
-<bytecode: 0x000001cf1d890d38>
-<environment: 0x000001cf1d87a658>
-attr(,"generic")
-[1] "plotOutcomesGradient"
-attr(,"generic")attr(,"package")
-[1] "PFIM"
-attr(,"package")
-[1] "PFIM"
-attr(,"group")
-list()
-attr(,"valueClass")
-character(0)
-attr(,"signature")
-[1] "object"        "initialDesign" "model"         "plotOptions"  
-attr(,"default")
-`\001NULL\001`
-attr(,"skeleton")
-(function (object, initialDesign, model, plotOptions) 
-stop(gettextf("invalid call in method dispatch to '%s' (no default method)", 
-    "plotOutcomesGradient"), domain = NA))(object, initialDesign, 
-    model, plotOptions)
-attr(,"class")
-[1] "nonstandardGenericFunction"
-attr(,"class")attr(,"package")
-[1] "methods"
-$design1
-
-$design1
-
-  |                                                  |                                          |   0%  |                                                  |.                                         |   3%                                       |                                                  |...                                       |   7% [setup]                               |                                                  |....                                      |  10%                                       |                                                  |......                                    |  14% [modelOutputs]                        |                                                  |.......                                   |  17%                                       |                                                  |.........                                 |  21% [modelEquations]                      |                                                  |..........                                |  24%                                       |                                                  |............                              |  28% [modelError]                          |                                                  |.............                             |  31%                                       |                                                  |..............                            |  34% [modelParameters]                     |                                                  |................                          |  38%                                       |                                                  |.................                         |  41% [initialDesignParameters]             |                                                  |...................                       |  45%                                       |                                                  |....................                      |  48% [administrationParameters]            |                                                  |......................                    |  52%                                       |                                                  |.......................                   |  55% [FIMFixedEffectsTable]                |                                                  |.........................                 |  59%                                       |                                                  |..........................                |  62% [correlationMatrixFixedEffectsTable]  |                                                  |............................              |  66%                                       |                                                  |.............................             |  69% [criteriaFimTable]                    |                                                  |..............................            |  72%                                       |                                                  |................................          |  76% [SEandRSETable]                       |                                                  |.................................         |  79%                                       |                                                  |...................................       |  83% [plotOutcomesEvaluation]              |                                                  |....................................      |  86%                                       |                                                  |......................................    |  90% [plotOutcomesGradient]                |                                                  |.......................................   |  93%                                       |                                                  |......................................... |  97% [plotSEandRSE]                        |                                                  |..........................................| 100%                                                                                                                                                                             
-"C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/pandoc" +RTS -K512m -RTS templateEvaluationBayesianFim.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc32b859bf4136.html --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmarkdown\lua\latex-div.lua" --embed-resources --standalone --variable bs3=TRUE --section-divs --template "C:\Users\luf59577\AppData\Local\Programs\R\R-4.3.2\library\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable theme=bootstrap --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\luf59577\AppData\Local\Temp\Rtmpo9VNgm\rmarkdown-str32b876397dd5.html" 
