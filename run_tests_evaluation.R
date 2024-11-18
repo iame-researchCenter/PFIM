@@ -6,85 +6,85 @@ library(deSolve)
 library(ggplot2)
 
 # install.packages("PFIM")
-library(PFIM)
+# library(PFIM)
 
 
 locationPath = dirname(rstudioapi::getSourceEditorContext()$path)
-generalSavePath = paste(locationPath, "Outputs", sep="/") 
+generalSavePath = paste(locationPath, "Outputs", sep="/")
 dir.create(generalSavePath)
 
-saveScriptExecution <- function(saveFolderPath, scriptsList, scriptsLocationPath){
+saveScriptExecution = function(saveFolderPath, scriptsList, scriptsLocationPath){
+
   for(s in scriptsList){
     currentFileNamewithoutExt = tools::file_path_sans_ext(s)
-    
+
     savePath = paste(saveFolderPath, currentFileNamewithoutExt, sep="/")
     dir.create(savePath)
-    
+
     saveFileName = paste0(currentFileNamewithoutExt, ".txt")
     saveFilePath = paste(savePath, saveFileName, sep="/")
-    
+
     scriptPath = paste(scriptsLocationPath, s, sep="/")
-    
+
     savePlotPath = savePath
-    
+
     # Writing console output to log file
-    sink(saveFilePath, append = TRUE, type = "output") 
-    
+    sink(saveFilePath, append = TRUE, type = "output")
+
     # Execute File
     source(scriptPath, local = TRUE)
-    
+
     closeAllConnections()
-    
+
   }
 }
 
-saveScriptExecutionFIM <- function(saveFolderPath, scriptsList, scriptsLocationPath, fimTypes.List){
+saveScriptExecutionFIM = function(saveFolderPath, scriptsList, scriptsLocationPath, fimTypes.List){
   for(s in scriptsList){
     currentFileNamewithoutExt = tools::file_path_sans_ext(s)
-    
+
     savePath = paste(saveFolderPath, currentFileNamewithoutExt, sep="/")
     dir.create(savePath)
-    
+
     # Test the different fim
     for(f in fimTypes.List){
       fimType = f
-      
+
       saveFimPath = paste(savePath, fimType, sep="/")
       dir.create(saveFimPath)
-      
+
       saveFileName = paste0(currentFileNamewithoutExt, "_", fimType, ".txt")
       saveFilePath = paste(saveFimPath, saveFileName, sep="/")
-      
+
       scriptPath = paste(scriptsLocationPath, s, sep="/")
-      
+
       savePlotPath = saveFimPath
-      
+
       if(nchar(saveFilePath)>259){
         saveFilePath = str_sub(saveFilePath, 1, 255)
         saveFilePath = paste0(saveFilePath, ".txt")
       }
-      
+
       # Writing console output to log file
-      sink(saveFilePath, append = TRUE, type = "output") 
-      
+      sink(saveFilePath, append = TRUE, type = "output")
+
       # Execute File
       source(scriptPath, local = TRUE)
-      
+
       # Save plots
       savePlotOutcomesEvaluation(plotOutcomesEvaluation, savePlotPath)
-      savePlotOutcomesGradient(plotOutcomesGradient, savePlotPath)
-      
+      saveplotSensitivityIndice(plotSensitivityIndice, savePlotPath)
+
       savePlotSEandRSE(plotSE, "SE", savePlotPath)
       savePlotSEandRSE(plotRSE, "RSE", savePlotPath)
-      
-      
+
       outputFile = paste0("report", fimType, "Fim.html")
 
       Report( evaluationFIM, savePlotPath, outputFile, plotOptions )
-      
+
       closeAllConnections()
-      
-    } 
+
+    }
   }
 }
 
@@ -92,7 +92,7 @@ saveScriptExecutionFIM <- function(saveFolderPath, scriptsList, scriptsLocationP
 # Plot functions
 # ----------------------------------------------------------------------------
 
-savePlotOutcomesEvaluation <- function(plotOutcomesEvaluation, savePath){
+savePlotOutcomesEvaluation = function(plotOutcomesEvaluation, savePath){
   # Save plot result for  each response, inside each arm, inside each design
   #plotOutcomesEvaluation list: design - arm - response
   nDesigns = length(plotOutcomesEvaluation)
@@ -111,34 +111,34 @@ savePlotOutcomesEvaluation <- function(plotOutcomesEvaluation, savePath){
   }
 }
 
-savePlotOutcomesGradient <- function(plotOutcomesGradient, savePath){
-  # Save plot result for each parameter inside each response, 
+saveplotSensitivityIndice = function(plotSensitivityIndice, savePath){
+  # Save plot result for each parameter inside each response,
   #   inside each arm, inside each design
-  # plotOutcomesGradient list: design - arm - response - parameters
-  
-  nDesigns = length(plotOutcomesGradient)
+  # plotSensitivityIndice list: design - arm - response - parameters
+
+  nDesigns = length(plotSensitivityIndice)
   for(d in 1:nDesigns){
-    nArms = length(plotOutcomesGradient[[d]])
+    nArms = length(plotSensitivityIndice[[d]])
     for(a in 1:nArms){
-      nResponses = length(plotOutcomesGradient[[d]][[a]])
+      nResponses = length(plotSensitivityIndice[[d]][[a]])
       for(r in 1:nResponses){
-        nParameters = length(plotOutcomesGradient[[d]][[a]][[r]])
+        nParameters = length(plotSensitivityIndice[[d]][[a]][[r]])
         for(p in 1:nParameters){
           name = paste0("plotGradient_Design", d, "_Arm", a, "_Response", r, "_Parameter", p, ".jpg")
           path = paste(savePath, name, sep="/")
           jpeg(path,units="in", width=6, height=6, res=300)
-          print(plotOutcomesGradient[[d]][[a]][[r]][[p]])
+          print(plotSensitivityIndice[[d]][[a]][[r]][[p]])
           dev.off()
         }
-        
-        
+
+
       }
     }
   }
-  
+
 }
 
-savePlotSEandRSE <- function(plot, SEorRSE, savePath){
+savePlotSEandRSE = function(plot, SEorRSE, savePath){
   # Save plot result for both SE and RSE
   nDesigns = length(plot)
   for(d in 1:nDesigns){
@@ -199,7 +199,7 @@ dir.create(saveTests_ModelsLibraryOfModelPath)
 scriptsList = list.files(pathEvaluationModelsLibraryOfModel, pattern = "\\.[RrSsQq]$")
 
 # Execute scripts fim = fimType,
-saveScriptExecutionFIM(saveTests_ModelsLibraryOfModelPath, scriptsList, 
+saveScriptExecutionFIM(saveTests_ModelsLibraryOfModelPath, scriptsList,
                        pathEvaluationModelsLibraryOfModel,
                        fimTypes.List)
 
@@ -218,7 +218,9 @@ dir.create(saveTests_UserDefinedModelsPath)
 scriptsList = list.files(pathEvaluationUserDefinedModels, pattern = "\\.[RrSsQq]$")
 
 # Execute scripts
-saveScriptExecutionFIM(saveTests_UserDefinedModelsPath, scriptsList, 
+saveScriptExecutionFIM(saveTests_UserDefinedModelsPath, scriptsList,
                        pathEvaluationUserDefinedModels,
                        fimTypes.List)
+
+
 
