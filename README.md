@@ -44,7 +44,7 @@ Published:	2024-10-23
 Author: France Mentré ORCID <https://orcid.org/0000-0002-7045-1275>
 \[aut\]
 
-Authot and creator: Romain Leroux \[aut, cre\]
+Author and creator: Romain Leroux \[aut, cre\]
 
 Contributors: Jérémy Seurat \[ctb], Lucie
 Fayette \[ctb\]
