@@ -86,8 +86,8 @@ The methods implemented in PFIM are based on established research in optimal des
 **Authors and contributors**
 
 - **Romain Leroux** — [ORCID 0009-0009-5779-5303](https://orcid.org/0009-0009-5779-5303) · `[aut]` · PFIM 8.0.1 source code · romain.leroux@inserm.fr  
-- **France Mentré** — [ORCID 0000-0002-7045-1275](https://orcid.org/0000-0002-7045-1275) · `[cre]` · pfim@inserm.fr  
-- **Lucie Fayette** — [ORCID 0009-0001-0048-5998](https://orcid.org/0009-0001-0048-5998) · `[ctb]` · logo design  
+- **France Mentré** — [ORCID 0000-0002-7045-1275](https://orcid.org/0000-0002-7045-1275) · `[cre]` · maintener . pfim@inserm.fr  
+- **Lucie Fayette** — [ORCID 0009-0001-0048-5998](https://orcid.org/0009-0001-0048-5998) · `[ctb]` · also for the logo design  
 - **Antoine Croxo** — [ORCID 0009-0007-4726-5259](https://orcid.org/0009-0007-4726-5259) · `[ctb]`  
 - **Jérémy Seurat** — [ORCID 0000-0002-8127-7751](https://orcid.org/0000-0002-8127-7751) · `[ctb]`
 
