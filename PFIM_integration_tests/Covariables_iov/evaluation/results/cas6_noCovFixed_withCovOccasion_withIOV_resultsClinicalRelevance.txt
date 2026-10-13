@@ -1,0 +1,30 @@
+============================================================
+   PFIM -- Covariate test
+============================================================
+
+============================================================
+  Statistical significance (β, bilateral Wald test)
+  Target power: 90% | Current sample size N = 40
+============================================================
+
+        Parameter  Value     SE   RSE Power N_Required
+ β_Cl_Treatment_B 0.0953 0.0341 35.81  79.8         54
+
+============================================================
+  Clinical non-relevance (TOST on β)
+  Target power: 90% | Current sample size N = 40 | Equivalence IC (90%) on ratio: [0.80, 1.25]
+============================================================
+
+        Parameter  Value     SE   RSE Ratio IC_Inf IC_Sup Power N_Required
+ β_Cl_Treatment_B 0.0953 0.0341 35.81   1.1   1.04 1.1635  98.2         25
+
+============================================================
+  Clinical relevance (β outside equivalence bounds)
+  Target power: 90% | Current sample size N = 40 | Equivalence IC (90%) on ratio: [0.80, 1.25]
+============================================================
+
+  (none)
+
+============================================================
+   END OF FILE
+============================================================

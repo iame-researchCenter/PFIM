@@ -85,7 +85,7 @@ The methods implemented in PFIM are based on established research in optimal des
 
 **Authors and contributors**
 
-- **Romain Leroux** — [ORCID 0009-0009-5779-5303](https://orcid.org/0009-0009-5779-5303) · `[aut]` · PFIM 8.0 source code · romain.leroux@inserm.fr  
+- **Romain Leroux** — [ORCID 0009-0009-5779-5303](https://orcid.org/0009-0009-5779-5303) · `[aut]` · PFIM 8.0.1 source code · romain.leroux@inserm.fr  
 - **France Mentré** — [ORCID 0000-0002-7045-1275](https://orcid.org/0000-0002-7045-1275) · `[cre]` · pfim@inserm.fr  
 - **Lucie Fayette** — [ORCID 0009-0001-0048-5998](https://orcid.org/0009-0001-0048-5998) · `[ctb]` · logo design  
 - **Antoine Croxo** — [ORCID 0009-0007-4726-5259](https://orcid.org/0009-0007-4726-5259) · `[ctb]`  
@@ -137,6 +137,20 @@ Roxygen-generated **`.Rd`** help (`?PFIM`, `?run`, class and method pages). HTML
 - Analytic and ODE FIM regression tests  
 - Optimizer and covariate branches  
 - PopED G-CSF Design 1 RSE check (`Vignette_05` script)  
+
+#### Integration tests — `PFIM_integration_tests/`
+
+End-to-end scripts for beta testers and release checks (evaluation, optimization, covariates / IOV). Entry point: **`run_tests.R`**. Full layout and usage: [`PFIM_integration_tests/README.md`](PFIM_integration_tests/README.md) (HTML: [`README.html`](PFIM_integration_tests/README.html)).
+
+```text
+PFIM_integration_tests/
+├── run_tests.R
+├── Covariables_iov/          evaluation + optimization (5 scripts)
+├── Evaluation/               FIM evaluation scenarios (51 scripts)
+└── Optimisation/             continuous + discrete optimizers (8 scripts)
+```
+
+Requires an installed **PFIM** build; **Pandoc** is recommended for HTML reports from `Report()`. Default campaign: **64** executions (`cov` + `evaluation` + `optimisation`).
 
 #### Cached vignette results — `inst/vignette-data/`, `vignettes/data/`
 

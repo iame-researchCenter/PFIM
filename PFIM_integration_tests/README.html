@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PFIM 8.0.1 — Integration tests</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f9fb;
+      --surface: #ffffff;
+      --text: #1a1d26;
+      --muted: #5c6370;
+      --accent: #0d6e6e;
+      --accent-soft: #e6f3f3;
+      --border: #e2e6ed;
+      --code-bg: #f1f4f8;
+      --radius: 10px;
+      --shadow: 0 1px 3px rgba(26, 29, 38, 0.06);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+    header {
+      background: linear-gradient(135deg, #0d6e6e 0%, #134e4a 100%);
+      color: #fff;
+      padding: 2.25rem 1.5rem;
+      margin: -2.5rem -1.5rem 2rem;
+      border-radius: 0 0 var(--radius) var(--radius);
+      box-shadow: var(--shadow);
+    }
+    header h1 {
+      margin: 0 0 0.35rem;
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    header p {
+      margin: 0;
+      opacity: 0.92;
+      font-size: 1.05rem;
+      font-weight: 400;
+    }
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin: 2.25rem 0 1rem;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1.75rem 0 0.75rem;
+    }
+    p { margin: 0.75rem 0; }
+    a { color: var(--accent); text-decoration-thickness: 1px; }
+    a:hover { text-decoration-thickness: 2px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin: 1rem 0;
+      box-shadow: var(--shadow);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+    th, td {
+      padding: 0.65rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background: var(--accent-soft);
+      font-weight: 600;
+      color: var(--text);
+    }
+    tr:last-child td { border-bottom: none; }
+    code, pre {
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 0.88em;
+    }
+    code {
+      background: var(--code-bg);
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+    }
+    pre {
+      background: #1e2430;
+      color: #e8ecf1;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      overflow-x: auto;
+      line-height: 1.5;
+      font-size: 0.82rem;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+      color: inherit;
+    }
+    .note {
+      border-left: 4px solid var(--accent);
+      background: var(--accent-soft);
+      padding: 0.85rem 1.1rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+    }
+    ul { padding-left: 1.25rem; }
+    li { margin: 0.35rem 0; }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>PFIM 8.0.1 — Integration tests</h1>
+      <p>Folder <strong>PFIM_integration_tests/</strong> · repository <a href="https://github.com/iame-researchCenter/PFIM" style="color:#fff;text-decoration:underline">iame-researchCenter/PFIM</a></p>
+    </header>
+
+    <p>End-to-end validation for beta testers: FIM evaluation, design optimization, and covariates / IOV.</p>
+
+    <div class="card">
+      <strong>Workflow</strong>
+      <p style="margin-bottom:0">Install PFIM → <code>setwd</code> to <code>PFIM_integration_tests/</code> → <code>source("run_tests.R")</code> or <code>Rscript run_tests.R</code>. Outputs are written under each script’s <code>results/</code> folder.</p>
+    </div>
+
+    <h2>Requirements</h2>
+    <table>
+      <thead><tr><th>Component</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>R ≥ 4.5, PFIM 8.0.1</td><td>FIM and optimization</td></tr>
+        <tr><td>Pandoc (recommended)</td><td>HTML reports via <code>Report()</code></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Running the test suite</h2>
+    <h3>Terminal</h3>
+    <pre><code>cd PFIM_integration_tests
+Rscript run_tests.R
+Rscript run_tests.R --sections=cov,evaluation,optimisation</code></pre>
+
+    <h3>R / RStudio</h3>
+    <pre><code>setwd("path/to/PFIM/PFIM_integration_tests")
+source("run_tests.R")
+
+Sys.setenv(PFIM_TEST_SECTIONS = "cov")
+source("run_tests.R")
+
+Sys.unsetenv("PFIM_TEST_SECTIONS")
+source("run_tests.R")</code></pre>
+    <p>Timestamped log: <code>run_tests_YYYYMMDD_HHMMSS.log</code></p>
+
+    <h2>Three sections (64 runs)</h2>
+    <table>
+      <thead><tr><th>Section</th><th>Content</th><th>Count</th></tr></thead>
+      <tbody>
+        <tr><td><code>cov</code></td><td>Covariates / IOV</td><td>5</td></tr>
+        <tr><td><code>evaluation</code></td><td>Scripts under <code>Evaluation/</code></td><td>51</td></tr>
+        <tr><td><code>optimisation</code></td><td>Scripts under <code>Optimisation/</code></td><td>8</td></tr>
+        <tr><td colspan="2"><strong>Total</strong></td><td><strong>64</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Directory layout</h2>
+    <pre><code>PFIM_integration_tests/
+├── run_tests.R
+├── README.md
+├── README.html
+├── Covariables_iov/
+│   ├── evaluation/   … script + results/
+│   └── optimization/ … 4 scripts + results/
+├── Evaluation/
+│   ├── features/
+│   ├── library_of_models/   (9 PK/PD scenarios)
+│   └── user_defined_model/  (7 model families)
+└── Optimisation/
+    ├── continuous/  PGBO, PSO, Simplex
+    └── discrete/    FedorovWynn, MultiplicativeAlgorithm</code></pre>
+
+    <div class="note">
+      Do not rename <code>Evaluation/</code>, <code>Optimisation/</code>, or <code>Covariables_iov/</code>, and do not move <code>run_tests.R</code>.
+    </div>
+
+    <h2>Single script</h2>
+    <pre><code>library(PFIM)
+setwd("…/PFIM_integration_tests/Evaluation/user_defined_model/model_analytic")
+source("model_analytic_pk_md.R")</code></pre>
+
+    <footer>
+      PFIM · Fisher information matrix for nonlinear mixed-effects models ·
+      <a href="https://www.pfim.biostat.fr/">pfim.biostat.fr</a>
+    </footer>
+  </div>
+</body>
+</html>
