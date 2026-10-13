@@ -22,7 +22,7 @@ PFIM is an R package for evaluating and optimizing designs for nonlinear mixed-e
 
 The source code is modular (**purrr**-style helpers and **S7** classes), which makes it easier to extend models and algorithms.
 
-> **Note:** PFIM **7.x** releases are **deprecated** and no longer maintained. Current release: **8.0.1** (maintenance: ODE test tolerance on macOS). See [`NEWS.md`](NEWS.md) for breaking changes and migration from version 7.  
+> **Note:** PFIM **7.x** releases are **deprecated** and no longer maintained. Current release: **8.0.1**. See [`NEWS.md`](NEWS.md) for breaking changes and migration from version 7.  
 > Requires **R ≥ 4.5.0** and a **C++17** toolchain for source builds.
 
 ### Installation
