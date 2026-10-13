@@ -8,7 +8,7 @@
 
 PFIM is an R package for evaluating and optimizing designs for nonlinear mixed-effects models using the **Fisher information matrix**. It provides tools for population pharmacokinetic / pharmacodynamic (PK/PD) and related clinical study design.
 
-**PFIM 8.0** reimplements the package on **S7**, with **C++** kernels (Rcpp / Armadillo) for FIMs and optimizers. The user workflow centres on **`run()`**, **`Report()`**, constructors such as **`Evaluation()`** / **`Optimization()`**, and **`get*()` / `plot*()`** accessors.
+**PFIM 8.0.1** reimplements the package on **S7**, with **C++** kernels (Rcpp / Armadillo) for FIMs and optimizers. The user workflow centres on **`run()`**, **`Report()`**, constructors such as **`Evaluation()`** / **`Optimization()`**, and **`get*()` / `plot*()`** accessors.
 
 **Key features**
 
@@ -22,21 +22,8 @@ PFIM is an R package for evaluating and optimizing designs for nonlinear mixed-e
 
 The source code is modular (**purrr**-style helpers and **S7** classes), which makes it easier to extend models and algorithms.
 
-> **Note:** PFIM **7.x** is superseded by **8.0**. Current release: **8.0.1** (maintenance: ODE test tolerance on macOS). See [`NEWS.md`](NEWS.md) for breaking changes and migration from version 7.  
+> **Note:** PFIM **7.x** releases are **deprecated** and no longer maintained. Current release: **8.0.1** (maintenance: ODE test tolerance on macOS). See [`NEWS.md`](NEWS.md) for breaking changes and migration from version 7.  
 > Requires **R ≥ 4.5.0** and a **C++17** toolchain for source builds.
-
-### Logo on GitHub
-
-The line above expects a file **`Logo_PFIM.png` in the same folder as this README** (typically the package root on GitHub, e.g. `PFIM_v8.0_CRAN/Logo_PFIM.png` next to `README.md`).
-
-1. Copy your logo file there and commit it, **or**
-2. Point `src` to a stable URL, for example:
-   ```markdown
-   <img src="https://raw.githubusercontent.com/iame-researchCenter/PFIM/main/PFIM_v8.0_CRAN/Logo_PFIM.png" align="right" width="120" alt="PFIM logo"/>
-   ```
-   (adjust branch / path to match your repository layout.)
-
-CRAN does not use this Markdown file for the package help page; the logo is for **GitHub / documentation** only.
 
 ### Installation
 
@@ -77,7 +64,7 @@ vignette("LibraryOfModels")                       # model catalogue
 | `Vignette_05_gcse_pkpd` | Filgrastim PK/PD ODE; PopED Design 1; residual error (`Combined2`) |
 | `LibraryOfModels` | Built-in PK/PD models (bolus, infusion, steady state, PK/PD, ODE) |
 
-Covariates and IOV in discrete / continuous designs (formerly highlighted in PFIM 7.1 beta) are covered in **8.0** — especially **`Vignette_03`** and the [`NEWS.md`](NEWS.md) entry for `covariateTest()`.
+Covariates and IOV in discrete / continuous designs are covered in **8.0.1** — especially **`Vignette_03`** and the [`NEWS.md`](NEWS.md) entry for `covariateTest()`.
 
 Session options: `?pfim_set_option` (FIM cache, constraint grids, performance).
 
@@ -110,18 +97,18 @@ The methods implemented in PFIM are based on established research in optimal des
 - **Antoine Croxo** · `[ctb]`  
 - **Jérémy Seurat** · `[ctb]`
 
-### Repository structure (PFIM 8)
+### Repository structure
 
-In PFIM 8, the former **`Design_Evaluation/`** and **`Design_Optimization/`** script trees are replaced by **vignettes**, **`inst/vignette-scripts/`**, and **`inst/examples/`**. The layout below matches the CRAN source package.
+The CRAN source package is organised as follows. Legacy **`Design_Evaluation/`** and **`Design_Optimization/`** script folders from PFIM 7 are replaced by **vignettes**, **`inst/vignette-scripts/`**, and **`inst/examples/`**.
 
 #### S7 classes and code — `R/` and `src/`
 
 - **`R/`**: S7 classes (`Evaluation`, `Optimization`, `Model*`, FIM types, optimizers, covariates, error models), **`run()`**, **`Report()`**, model library  
 - **`src/`**: C++ FIM, gradients, and optimization kernels  
 
-#### Design evaluation and optimization (was `Design_Evaluation/` / `Design_Optimization/`)
+#### Design evaluation and optimization
 
-| Use case | Where to look in PFIM 8 |
+| Use case | Where to look in PFIM 8.0.1 |
 |---|---|
 | Library PK/PD evaluation | `vignette("LibraryOfModels")`; `definePKModel()` / `definePKPDModel()` |
 | User ODE / analytic models | `Vignette_01`; custom `modelEquations` in `Evaluation()` / `Optimization()` |
@@ -163,10 +150,6 @@ Precomputed `.RDS` files so `R CMD check` can build vignettes without re-running
 
 ### Getting help
 
-If you encounter a clear bug, please file an issue with a **minimal reproducible example** in [GitHub Issues](https://github.com/iame-researchCenter/PFIM/issues). Include:
+**Bugs:** open an issue with a **minimal reproducible example** in [PFIM Issues](https://github.com/iame-researchCenter/PFIM/issues). Include PFIM and R versions (`packageVersion("PFIM")`, `R.version.string`), a short script, and the full error or unexpected output.
 
-- PFIM and R versions (`packageVersion("PFIM")`, `R.version.string`)
-- A short script that reproduces the problem  
-- The full error message or unexpected output  
-
-For questions, methodological discussion, or feature requests, use the **PFIM mailing list**: [thepfimgroup@googlegroups.com](mailto:thepfimgroup@googlegroups.com)
+**Questions, methods, feature ideas:** [PFIM Discussions](https://github.com/iame-researchCenter/PFIM/discussions) on GitHub.
