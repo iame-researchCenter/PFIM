@@ -111,12 +111,4 @@ The release notes in [NEWS.md](NEWS.md) document the PFIM 8 redesign, numerical 
 
 PFIM is an open-source R package distributed under the **GPL-3 license**. It is developed within the [IAME research environment](https://github.com/iame-researchCenter). The source code, documentation and examples are available through the [PFIM GitHub repository](https://github.com/iame-researchCenter/PFIM) and the [project website](https://www.pfim.biostat.fr/).
 
-- **Romain Leroux** (`aut`) — Sole author and developer of the entire PFIM 8 source code, including all R/S7 and C++ implementations, numerical algorithms, automated tests and technical documentation. Co-author of the example vignettes listed below. [ORCID](https://orcid.org/0009-0009-5779-5303).
-- **France Mentré** (`cre`) — Package maintainer. [ORCID](https://orcid.org/0000-0002-7045-1275).
-- **Jérémy Seurat** (`ctb`) — Co-author of `Vignette_01_discrete_design` and `Vignette_02_continuous_design` with Romain Leroux. [ORCID](https://orcid.org/0000-0002-8127-7751).
-- **Antoine Croxo** (`ctb`) — Co-author of `Vignette_03_covariates_analytical_pk` with Romain Leroux; beta-testing. [ORCID](https://orcid.org/0009-0007-4726-5259).
-- **Lucie Fayette** (`ctb`) — Co-author of `Vignette_04_tim_waterhouse_pediatric` with Romain Leroux; beta-testing and PFIM logo design. [ORCID](https://orcid.org/0009-0001-0048-5998).
-
-`Vignette_05_gcse_pkpd` and `LibraryOfModels` were authored by Romain Leroux. The G-CSF/filgrastim example is based on the [PopED optimal design workshop material by Tim Waterhouse](https://github.com/timwaterhouse/optimal-design-2023/blob/main/script/optimal_design.md).
-
 For a bug report, open a [GitHub issue](https://github.com/iame-researchCenter/PFIM/issues) with a minimal reproducible example, `packageVersion("PFIM")`, `R.version.string` and the relevant output. General questions and suggestions can be posted in [GitHub Discussions](https://github.com/iame-researchCenter/PFIM/discussions).
