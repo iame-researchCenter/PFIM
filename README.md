@@ -125,8 +125,8 @@ PFIM is an open-source R package distributed under the **GPL-3 license** and dev
 ### Contributors
 
 - **Romain Leroux** (`aut`) — Sole author and developer of the entire PFIM 8 codebase, including the R/S7 architecture, C++ numerical implementation, optimization algorithms, automated tests and technical documentation.
-- **France Mentré** (`cre`) — Package maintainer.
-- **Jérémy Seurat** (`ctb`) — Contributions to the package vignettes.
+- **France Mentré** (`cre`) — CRAN package maintainer.
+- **Jérémy Seurat** (`ctb`) — Contributions to two package vignettes.
 - **Antoine Croxo** (`ctb`) — Contribution to one package vignette and beta testing.
 - **Lucie Fayette** (`ctb`) — Contribution to one package vignette, beta testing and logo design.
 
