@@ -107,8 +107,31 @@ The release notes in [NEWS.md](NEWS.md) document the PFIM 8 redesign, numerical 
 - Combes FP, Retout S, Frey N, Mentré F (2013). [DOI: 10.1007/s11095-013-1079-3](https://doi.org/10.1007/s11095-013-1079-3).
 - Seurat J, Tang Y, Mentré F, Nguyen TT (2021). [DOI: 10.1016/j.cmpb.2021.106126](https://doi.org/10.1016/j.cmpb.2021.106126).
 
+## How to cite PFIM
+
+To cite the PFIM software, use the reference provided by
+the installed package:
+
+```r
+citation("PFIM")
+```
+
 ## Project and contributors
 
-PFIM is an open-source R package distributed under the **GPL-3 license**. It is developed within the [IAME research environment](https://github.com/iame-researchCenter). The source code, documentation and examples are available through the [PFIM GitHub repository](https://github.com/iame-researchCenter/PFIM) and the [project website](https://www.pfim.biostat.fr/).
+PFIM is an open-source R package distributed under the **GPL-3 license** and developed within the [IAME research environment](https://github.com/iame-researchCenter). The package, documentation and examples are available through the [PFIM GitHub repository](https://github.com/iame-researchCenter/PFIM) and the [project website](https://www.pfim.biostat.fr/).
 
-For a bug report, open a [GitHub issue](https://github.com/iame-researchCenter/PFIM/issues) with a minimal reproducible example, `packageVersion("PFIM")`, `R.version.string` and the relevant output. General questions and suggestions can be posted in [GitHub Discussions](https://github.com/iame-researchCenter/PFIM/discussions).
+**PFIM 8** represents a complete redevelopment of the software, building on the methodological foundations and scientific contributions of earlier PFIM versions while introducing a new software architecture and numerical implementation.
+
+### Contributors
+
+- **Romain Leroux** (`aut`) — Sole author and developer of the entire PFIM 8 codebase, including the R/S7 architecture, C++ numerical implementation, optimization algorithms, automated tests and technical documentation.
+- **France Mentré** (`cre`) — Package maintainer.
+- **Jérémy Seurat** (`ctb`) — Contributions to the package vignettes.
+- **Antoine Croxo** (`ctb`) — Contribution to one package vignette and beta testing.
+- **Lucie Fayette** (`ctb`) — Contribution to one package vignette, beta testing and logo design.
+
+### Support and feedback
+
+Bug reports can be submitted through [GitHub Issues](https://github.com/iame-researchCenter/PFIM/issues). Please include a minimal reproducible example, the output of `packageVersion("PFIM")` and `R.version.string`, and any relevant error messages or diagnostic information.
+
+For general questions, suggestions and discussions about PFIM, please use [GitHub Discussions](https://github.com/iame-researchCenter/PFIM/discussions).
